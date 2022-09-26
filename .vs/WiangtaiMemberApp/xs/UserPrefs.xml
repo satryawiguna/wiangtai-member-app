@@ -1,22 +1,38 @@
 ﻿<Properties StartupConfiguration="{65B5DBD1-E9C8-40C6-B6D7-CA736A47CBCE}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.WiangtaiMemberApp.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="WiangtaiMemberApp.Data/WiangtaiMemberAppDbContext.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WiangtaiMemberApp.Web/Controllers/AuthController.cs">
     <Files>
-      <File FileName="WiangtaiMemberApp.Data/WiangtaiMemberAppDbContext.cs" Line="427" Column="42" />
-      <File FileName="WiangtaiMemberApp.Model/SecurityRoleEntity.cs" Line="3" Column="14" />
-      <File FileName="WiangtaiMemberApp.Model/SecurityUser.cs" Line="1" Column="1" />
-      <File FileName="WiangtaiMemberApp.Model/SecuritySessionLogin.cs" Line="5" Column="14" />
+      <File FileName="WiangtaiMemberApp.Web/Views/Shared/_Layout.cshtml" Line="43" Column="67" />
+      <File FileName="WiangtaiMemberApp.Web/Views/Shared/_LayoutLogin.cshtml" Line="25" Column="28" />
+      <File FileName="WiangtaiMemberApp.Web/Views/Auth/Login.cshtml" Line="17" Column="15" />
+      <File FileName="WiangtaiMemberApp.Web/Controllers/AuthController.cs" Line="32" Column="1" />
+      <File FileName="WiangtaiMemberApp.Web/Services/Contracts/IAuthService.cs" Line="7" Column="2" />
+      <File FileName="WiangtaiMemberApp.Web/Services/AuthService.cs" Line="25" Column="1" />
+      <File FileName="WiangtaiMemberApp.Web/Repository/BaseRepository.cs" Line="31" Column="1" />
+      <File FileName="WiangtaiMemberApp.Web/Middleware/RequestLogMiddleware.cs" Line="18" Column="1" />
+      <File FileName="WiangtaiMemberApp.Web/appsettings.json" Line="5" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="WiangtaiMemberApp" expanded="True">
-            <Node name="WiangtaiMemberApp.Data" expanded="True">
-              <Node name="WiangtaiMemberAppDbContext.cs" selected="True" />
-            </Node>
+            <Node name="WiangtaiMemberApp.Data" expanded="True" />
             <Node name="WiangtaiMemberApp.Model" expanded="True" />
+            <Node name="WiangtaiMemberApp.Web" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="AuthController.cs" selected="True" />
+              </Node>
+              <Node name="Middleware" expanded="True" />
+              <Node name="Repository" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="Contracts" expanded="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Auth" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
@@ -30,10 +46,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.WiangtaiMemberApp.Test FirstBuild="True" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.WiangtaiMemberApp.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.WiangtaiMemberApp.Internal FirstBuild="True" />
 </Properties>

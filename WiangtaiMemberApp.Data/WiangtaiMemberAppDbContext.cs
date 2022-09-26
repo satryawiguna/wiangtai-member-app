@@ -385,7 +385,6 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .IsRequired();
 
             entity.Property(e => e.dteChangepass)
-                .HasColumnType("tinyint")
                 .HasColumnName("dteChangepass")
                 .IsRequired();
 
@@ -537,9 +536,9 @@ public class WiangtaiMemberAppDbContext : DbContext
 
 
 
-            //entity.HasOne(r => r.SecurityUser)
-            //    .WithOne(r => r.UserProfile)
-            //    .HasForeignKey(r => r.UserID);
+            entity.HasOne(r => r.SecurityUser)
+                .WithOne(r => r.UserProfile)
+                .HasForeignKey<UserProfile>(r => r.UserID);
         });
 
         modelBuilder.Entity<UserProfilePasswordHistory>(entity =>
