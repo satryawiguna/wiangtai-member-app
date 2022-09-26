@@ -1,0 +1,1 @@
+2022-09-24 12:49:18.577 +08:00 [ERR] 0HMKTT0HF0G3I:00000002  Anonymous - Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor The view 'Index' was not found. Searched locations: ["/Views/Home/Index.cshtml","/Views/Shared/Index.cshtml"]

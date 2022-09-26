@@ -1,0 +1,15 @@
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/bin/Debug/net6.0/WiangtaiMemberApp.Data.deps.json
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/bin/Debug/net6.0/WiangtaiMemberApp.Data.dll
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/bin/Debug/net6.0/WiangtaiMemberApp.Data.pdb
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/bin/Debug/net6.0/WiangtaiMemberApp.Model.dll
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/bin/Debug/net6.0/WiangtaiMemberApp.Model.pdb
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/WiangtaiMemberApp.Data.csproj.AssemblyReference.cache
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/WiangtaiMemberApp.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/WiangtaiMemberApp.Data.AssemblyInfoInputs.cache
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/WiangtaiMemberApp.Data.AssemblyInfo.cs
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/WiangtaiMemberApp.Data.csproj.CoreCompileInputs.cache
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/WiangtaiMemberApp.Data.csproj.CopyComplete
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/WiangtaiMemberApp.Data.dll
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/refint/WiangtaiMemberApp.Data.dll
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/WiangtaiMemberApp.Data.pdb
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/ref/WiangtaiMemberApp.Data.dll

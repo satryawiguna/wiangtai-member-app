@@ -1,0 +1,16 @@
+﻿namespace WiangtaiMemberApp.Model;
+
+public class SecurityRoleEntity
+{
+    public Guid RoleID { get; set; }
+    public Guid EntityID { get; set; }
+    public Nullable<Guid> UserID { get; set; }
+    public Guid CreatedBy { get; set; }
+    public DateTime CreatedDate { get; set; }
+    public Guid ModifiedBy { get; set; }
+    public DateTime ModifiedDate { get; set; }
+
+    public virtual SecurityRole SecurityRole { get; set; }
+    public virtual SecurityUser SecurityUser { get; set; }
+}
+

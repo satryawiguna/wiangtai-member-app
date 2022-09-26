@@ -1,0 +1,12 @@
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/bin/Debug/net6.0/WiangtaiMemberApp.Common.deps.json
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/bin/Debug/net6.0/WiangtaiMemberApp.Common.dll
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/bin/Debug/net6.0/WiangtaiMemberApp.Common.pdb
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/obj/Debug/net6.0/WiangtaiMemberApp.Common.csproj.AssemblyReference.cache
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/obj/Debug/net6.0/WiangtaiMemberApp.Common.GeneratedMSBuildEditorConfig.editorconfig
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/obj/Debug/net6.0/WiangtaiMemberApp.Common.AssemblyInfoInputs.cache
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/obj/Debug/net6.0/WiangtaiMemberApp.Common.AssemblyInfo.cs
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/obj/Debug/net6.0/WiangtaiMemberApp.Common.csproj.CoreCompileInputs.cache
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/obj/Debug/net6.0/WiangtaiMemberApp.Common.dll
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/obj/Debug/net6.0/refint/WiangtaiMemberApp.Common.dll
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/obj/Debug/net6.0/WiangtaiMemberApp.Common.pdb
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/obj/Debug/net6.0/ref/WiangtaiMemberApp.Common.dll

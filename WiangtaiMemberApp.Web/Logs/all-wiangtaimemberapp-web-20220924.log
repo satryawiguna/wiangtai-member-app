@@ -1,0 +1,11 @@
+2022-09-24 12:49:17.045 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-24 12:49:17.108 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-24 12:49:17.111 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-24 12:49:17.111 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-24 12:49:17.111 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-24 12:49:18.577 +08:00 [ERR] 0HMKTT0HF0G3I:00000002  Anonymous - Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor The view 'Index' was not found. Searched locations: ["/Views/Home/Index.cshtml","/Views/Shared/Index.cshtml"]
+2022-09-24 12:51:09.490 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-24 12:51:09.554 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-24 12:51:09.557 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-24 12:51:09.557 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-24 12:51:09.557 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
