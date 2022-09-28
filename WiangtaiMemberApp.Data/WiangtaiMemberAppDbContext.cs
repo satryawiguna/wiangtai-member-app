@@ -36,13 +36,11 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.HasKey(e => e.ElementID);
 
             entity.Property(e => e.ElementID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("ElementID");
 
             entity.Property(e => e.PageID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("PageID")
                 .IsRequired();
 
@@ -62,8 +60,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("CreatedDate");
 
             entity.Property(e => e.CreatedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
                 .IsRequired();
 
@@ -71,8 +68,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.ModifiedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
                 .IsRequired();
 
@@ -91,13 +87,11 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.HasKey(e => e.PageID);
 
             entity.Property(e => e.PageID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("ElementID");
 
             entity.Property(e => e.ModuleID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModuleID")
                 .IsRequired();
 
@@ -126,8 +120,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("CreatedDate");
 
             entity.Property(e => e.CreatedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
                 .IsRequired();
 
@@ -135,8 +128,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.ModifiedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
                 .IsRequired();
         });
@@ -148,8 +140,7 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.HasKey(e => e.RoleID);
 
             entity.Property(e => e.RoleID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("RoleID");
 
             entity.Property(e => e.RoleName)
@@ -167,8 +158,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("CreatedDate");
 
             entity.Property(e => e.CreatedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
                 .IsRequired();
 
@@ -176,8 +166,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.ModifiedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
                 .IsRequired();
         });
@@ -189,19 +178,16 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.HasKey(e => e.AccessID);
 
             entity.Property(e => e.AccessID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("AccessID");
 
             entity.Property(e => e.RoleID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("RoleId")
                 .IsRequired();
 
             entity.Property(e => e.ModuleID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModuleID")
                 .IsRequired();
 
@@ -223,8 +209,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("CreatedDate");
 
             entity.Property(e => e.CreatedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
                 .IsRequired();
 
@@ -232,8 +217,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.ModifiedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
                 .IsRequired();
 
@@ -257,13 +241,11 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.HasKey(e => new { e.RoleID, e.EntityID });
 
             entity.Property(e => e.RoleID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("RoleID");
 
             entity.Property(e => e.EntityID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("EntityID");
 
             entity.Property(e => e.UserID)
@@ -275,8 +257,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("CreatedDate");
 
             entity.Property(e => e.CreatedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
                 .IsRequired();
 
@@ -284,8 +265,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.ModifiedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
                 .IsRequired();
 
@@ -304,13 +284,11 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.HasKey(e => e.idSecuritySessionLogin);
 
             entity.Property(e => e.idSecuritySessionLogin)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("idSecuritySessionLogin");
 
             entity.Property(e => e.UserID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("UserID")
                 .IsRequired();
 
@@ -342,8 +320,7 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.HasKey(e => e.UserID);
 
             entity.Property(e => e.UserID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("UserID");
 
             entity.Property(e => e.UserName)
@@ -385,7 +362,6 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .IsRequired();
 
             entity.Property(e => e.dteChangepass)
-                .HasColumnType("tinyint")
                 .HasColumnName("dteChangepass")
                 .IsRequired();
 
@@ -397,8 +373,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("CreatedDate");
 
             entity.Property(e => e.CreatedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
                 .IsRequired();
 
@@ -406,8 +381,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.ModifiedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
                 .IsRequired();
         });
@@ -419,21 +393,18 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.HasKey(e => new { e.UserID, e.RoleID });
 
             entity.Property(e => e.UserID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("UserID");
 
             entity.Property(e => e.RoleID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("RoleID");
 
             entity.Property(e => e.CreatedDate)
                 .HasColumnName("CreatedDate");
 
             entity.Property(e => e.CreatedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
                 .IsRequired();
 
@@ -441,8 +412,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.ModifiedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
                 .IsRequired();
         });
@@ -454,8 +424,7 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.HasKey(e => e.UserID);
 
             entity.Property(e => e.UserID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("UserID");
 
             entity.Property(e => e.EmployeeCode)
@@ -479,8 +448,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("DisplayName");
 
             entity.Property(e => e.DepartmentID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("DepartmentID");
 
             entity.Property(e => e.JobTitle)
@@ -521,8 +489,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("CreatedDate");
 
             entity.Property(e => e.CreatedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
                 .IsRequired();
 
@@ -530,16 +497,15 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.ModifiedBy)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
                 .IsRequired();
 
 
 
-            //entity.HasOne(r => r.SecurityUser)
-            //    .WithOne(r => r.UserProfile)
-            //    .HasForeignKey(r => r.UserID);
+            entity.HasOne(r => r.SecurityUser)
+                .WithOne(r => r.UserProfile)
+                .HasForeignKey<UserProfile>(r => r.UserID);
         });
 
         modelBuilder.Entity<UserProfilePasswordHistory>(entity =>
@@ -549,8 +515,7 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.HasKey(e => e.idPwdHistory);
 
             entity.Property(e => e.idPwdHistory)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("idPwdHistory");
 
             entity.Property(e => e.strLoginId)
@@ -569,8 +534,7 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .IsRequired();
 
             entity.Property(e => e.UserID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
+                .HasColumnType("uniqueindentifier")
                 .HasColumnName("UserID")
                 .IsRequired();
 

@@ -7,8 +7,8 @@ namespace WiangtaiMemberApp.Web.Repository;
 
 public class BaseRepository<T> : IBaseRepository<T> where T : class, new()
 {
-    private readonly WiangtaiMemberAppDbContext _context;
-    private readonly DbSet<T> _entities;
+    protected readonly WiangtaiMemberAppDbContext _context;
+    protected readonly DbSet<T> _entities;
 
     public BaseRepository(WiangtaiMemberAppDbContext context)
     {
@@ -49,6 +49,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : class, new()
         }
 
         _entities.Add(entity);
+
         SaveChanges();
     }
 
@@ -60,6 +61,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : class, new()
         }
 
         _entities.Update(entity);
+
         SaveChanges();
     }
 
@@ -71,6 +73,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : class, new()
         }
 
         _entities.Remove(entity);
+
         SaveChanges();
     }
 

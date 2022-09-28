@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.HttpLogging;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -8,8 +9,11 @@ using SimpleInjector;
 using SimpleInjector.Lifestyles;
 using WiangtaiMemberApp.Common;
 using WiangtaiMemberApp.Data;
-using WiangtaiMemberApp.Web.Commons.Mappers;
 using WiangtaiMemberApp.Web.Middleware;
+using WiangtaiMemberApp.Web.Repository;
+using WiangtaiMemberApp.Web.Repository.Contracts;
+using WiangtaiMemberApp.Web.Services;
+using WiangtaiMemberApp.Web.Services.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
@@ -20,10 +24,12 @@ try
     var container = new Container();
     container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
+    ConfigureServiceContainer(container);
     ConfigureDbConnection();
     ConfigureLogger();
-    ConfigureAutoMapper(container);
+    ConfigureAuthentication();
 
+    services.AddRazorPages();
     services.AddControllersWithViews()
         .AddNewtonsoftJson(options =>
         {
@@ -41,7 +47,10 @@ try
     services.AddSimpleInjector(container, options =>
     {
         options.AddAspNetCore()
-            .AddControllerActivation();
+            .AddControllerActivation()
+            .AddViewComponentActivation()
+            .AddPageModelActivation()
+            .AddTagHelperActivation(); ;
         options.AddLogging();
     });
 
@@ -49,13 +58,13 @@ try
 
     var app = builder.Build();
 
-    app.Services.UseSimpleInjector(container);
-
     if (!app.Environment.IsDevelopment())
     {
         app.UseExceptionHandler("/Home/Error");
         app.UseHsts();
     }
+
+    app.Services.UseSimpleInjector(container);
 
     app.MapHealthChecks("/health");
 
@@ -69,9 +78,10 @@ try
 
     app.UseMiddleware<RequesterLogMiddleware>(container);
 
+    app.MapRazorPages();
     app.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
+        pattern: "{controller=Dashboard}/{action=Index}/{id?}");
 
     app.Run();
 }
@@ -115,8 +125,22 @@ void ConfigureLogger()
         .CreateLogger();
 }
 
-void ConfigureAutoMapper(Container container)
+void ConfigureAuthentication()
 {
-    container.RegisterSingleton<MapperProvider>();
-    container.RegisterSingleton(() => container.GetInstance<MapperProvider>().GetMapper());
+    services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Auth/Login";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        options.SlidingExpiration = true;
+        options.AccessDeniedPath = "/Forbidden/";
+    });
+}
+
+void ConfigureServiceContainer(Container container)
+{
+    //container.Register(typeof(IBaseRepository<>), new[] { typeof(BaseRepository<>).Assembly });
+    container.Register<ISecurityUserRepository, SecurityUserRepository>(Lifestyle.Scoped);
+
+    container.Register<IAuthService, AuthService>(Lifestyle.Scoped);
 }

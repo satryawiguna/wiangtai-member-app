@@ -19,4 +19,3 @@ public class SecurityRoleAccess
     public virtual SecurityElement SecurityElement { get; set; }
     public virtual SecurityRole SecurityRole { get; set; }
 }
-

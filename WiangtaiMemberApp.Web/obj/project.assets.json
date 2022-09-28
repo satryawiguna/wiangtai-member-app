@@ -3509,6 +3509,10 @@
       "WiangtaiMemberApp.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.9",
+          "WiangtaiMemberApp.Model": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/WiangtaiMemberApp.Common.dll": {}
         },
