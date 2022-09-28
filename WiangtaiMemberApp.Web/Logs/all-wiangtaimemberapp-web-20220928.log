@@ -1,0 +1,260 @@
+2022-09-28 06:10:40.492 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 06:10:40.558 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 06:10:40.561 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 06:10:40.561 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 06:10:40.562 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 06:10:44.003 +08:00 [INF] 0HML0QKEJEFNS:00000003   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 06:11:27.335 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 06:11:27.406 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 06:11:27.410 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 06:11:27.410 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 06:11:27.410 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 06:11:30.316 +08:00 [INF] 0HML0QKSI4RBM:00000003   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 06:14:05.106 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 06:14:05.172 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 06:14:05.175 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 06:14:05.176 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 06:14:05.176 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 06:14:08.114 +08:00 [INF] 0HML0QMBIOT87:00000003   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 06:14:53.415 +08:00 [ERR] 0HML0QMBIOT87:00000007  Anonymous - Microsoft.EntityFrameworkCore.Database.Connection An error occurred using the connection to database 'LoyaltyDBV2' on server '192.168.129.52\AMAN'.
+2022-09-28 06:14:53.437 +08:00 [ERR] 0HML0QMBIOT87:00000007  Anonymous - Microsoft.EntityFrameworkCore.Query An exception occurred while iterating over the results of a query for context type 'WiangtaiMemberApp.Data.WiangtaiMemberAppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 25 - Connection string is not valid)
+ ---> System.Net.Sockets.SocketException (0x80004005): Undefined error: 0
+   at Microsoft.Data.SqlClient.SNI.SSRP.GetPortByInstanceName(String browserHostName, String instanceName)
+   at Microsoft.Data.SqlClient.SNI.SNIProxy.CreateTcpHandle(DataSource details, Int64 timerExpire, Boolean parallel, String cachedFQDN, SQLDNSInfo& pendingDNSInfo)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover, SqlAuthenticationMethod authType)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 25 - Connection string is not valid)
+ ---> System.Net.Sockets.SocketException (0x80004005): Undefined error: 0
+   at Microsoft.Data.SqlClient.SNI.SSRP.GetPortByInstanceName(String browserHostName, String instanceName)
+   at Microsoft.Data.SqlClient.SNI.SNIProxy.CreateTcpHandle(DataSource details, Int64 timerExpire, Boolean parallel, String cachedFQDN, SQLDNSInfo& pendingDNSInfo)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover, SqlAuthenticationMethod authType)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+2022-09-28 06:15:26.611 +08:00 [ERR] 0HML0QMBIOT87:0000000B  Anonymous - Microsoft.EntityFrameworkCore.Database.Connection An error occurred using the connection to database 'LoyaltyDBV2' on server '192.168.129.52\AMAN'.
+2022-09-28 06:15:26.612 +08:00 [ERR] 0HML0QMBIOT87:0000000B  Anonymous - Microsoft.EntityFrameworkCore.Query An exception occurred while iterating over the results of a query for context type 'WiangtaiMemberApp.Data.WiangtaiMemberAppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 25 - Connection string is not valid)
+ ---> System.Net.Sockets.SocketException (0x80004005): Undefined error: 0
+   at Microsoft.Data.SqlClient.SNI.SSRP.GetPortByInstanceName(String browserHostName, String instanceName)
+   at Microsoft.Data.SqlClient.SNI.SNIProxy.CreateTcpHandle(DataSource details, Int64 timerExpire, Boolean parallel, String cachedFQDN, SQLDNSInfo& pendingDNSInfo)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover, SqlAuthenticationMethod authType)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 25 - Connection string is not valid)
+ ---> System.Net.Sockets.SocketException (0x80004005): Undefined error: 0
+   at Microsoft.Data.SqlClient.SNI.SSRP.GetPortByInstanceName(String browserHostName, String instanceName)
+   at Microsoft.Data.SqlClient.SNI.SNIProxy.CreateTcpHandle(DataSource details, Int64 timerExpire, Boolean parallel, String cachedFQDN, SQLDNSInfo& pendingDNSInfo)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover, SqlAuthenticationMethod authType)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+2022-09-28 06:15:48.108 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 06:15:48.171 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 06:15:48.174 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 06:15:48.175 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 06:15:48.175 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 06:15:51.146 +08:00 [INF] 0HML0QNA92081:00000003   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 06:16:15.346 +08:00 [ERR] 0HML0QNA92081:00000005  Anonymous - Microsoft.EntityFrameworkCore.Database.Connection An error occurred using the connection to database 'LoyaltyDBV2' on server '192.168.129.52\AMAN'.
+2022-09-28 06:16:15.367 +08:00 [ERR] 0HML0QNA92081:00000005  Anonymous - Microsoft.EntityFrameworkCore.Query An exception occurred while iterating over the results of a query for context type 'WiangtaiMemberApp.Data.WiangtaiMemberAppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 25 - Connection string is not valid)
+ ---> System.Net.Sockets.SocketException (0x80004005): Undefined error: 0
+   at Microsoft.Data.SqlClient.SNI.SSRP.GetPortByInstanceName(String browserHostName, String instanceName)
+   at Microsoft.Data.SqlClient.SNI.SNIProxy.CreateTcpHandle(DataSource details, Int64 timerExpire, Boolean parallel, String cachedFQDN, SQLDNSInfo& pendingDNSInfo)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover, SqlAuthenticationMethod authType)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 25 - Connection string is not valid)
+ ---> System.Net.Sockets.SocketException (0x80004005): Undefined error: 0
+   at Microsoft.Data.SqlClient.SNI.SSRP.GetPortByInstanceName(String browserHostName, String instanceName)
+   at Microsoft.Data.SqlClient.SNI.SNIProxy.CreateTcpHandle(DataSource details, Int64 timerExpire, Boolean parallel, String cachedFQDN, SQLDNSInfo& pendingDNSInfo)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover, SqlAuthenticationMethod authType)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+2022-09-28 06:36:15.340 +08:00 [INF] 0HML0QNA92082:00000005  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (135ms) [Parameters=[@__username_0='?' (Size = 100) (DbType = AnsiString), @__sha256_hash_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[UserID], [s].[CreatedBy], [s].[CreatedDate], [s].[ModifiedBy], [s].[ModifiedDate], [s].[UserLogin], [s].[UserName], [s].[UserPassword], [s].[UserStatus], [s].[bMustChangePassword], [s].[bSuspend], [s].[dteChangepass], [s].[dteSuspend], [s].[intAttempts]
+FROM [SecurityUser] AS [s]
+WHERE ([s].[UserName] = @__username_0) AND ([s].[UserPassword] = @__sha256_hash_1)
+2022-09-28 06:36:53.215 +08:00 [INF] 0HML0QNA92082:00000007  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (68ms) [Parameters=[@__username_0='?' (Size = 100) (DbType = AnsiString), @__sha256_hash_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[UserID], [s].[CreatedBy], [s].[CreatedDate], [s].[ModifiedBy], [s].[ModifiedDate], [s].[UserLogin], [s].[UserName], [s].[UserPassword], [s].[UserStatus], [s].[bMustChangePassword], [s].[bSuspend], [s].[dteChangepass], [s].[dteSuspend], [s].[intAttempts]
+FROM [SecurityUser] AS [s]
+WHERE ([s].[UserName] = @__username_0) AND ([s].[UserPassword] = @__sha256_hash_1)
+2022-09-28 07:31:03.438 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 07:31:03.504 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 07:31:03.508 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 07:31:03.508 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 07:31:03.508 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 07:31:06.564 +08:00 [INF] 0HML0S1BUJT0I:00000003   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 07:31:16.691 +08:00 [INF] 0HML0S1BUJT0I:00000005  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (145ms) [Parameters=[@__username_0='?' (Size = 100) (DbType = AnsiString), @__sha256_hash_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[UserID], [s].[CreatedBy], [s].[CreatedDate], [s].[ModifiedBy], [s].[ModifiedDate], [s].[UserLogin], [s].[UserName], [s].[UserPassword], [s].[UserStatus], [s].[bMustChangePassword], [s].[bSuspend], [s].[dteChangepass], [s].[dteSuspend], [s].[intAttempts]
+FROM [SecurityUser] AS [s]
+WHERE ([s].[UserName] = @__username_0) AND ([s].[UserPassword] = @__sha256_hash_1)
+2022-09-28 07:33:00.950 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 07:33:01.012 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 07:33:01.016 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 07:33:01.016 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 07:33:01.016 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 07:33:03.926 +08:00 [INF] 0HML0S2EV9S3V:00000003   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 07:33:11.129 +08:00 [INF] 0HML0S2EV9S3V:00000005  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (132ms) [Parameters=[@__username_0='?' (Size = 100) (DbType = AnsiString), @__sha256_hash_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[UserID], [s].[CreatedBy], [s].[CreatedDate], [s].[ModifiedBy], [s].[ModifiedDate], [s].[UserLogin], [s].[UserName], [s].[UserPassword], [s].[UserStatus], [s].[bMustChangePassword], [s].[bSuspend], [s].[dteChangepass], [s].[dteSuspend], [s].[intAttempts]
+FROM [SecurityUser] AS [s]
+WHERE ([s].[UserName] = @__username_0) AND ([s].[UserPassword] = @__sha256_hash_1)
+2022-09-28 07:39:58.032 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 07:39:58.092 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 07:39:58.095 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 07:39:58.095 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 07:39:58.095 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 07:40:00.871 +08:00 [INF] 0HML0S6B8T0B5:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 08:21:50.938 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 08:21:51.006 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 08:21:51.009 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 08:21:51.009 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 08:21:51.010 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 08:21:53.931 +08:00 [INF] 0HML0STO5QL0H:00000003   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 08:22:02.974 +08:00 [INF] 0HML0STO5QL0H:00000005  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (141ms) [Parameters=[@__username_0='?' (Size = 100) (DbType = AnsiString), @__sha256_hash_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[UserID], [s].[CreatedBy], [s].[CreatedDate], [s].[ModifiedBy], [s].[ModifiedDate], [s].[UserLogin], [s].[UserName], [s].[UserPassword], [s].[UserStatus], [s].[bMustChangePassword], [s].[bSuspend], [s].[dteChangepass], [s].[dteSuspend], [s].[intAttempts]
+FROM [SecurityUser] AS [s]
+WHERE ([s].[UserName] = @__username_0) AND ([s].[UserPassword] = @__sha256_hash_1)
+2022-09-28 08:27:46.307 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 08:27:46.374 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 08:27:46.378 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 08:27:46.378 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 08:27:46.379 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 08:27:49.403 +08:00 [INF] 0HML0T122STFO:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 08:28:57.319 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 08:28:57.385 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 08:28:57.388 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 08:28:57.388 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 08:28:57.388 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 08:29:00.317 +08:00 [INF] 0HML0T1N848F2:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 08:31:13.661 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 08:31:13.728 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 08:31:13.731 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 08:31:13.731 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 08:31:13.731 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 08:31:16.628 +08:00 [INF] 0HML0T2VSC7K2:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 08:32:04.665 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 08:32:04.741 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 08:32:04.745 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 08:32:04.745 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 08:32:04.745 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 08:32:07.622 +08:00 [INF] 0HML0T3F2PBNB:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 08:32:59.238 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 08:32:59.308 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 08:32:59.312 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 08:32:59.312 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 08:32:59.312 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 08:33:02.117 +08:00 [INF] 0HML0T3VB80CH:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 08:46:09.485 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 08:46:09.550 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 08:46:09.554 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 08:46:09.554 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 08:46:09.554 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 08:46:12.403 +08:00 [INF] 0HML0TBARJNHV:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 08:50:22.703 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 08:50:22.768 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 08:50:22.771 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 08:50:22.772 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 08:50:22.772 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 08:50:25.562 +08:00 [INF] 0HML0TDMAG43T:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 09:00:04.569 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: https://localhost:7186
+2022-09-28 09:00:04.630 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:5201
+2022-09-28 09:00:04.633 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 09:00:04.634 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 09:00:04.634 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 09:00:07.474 +08:00 [INF] 0HML0TJ3NJEMC:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 

@@ -2,7 +2,9 @@
 using System.Linq.Expressions;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Security.Principal;
 using System.Text;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Web.Repository.Contracts;
@@ -19,35 +21,25 @@ public class AuthService : IAuthService
         _securityUserRepository = securityUserRepository;
     }
 
-    public SecurityUser? Login(string username, string password)
+    public async Task<SecurityUser?> Login(string username, string password)
     {
-        var user = _securityUserRepository.GetByFilter(r => r.UserName == username && r.UserPassword == sha256_hash(password));
-
-        if (user != null)
-        {
-            var identity = new ClaimsIdentity(new[] {
-                new Claim(ClaimTypes.Name, user.UserID.ToString()),
-                new Claim("UserName", user.UserName)
-            }, CookieAuthenticationDefaults.AuthenticationScheme);
-        }
-
-        return user;
+        return await _securityUserRepository.GetByFilterIncludeRole(r => r.UserName == username && r.UserPassword == sha256_hash(password));
     }
 
     private String sha256_hash(String value)
     {
-        StringBuilder Sb = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
 
         using (SHA256 hash = SHA256Managed.Create())
         {
-            Encoding enc = Encoding.UTF8;
-            Byte[] result = hash.ComputeHash(enc.GetBytes(value));
+            Encoding encoding = Encoding.UTF8;
+            Byte[] results = hash.ComputeHash(encoding.GetBytes(value));
 
-            foreach (Byte b in result)
-                Sb.Append(b.ToString("x2"));
+            foreach (Byte result in results)
+                stringBuilder.Append(result.ToString("x2"));
         }
 
-        return Sb.ToString();
+        return stringBuilder.ToString();
     }
 }
 

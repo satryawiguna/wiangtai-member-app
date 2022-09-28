@@ -78,10 +78,10 @@ try
 
     app.UseMiddleware<RequesterLogMiddleware>(container);
 
+    app.MapRazorPages();
     app.MapControllerRoute(
         name: "default",
         pattern: "{controller=Dashboard}/{action=Index}/{id?}");
-    app.MapRazorPages();
 
     app.Run();
 }
@@ -131,6 +131,9 @@ void ConfigureAuthentication()
     .AddCookie(options =>
     {
         options.LoginPath = "/Auth/Login";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        options.SlidingExpiration = true;
+        options.AccessDeniedPath = "/Forbidden/";
     });
 }
 

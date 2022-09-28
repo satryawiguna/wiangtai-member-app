@@ -33,6 +33,7 @@
     <None Remove="Repository\Contracts\" />
     <None Remove="Models\Auth\" />
     <None Remove="Models\ErrorVMcs" />
+    <None Remove="Views\Shared\Partial\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
@@ -71,6 +72,7 @@
     <Folder Include="Repository\Contracts\" />
     <Folder Include="Models\Auth\" />
     <Folder Include="wwwroot\adminlte\" />
+    <Folder Include="Views\Shared\Partial\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\adminlte\" />

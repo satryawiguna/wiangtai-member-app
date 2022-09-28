@@ -1,4 +1,8 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Web.Models.Auth;
@@ -6,6 +10,7 @@ using WiangtaiMemberApp.Web.Services.Contracts;
 
 namespace WiangtaiMemberApp.Web.Controllers;
 
+[AllowAnonymous]
 public class AuthController : Controller
 {
     private readonly ILogger<AuthController> _logger;
@@ -21,32 +26,46 @@ public class AuthController : Controller
     [HttpGet]
     public IActionResult Login()
     {
+        var username = HttpContext.User.Identity.Name;
+
+        if (username is not null)
+        {
+            return Redirect("/Dashboard");
+        }
+
         return View();
     }
 
     [HttpPost]
-    public async Task<ActionResult> Login(LoginVM model)
+    public async Task<IActionResult> Login(LoginVM model)
     {
         if (ModelState.IsValid)
         {
-            var loginResponse = _authService.Login(model.Username, model.Password);
+            var securityUser = await _authService.Login(model.Username, model.Password);
 
-            if (loginResponse != null)
+            if (securityUser is not null)
             {
-                return RedirectToAction("Index", "Dashboard");
+                 await SignInUser(securityUser);
+
+                if (string.IsNullOrWhiteSpace(model.ReturnUrl) || !model.ReturnUrl.StartsWith("/"))
+                {
+                    model.ReturnUrl = "/Dashboard";
+                }
+
+                return Redirect(model.ReturnUrl);
             }
 
-            AddTempData("message", "danger", $"Incorrect Password or Username.");
-
-            return RedirectToAction("Login", "Auth");
+            SetTempData("message", "danger", $"Incorrect Password or Username.");
+        }
+        else
+        {
+            SetTempData("message", "danger", $"Login form datas is not valid");
         }
 
-        AddTempData("message", "danger", $"Login form datas is not valid");
-
-        return RedirectToAction("Login", "Auth");
+        return Redirect("/Auth/Login");
     }
 
-    public void AddTempData(string key, string alert, string value)
+    private void SetTempData(string key, string alert, string value)
     {
         try
         {
@@ -58,6 +77,27 @@ public class AuthController : Controller
         {
             Debug.WriteLine("TempDataMessage Error");
         }
+    }
+
+    private async Task SignInUser(SecurityUser? securityUser)
+    {
+        var securityRole = (securityUser.SecurityUserRoles is not null) ? securityUser.SecurityUserRoles.First() : null;
+
+        var roleName = (securityUser.SecurityUserRoles is not null) ? securityUser.SecurityUserRoles.Select(sr => sr.SecurityRole).First().RoleName ?? "" : "";
+
+        var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, securityUser.UserLogin),
+                new Claim(ClaimTypes.Role, roleName),
+                new Claim("FullName", securityUser.UserName),
+            };
+
+        var claimsIdentity = new ClaimsIdentity(claims,
+            CookieAuthenticationDefaults.AuthenticationScheme);
+
+        await HttpContext.SignInAsync(
+            CookieAuthenticationDefaults.AuthenticationScheme,
+            new ClaimsPrincipal(claimsIdentity));
     }
 }
 

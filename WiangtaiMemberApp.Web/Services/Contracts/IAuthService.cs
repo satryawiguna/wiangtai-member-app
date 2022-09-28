@@ -5,5 +5,7 @@ namespace WiangtaiMemberApp.Web.Services.Contracts;
 
 public interface IAuthService
 {
-    public SecurityUser? Login(string username, string password);
+    Task<SecurityUser?> Login(string username, string password);
+
+
 }
