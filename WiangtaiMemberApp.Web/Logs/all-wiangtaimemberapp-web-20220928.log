@@ -258,3 +258,43 @@ WHERE ([s].[UserName] = @__username_0) AND ([s].[UserPassword] = @__sha256_hash_
 2022-09-28 09:00:04.634 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
 2022-09-28 09:00:04.634 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
 2022-09-28 09:00:07.474 +08:00 [INF] 0HML0TJ3NJEMC:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 10:28:02.954 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-09-28 10:28:03.069 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 10:28:03.069 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 10:28:03.069 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 10:28:04.211 +08:00 [WRN] 0HML0V48QTJVU:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-09-28 10:28:05.990 +08:00 [INF] 0HML0V48QTJVU:00000003   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 10:28:16.767 +08:00 [INF] 0HML0V48QTK03:00000005  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (137ms) [Parameters=[@__username_0='?' (Size = 100) (DbType = AnsiString), @__sha256_hash_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[UserID], [s].[CreatedBy], [s].[CreatedDate], [s].[ModifiedBy], [s].[ModifiedDate], [s].[UserLogin], [s].[UserName], [s].[UserPassword], [s].[UserStatus], [s].[bMustChangePassword], [s].[bSuspend], [s].[dteChangepass], [s].[dteSuspend], [s].[intAttempts]
+FROM [SecurityUser] AS [s]
+WHERE ([s].[UserName] = @__username_0) AND ([s].[UserPassword] = @__sha256_hash_1)
+2022-09-28 10:29:05.813 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-09-28 10:29:05.912 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 10:29:05.913 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 10:29:05.913 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 10:29:06.976 +08:00 [WRN] 0HML0V4RI69HC:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-09-28 10:29:08.782 +08:00 [INF] 0HML0V4RI69HC:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 10:33:06.296 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-09-28 10:33:06.380 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 10:33:06.380 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 10:33:06.380 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 10:33:07.589 +08:00 [WRN] 0HML0V738HOBM:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-09-28 10:33:09.384 +08:00 [INF] 0HML0V738HOBM:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 10:35:47.644 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-09-28 10:35:47.767 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 10:35:47.767 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 10:35:47.767 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 10:35:48.839 +08:00 [WRN] 0HML0V8JAE5NA:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-09-28 10:35:50.650 +08:00 [INF] 0HML0V8JAE5NA:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 10:36:00.204 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-09-28 10:36:00.299 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 10:36:00.299 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 10:36:00.299 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 10:36:01.362 +08:00 [WRN] 0HML0V8N1NFBS:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-09-28 10:36:03.167 +08:00 [INF] 0HML0V8N1NFBS:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-09-28 10:37:28.245 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-09-28 10:37:28.346 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-09-28 10:37:28.347 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-09-28 10:37:28.347 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-09-28 10:37:29.406 +08:00 [WRN] 0HML0V9H9B8CK:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-09-28 10:37:31.144 +08:00 [INF] 0HML0V9H9B8CK:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 

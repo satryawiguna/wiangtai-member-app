@@ -10,3 +10,6 @@
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/obj/Debug/net6.0/refint/WiangtaiMemberApp.Common.dll
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/obj/Debug/net6.0/WiangtaiMemberApp.Common.pdb
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/obj/Debug/net6.0/ref/WiangtaiMemberApp.Common.dll
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/bin/Debug/net6.0/WiangtaiMemberApp.Model.dll
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/bin/Debug/net6.0/WiangtaiMemberApp.Model.pdb
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/obj/Debug/net6.0/WiangtaiMemberApp.Common.csproj.CopyComplete

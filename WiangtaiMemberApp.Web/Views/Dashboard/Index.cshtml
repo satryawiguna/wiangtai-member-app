@@ -1,5 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Dashboard";
+    ViewBag.Breadcrumbs = new List<Breadcrumb>()
+    {
+        new Breadcrumb("Home", nameof(DashboardController.Index), "Dashboard", true)
+    };
 }
 
 
