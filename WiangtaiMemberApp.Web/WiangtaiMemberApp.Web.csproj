@@ -27,12 +27,13 @@
     <None Remove="SimpleInjector.Integration.AspNetCore" />
     <None Remove="SimpleInjector.Integration.AspNetCore.Mvc" />
     <None Remove="Middleware\" />
-    <None Remove="Commons\" />
-    <None Remove="Commons\Mappers\" />
     <None Remove="Services\" />
     <None Remove="Services\Contracts\" />
     <None Remove="Repository\" />
     <None Remove="Repository\Contracts\" />
+    <None Remove="Models\Auth\" />
+    <None Remove="Models\ErrorVMcs" />
+    <None Remove="Views\Shared\Partial\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
@@ -65,11 +66,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Middleware\" />
-    <Folder Include="Commons\" />
-    <Folder Include="Commons\Mappers\" />
     <Folder Include="Services\" />
     <Folder Include="Services\Contracts\" />
     <Folder Include="Repository\" />
     <Folder Include="Repository\Contracts\" />
+    <Folder Include="Models\Auth\" />
+    <Folder Include="wwwroot\adminlte\" />
+    <Folder Include="Views\Shared\Partial\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\adminlte\" />
   </ItemGroup>
 </Project>

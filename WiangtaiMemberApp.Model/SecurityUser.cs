@@ -5,9 +5,9 @@ namespace WiangtaiMemberApp.Model;
 public class SecurityUser
 {
     public Guid UserID { get; set; }
-    public string UserName { get; set; }
-    public string UserLogin { get; set; }
-    public string UserPassword { get; set; }
+    public string UserName { get; set; } = "";
+    public string UserLogin { get; set; } = "";
+    public string UserPassword { get; set; } = "";
     public byte UserStatus { get; set; }
     public Guid CreatedBy { get; set; }
     public Guid ModifiedBy { get; set; }

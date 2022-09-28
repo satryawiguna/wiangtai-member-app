@@ -11,7 +11,7 @@
     "WiangtaiMemberApp.Web": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7186;http://localhost:5201",
+      "applicationUrl": "http://localhost:62412",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
