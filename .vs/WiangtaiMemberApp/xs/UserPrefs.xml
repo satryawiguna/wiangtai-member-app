@@ -7,33 +7,16 @@
       <Breakpoint file="/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/Controllers/AuthController.cs" relfile="WiangtaiMemberApp.Web/Controllers/AuthController.cs" line="32" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="WiangtaiMemberApp.Web/Controllers/WebBaseController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WiangtaiMemberApp.Model/Member.cs">
     <Files>
-      <File FileName="WiangtaiMemberApp.Web/Controllers/AuthController.cs" Line="62" Column="2" />
-      <File FileName="WiangtaiMemberApp.Web/Controllers/DashboardController.cs" Line="17" Column="5" />
-      <File FileName="WiangtaiMemberApp.Model/Response/BasicResponse.cs" Line="1" Column="1" />
-      <File FileName="WiangtaiMemberApp.Model/Response/BooleanResponse.cs" Line="1" Column="1" />
-      <File FileName="WiangtaiMemberApp.Model/Response/GenericCollectionResponse.cs" Line="1" Column="1" />
-      <File FileName="WiangtaiMemberApp.Model/Response/GenericObjectResponse.cs" Line="1" Column="1" />
-      <File FileName="WiangtaiMemberApp.Model/Response/GenericPagedSearchResponse.cs" Line="1" Column="1" />
-      <File FileName="WiangtaiMemberApp.Web/Controllers/WebBaseController.cs" Line="81" Column="55" />
-      <File FileName="WiangtaiMemberApp.Model/Request/AuditableRequest.cs" Line="7" Column="17" />
+      <File FileName="WiangtaiMemberApp.Model/Member.cs" Line="83" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="WiangtaiMemberApp" expanded="True">
-            <Node name="WiangtaiMemberApp.Data" expanded="True" />
             <Node name="WiangtaiMemberApp.Model" expanded="True">
-              <Node name="Request" expanded="True" />
-              <Node name="Response" expanded="True" />
-            </Node>
-            <Node name="WiangtaiMemberApp.Web" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Middleware" expanded="True" />
-              <Node name="Repository" expanded="True">
-                <Node name="Contracts" expanded="True" />
-              </Node>
+              <Node name="Member.cs" selected="True" />
             </Node>
           </Node>
         </State>
