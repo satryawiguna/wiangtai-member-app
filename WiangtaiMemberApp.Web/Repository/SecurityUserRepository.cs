@@ -13,7 +13,7 @@ public class SecurityUserRepository : BaseRepository<SecurityUser>, ISecurityUse
     {
     }
 
-    public async Task<SecurityUser?> GetByFilterIncludeRole(Expression<Func<SecurityUser, bool>> filter)
+    public SecurityUser? GetByFilterIncludeRole(Expression<Func<SecurityUser, bool>> filter)
     {
         return _context.SecurityUser
             .Include(sr => sr.SecurityUserRoles.Select(sr => sr.SecurityRole))

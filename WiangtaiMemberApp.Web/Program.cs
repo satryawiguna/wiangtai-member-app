@@ -141,6 +141,8 @@ void ConfigureServiceContainer(Container container)
 {
     //container.Register(typeof(IBaseRepository<>), new[] { typeof(BaseRepository<>).Assembly });
     container.Register<ISecurityUserRepository, SecurityUserRepository>(Lifestyle.Scoped);
+    container.Register<IMemberRepository, MemberRepository>(Lifestyle.Scoped);
 
     container.Register<IAuthService, AuthService>(Lifestyle.Scoped);
+    container.Register<IMemberService, MemberService>(Lifestyle.Scoped);
 }

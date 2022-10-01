@@ -23,7 +23,7 @@ public class AuthService : IAuthService
 
     public async Task<SecurityUser?> Login(string username, string password)
     {
-        return await _securityUserRepository.GetByFilterIncludeRole(r => r.UserName == username && r.UserPassword == sha256_hash(password));
+        return _securityUserRepository.GetByFilterIncludeRole(r => r.UserName == username && r.UserPassword == sha256_hash(password));
     }
 
     private String sha256_hash(String value)

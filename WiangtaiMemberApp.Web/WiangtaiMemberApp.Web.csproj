@@ -34,6 +34,8 @@
     <None Remove="Models\Auth\" />
     <None Remove="Models\ErrorVMcs" />
     <None Remove="Views\Shared\Partial\" />
+    <None Remove="Views\Member\" />
+    <None Remove="Models\Member\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
@@ -73,6 +75,8 @@
     <Folder Include="Models\Auth\" />
     <Folder Include="wwwroot\adminlte\" />
     <Folder Include="Views\Shared\Partial\" />
+    <Folder Include="Views\Member\" />
+    <Folder Include="Models\Member\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\adminlte\" />
