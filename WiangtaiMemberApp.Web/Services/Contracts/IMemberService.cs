@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Model.Request;
 using WiangtaiMemberApp.Model.Request.Member;
@@ -10,9 +11,9 @@ public interface IMemberService
 {
     Task<IEnumerable<Member>> GetAllMembers();
 
-    Task<SearchResponseDto<Member>> GetSearchMembers(SearchRequestDto searchRequest, int intNoType, int memberType);
+    Task<SearchResponseDto<Member>> GetSearchMembers(SearchRequestDto searchRequest, int? intNoType, int? memberType);
 
-    Task<PageSearchResponseDto<Member>> GetPageSearchMembers(PageSearchRequestDto pageSearchRequest, int intNoType, int memberType);
+    Task<PageSearchResponseDto<Member>> GetPageSearchMembers(PageSearchRequestDto pageSearchRequest, int? intNoType, int? memberType);
 
     Task<Member> GetMemberByID(string memberId);
 
@@ -21,5 +22,10 @@ public interface IMemberService
     Task<(bool, Member)> UpdateMember(MemberRequestDto request);
 
     Task<bool> DeleteMember(string memberId);
+
+
+    Task<IEnumerable<MemberType>> GetAllMemberTypes();
+
+    Task<IEnumerable<MemberType>> GetAllMemberTypesByFilter(Expression<Func<MemberType, bool>> filter);
 }
 

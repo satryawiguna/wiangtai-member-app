@@ -8,7 +8,7 @@ namespace WiangtaiMemberApp.Web.Repository.Contracts;
 
 public interface IMemberRepository : IBaseRepository<Member>
 {
-    SearchResponseDto<Member> GetSearch(SearchRequestDto searchRequest, int intNoType, int memberType);
+    SearchResponseDto<Member> GetSearch(SearchRequestDto searchRequest, int? intNoType, int? memberType);
 
-    PageSearchResponseDto<Member> GetPageSearch(PageSearchRequestDto pageSearchRequest, int intNoType, int memberType);
+    PageSearchResponseDto<Member> GetPageSearch(PageSearchRequestDto pageSearchRequest, int? intNoType, int? memberType);
 }

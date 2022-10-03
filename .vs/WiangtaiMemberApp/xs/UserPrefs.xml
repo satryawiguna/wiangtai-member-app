@@ -1,26 +1,13 @@
 ﻿<Properties StartupConfiguration="{65B5DBD1-E9C8-40C6-B6D7-CA736A47CBCE}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="WiangtaiMemberApp.Model/Response/Member/MemberResponseDto.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WiangtaiMemberApp.Web/Views/Member/Index.cshtml">
     <Files>
-      <File FileName="WiangtaiMemberApp.Model/Response/Membership/MemberResponseDto.cs" Line="26" Column="42" />
-      <File FileName="WiangtaiMemberApp.Model/Member.cs" Line="43" Column="56" />
-      <File FileName="WiangtaiMemberApp.Model/Membership.cs" Line="31" Column="45" />
+      <File FileName="WiangtaiMemberApp.Web/Views/Member/Index.cshtml" Line="89" Column="38" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="WiangtaiMemberApp" expanded="True">
-            <Node name="WiangtaiMemberApp.Common" expanded="True" />
-            <Node name="WiangtaiMemberApp.Data" expanded="True" />
-            <Node name="WiangtaiMemberApp.Model" expanded="True">
-              <Node name="Response" expanded="True">
-                <Node name="Membership" expanded="True" selected="True" />
-              </Node>
-            </Node>
-            <Node name="WiangtaiMemberApp.Web" expanded="True">
-              <Node name="Services" expanded="True">
-                <Node name="Contracts" expanded="True" />
-              </Node>
-            </Node>
+            <Node name="WiangtaiMemberApp.Test" selected="True" />
           </Node>
         </State>
       </Pad>
@@ -34,15 +21,13 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.WiangtaiMemberApp.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/Services/AuthService.cs" relfile="WiangtaiMemberApp.Web/Services/AuthService.cs" line="24" column="1" />
-      <Breakpoint file="/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/Repository/BaseRepository.cs" relfile="WiangtaiMemberApp.Web/Repository/BaseRepository.cs" line="31" column="1" />
       <Breakpoint file="/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/Controllers/AuthController.cs" relfile="WiangtaiMemberApp.Web/Controllers/AuthController.cs" line="32" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.WiangtaiMemberApp.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
 </Properties>

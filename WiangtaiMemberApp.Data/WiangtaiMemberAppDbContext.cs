@@ -11,6 +11,8 @@ public class WiangtaiMemberAppDbContext : DbContext
 
     public DbSet<CardMaster> CardMaster { get; set; }
 
+    public DbSet<Currency> Currency { get; set; }
+
     public DbSet<Member> Member { get; set; }
 
     public DbSet<Membership> Membership { get; set; }
@@ -44,37 +46,38 @@ public class WiangtaiMemberAppDbContext : DbContext
 
             entity.Property(e => e.CardNumber)
                 .HasColumnType("bigint(20)")
-                .HasColumnName("CardNumber");
+                .HasColumnName("CardNumber")
+                .IsRequired(false);
 
             entity.Property(e => e.SalesDate)
                 .HasColumnName("SalesDate")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CreatedDate)
                 .HasColumnName("CreatedDate")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.ModifiedDate)
                 .HasColumnName("ModifiedDate")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CardNumberEncrypted)
                 .HasColumnName("CardNumberEncrypted")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CardNumberShow)
                 .HasColumnName("CardNumberShow")
-                .IsRequired();
+                .IsRequired(true);
         });
 
         modelBuilder.Entity<Currency>(entity =>
@@ -90,38 +93,40 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.Property(e => e.CurrencyCode)
                 .HasColumnType("char(3)")
                 .HasColumnName("CurrencyCode")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CurrencyName)
                 .HasColumnType("varchar(100)")
                 .HasColumnName("CurrencyName")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.ExchangeUnit)
                 .HasColumnType("int(11)")
-                .HasColumnName("ExchangeUnit");
+                .HasColumnName("ExchangeUnit")
+                .IsRequired(false);
 
             entity.Property(e => e.ExchangeRate)
                 .HasColumnType("decimal(18,4)")
-                .HasColumnName("ExchangeRate");
+                .HasColumnName("ExchangeRate")
+                .IsRequired(false);
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CreatedDate)
                 .HasColumnName("CreatedDate")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.ModifiedDate)
                 .HasColumnName("ModifiedDate")
-                .IsRequired();
+                .IsRequired(true);
 
 
 
@@ -142,89 +147,104 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("MemberID");
 
             entity.Property(e => e.FirstName)
+                .HasColumnType("varchar(100)")
                 .HasColumnName("FirstName")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.LastName)
+                .HasColumnType("varchar(100)")
                 .HasColumnName("LastName")
-                .IsRequired();
+                .IsRequired(false); ;
 
             entity.Property(e => e.DisplayName)
+                .HasColumnType("varchar(100)")
                 .HasColumnName("DisplayName")
-                .IsRequired();
-
-            entity.Property(e => e.intNoType)
-               .HasColumnType("tinyint")
-               .HasColumnName("intNoType");
-
-            entity.Property(e => e.PassportNo)
-                .HasColumnName("PassportNo")
-                .IsRequired();
-
-            entity.Property(e => e.Email)
-               .HasColumnName("Email")
-               .IsRequired();
-
-            entity.Property(e => e.MobilePhone)
-               .HasColumnType("varchar")
-               .HasColumnName("MobilePhone")
-               .IsRequired();
-
-            entity.Property(e => e.Notification)
-               .HasColumnType("tinyint")
-               .HasColumnName("Notification");
-
-            entity.Property(e => e.MemberTypeID)
-               .HasColumnType("uniqueindentifier")
-               .HasColumnName("MemberTypeID");
-
-            entity.Property(e => e.MemberSince)
-               .HasColumnType("datetime")
-               .HasColumnName("MemberSince");
+                .IsRequired(false); ;
 
             entity.Property(e => e.BirthDate)
                 .HasColumnType("datetime")
-                .HasColumnName("BirthDate");
+                .HasColumnName("BirthDate")
+                .IsRequired(false); ;
 
             entity.Property(e => e.Gender)
                 .HasColumnType("tinyint")
-                .HasColumnName("Gender");
-
-            entity.Property(e => e.RaceTypeID)
-               .HasColumnType("uniqueindentifier")
-               .HasColumnName("RaceTypeID");
+                .HasColumnName("Gender")
+                .IsRequired(false); ;
 
             entity.Property(e => e.MaritalStatus)
                 .HasColumnType("tinyint")
-                .HasColumnName("MaritalStatus");
+                .HasColumnName("MaritalStatus")
+                .IsRequired(false); ;
 
-            entity.Property(e => e.ReligionID)
+            entity.Property(e => e.PassportNo)
+                .HasColumnType("varchar(200)")
+                .HasColumnName("PassportNo")
+                .IsRequired(false); ;
+
+            entity.Property(e => e.MobilePhone)
+               .HasColumnType("varchar(50)")
+               .HasColumnName("MobilePhone")
+               .IsRequired(false); ;
+
+            entity.Property(e => e.Email)
+               .HasColumnType("varchar(100)")
+               .HasColumnName("Email")
+               .IsRequired(false); ;
+
+            entity.Property(e => e.MemberTypeID)
                .HasColumnType("uniqueindentifier")
-               .HasColumnName("ReligionID");
+               .HasColumnName("MemberTypeID")
+               .IsRequired(false); ;
+
+            entity.Property(e => e.MemberSince)
+               .HasColumnType("datetime")
+               .HasColumnName("MemberSince")
+               .IsRequired(false); ;
+
+            entity.Property(e => e.Notification)
+               .HasColumnType("tinyint")
+               .HasColumnName("Notification")
+               .IsRequired(false); ;
 
             entity.Property(e => e.SalaryRangeID)
                .HasColumnType("uniqueindentifier")
-               .HasColumnName("SalaryRangeID");
+               .HasColumnName("SalaryRangeID")
+               .IsRequired(false); ;
+
+            entity.Property(e => e.RaceTypeID)
+               .HasColumnType("uniqueindentifier")
+               .HasColumnName("RaceTypeID")
+               .IsRequired(false); ;
+
+            entity.Property(e => e.ReligionID)
+               .HasColumnType("uniqueindentifier")
+               .HasColumnName("ReligionID")
+               .IsRequired(false); ;
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CreatedDate)
                 .HasColumnName("CreatedDate")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.ModifiedDate)
                 .HasColumnName("ModifiedDate")
-                .IsRequired();
+                .IsRequired(true);
 
+            entity.Property(e => e.intNoType)
+               .HasColumnType("tinyint")
+               .HasColumnName("intNoType")
+               .IsRequired(false);
 
+            
 
             entity.HasOne(r => r.MemberType)
                 .WithMany(r => r.Members)
@@ -239,6 +259,11 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.HasOne(r => r.Religion)
                 .WithMany(r => r.Members)
                 .HasForeignKey(r => r.ReligionID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasOne(r => r.SalaryRange)
+                .WithMany(r => r.Members)
+                .HasForeignKey(r => r.SalaryRangeID)
                 .OnDelete(DeleteBehavior.NoAction);
 
             entity.HasMany(r => r.Memberships)
@@ -260,94 +285,98 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.Property(e => e.MemberID)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("MemberID")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.MemberTypeID)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("MemberTypeID")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CardNumber)
                 .HasColumnType("bigint(20)")
-                .HasColumnName("CardNumber");
+                .HasColumnName("CardNumber")
+                .IsRequired(false);
 
             entity.Property(e => e.StartDate)
                 .HasColumnName("StartDate")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.EndDate)
-                .HasColumnName("EndDate");
+                .HasColumnName("EndDate")
+                .IsRequired(false);
 
             entity.Property(e => e.CurrencyID)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CurrencyID");
+                .HasColumnName("CurrencyID")
+                .IsRequired(false);
 
             entity.Property(e => e.AnnualFee)
                 .HasColumnType("decimal(18,2)")
-                .HasColumnName("AnnualFee");
+                .HasColumnName("AnnualFee")
+                .IsRequired(false);
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CreatedDate)
                 .HasColumnName("CreatedDate")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.ModifiedDate)
                 .HasColumnName("ModifiedDate")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.NotifyExpired15Days)
                 .HasColumnType("bool")
                 .HasColumnName("NotifyExpired15Days")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.NotifyExpired15Days)
                 .HasColumnType("bool")
                 .HasColumnName("NotifyExpired15Days")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.NotifyExpired30Days)
                 .HasColumnType("bool")
                 .HasColumnName("NotifyExpired30Days")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.PassAutoRenewal)
                 .HasColumnType("bool")
                 .HasColumnName("PassAutoRenewal")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.SMSNotifyExpiring15Days)
                 .HasColumnType("bool")
                 .HasColumnName("SMSNotifyExpiring15Days")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CardNumberEncrypted)
                 .HasColumnName("CardNumberEncrypted")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CardNumberShow)
                 .HasColumnName("CardNumberShow")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.strIndicatorCode)
                 .HasColumnName("strIndicatorCode")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.strReasonCode)
                 .HasColumnName("strReasonCode")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.strReasonDesc)
                 .HasColumnName("strReasonDesc")
-                .IsRequired();
+                .IsRequired(true);
 
 
 
@@ -367,6 +396,142 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .OnDelete(DeleteBehavior.NoAction);
         });
 
+        modelBuilder.Entity<MemberType>(entity =>
+        {
+            entity.ToTable("MemberType");
+
+            entity.HasKey(e => e.MemberTypeID);
+
+            entity.Property(e => e.MemberTypeID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("MemberTypeID");
+
+            entity.Property(e => e.MemberTypeName)
+                .HasColumnType("varchar(100)")
+                .HasColumnName("MemberTypeName")
+                .IsRequired(true);
+
+            entity.Property(e => e.MemberTypeDesc)
+                .HasColumnType("text")
+                .HasColumnName("MemberTypeDesc")
+                .IsRequired(true);
+
+            entity.Property(e => e.Grade)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("Grade")
+                .IsRequired(false);
+
+            entity.Property(e => e.CreatedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("CreatedBy")
+                .IsRequired(true);
+
+            entity.Property(e => e.CreatedDate)
+                .HasColumnName("CreatedDate")
+                .IsRequired(true);
+
+            entity.Property(e => e.ModifiedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("ModifiedBy")
+                .IsRequired(true);
+
+            entity.Property(e => e.ModifiedDate)
+                .HasColumnName("ModifiedDate")
+                .IsRequired(true);
+
+            entity.Property(e => e.CurrencyID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("CurrencyID")
+                .IsRequired(false);
+
+            entity.Property(e => e.AnnualFee)
+                .HasColumnType("decimal(8, 2)")
+                .HasColumnName("AnnualFee")
+                .IsRequired(false);
+
+            entity.Property(e => e.ValidityPeriod)
+                .HasColumnType("tinyint")
+                .HasColumnName("ValidityPeriod")
+                .IsRequired(false);
+
+            entity.Property(e => e.ReferenceCode)
+                .HasColumnType("varchar(50)")
+                .HasColumnName("ReferenceCode")
+                .IsRequired(false);
+
+            entity.Property(e => e.intCustomerType)
+                .HasColumnType("tinyint")
+                .HasColumnName("intCustomerType")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitAllowPointTransfer)
+                .HasColumnType("bool")
+                .HasColumnName("bitAllowPointTransfer")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitAllowCashTransfer)
+                .HasColumnType("bool")
+                .HasColumnName("bitAllowCashTransfer")
+                .IsRequired(false);
+
+            entity.Property(e => e.idDocument)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("idDocument")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitPreRegister)
+                .HasColumnType("bool")
+                .HasColumnName("bitPreRegister")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitEnableEmoney)
+                .HasColumnType("bool")
+                .HasColumnName("bitEnableEmoney")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitEnableWriteToCard)
+                .HasColumnType("bool")
+                .HasColumnName("bitEnableWriteToCard")
+                .IsRequired(false);
+
+            entity.Property(e => e.intCardProtocal)
+                .HasColumnType("int")
+                .HasColumnName("intCardProtocal")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitMandatoryMemberReg)
+                .HasColumnType("bool")
+                .HasColumnName("bitMandatoryMemberReg")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitMandatoryNonMemberReg)
+                .HasColumnType("bool")
+                .HasColumnName("bitMandatoryNonMemberReg")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitMandatoryCardReplacement)
+                .HasColumnType("bool")
+                .HasColumnName("bitMandatoryCardReplacement")
+                .IsRequired(false);
+
+
+
+            entity.HasOne(r => r.Currency)
+                .WithMany(r => r.MemberTypes)
+                .HasForeignKey(r => r.CurrencyID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasMany(r => r.Members)
+                .WithOne(r => r.MemberType)
+                .HasForeignKey(r => r.MemberID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasMany(r => r.Memberships)
+                .WithOne(r => r.MemberType)
+                .HasForeignKey(r => r.MemberTypeID)
+                .OnDelete(DeleteBehavior.NoAction);
+        });
+
         modelBuilder.Entity<SecurityRole>(entity =>
         {
             entity.ToTable("SecurityRole");
@@ -380,17 +545,17 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.Property(e => e.RoleName)
                 .HasColumnType("varchar(100)")
                 .HasColumnName("RoleName")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.RoleDesc)
                 .HasColumnType("text")
                 .HasColumnName("RoleDesc")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CreatedDate)
                 .HasColumnName("CreatedDate");
@@ -398,7 +563,7 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.ModifiedDate)
                 .HasColumnName("ModifiedDate");
@@ -424,21 +589,21 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.Property(e => e.UserID)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("UserID")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.dtCreate)
                 .HasColumnName("dtCreate")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.dtExpiry)
                 .HasColumnName("dtExpiry")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.strCode)
                 .HasColumnType("varchar")
                 .HasMaxLength(50)
                 .HasColumnName("strCode")
-                .IsRequired();
+                .IsRequired(true);
 
 
 
@@ -461,61 +626,63 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.Property(e => e.UserName)
                 .HasColumnType("varchar(100)")
                 .HasColumnName("UserName")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.UserLogin)
                 .HasColumnType("varchar(20)")
                 .HasColumnName("UserLogin")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.UserPassword)
                 .HasColumnType("varchar(100)")
                 .HasColumnName("UserPassword")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.UserStatus)
                 .HasColumnType("tinyint")
                 .HasColumnName("UserStatus")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.bMustChangePassword)
                 .HasColumnType("bit")
                 .HasColumnName("bMustChangePassword")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.bSuspend)
                 .HasColumnType("bit")
                 .HasColumnName("bSuspend")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.intAttempts)
                 .HasColumnType("tinyint")
                 .HasColumnName("intAttempts")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.dteChangepass)
                 .HasColumnName("dteChangepass")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.dteSuspend)
                 .HasColumnName("dteSuspend")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CreatedDate)
-                .HasColumnName("CreatedDate");
+                .HasColumnName("CreatedDate")
+                .IsRequired(false);
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.ModifiedDate)
-                .HasColumnName("ModifiedDate");
+                .HasColumnName("ModifiedDate")
+                .IsRequired(false);
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
-                .IsRequired();
+                .IsRequired(true);
 
 
 
@@ -552,18 +719,20 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CreatedDate)
-                .HasColumnName("CreatedDate");
+                .HasColumnName("CreatedDate")
+                .IsRequired(false);
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.ModifiedDate)
-                .HasColumnName("ModifiedDate");
+                .HasColumnName("ModifiedDate")
+                .IsRequired(false);
 
 
 
@@ -590,43 +759,53 @@ public class WiangtaiMemberAppDbContext : DbContext
 
             entity.Property(e => e.EmployeeCode)
                 .HasColumnType("varchar(10)")
-                .HasColumnName("EmployeeCode");
+                .HasColumnName("EmployeeCode")
+                .IsRequired(false);
 
             entity.Property(e => e.FirstName)
                 .HasColumnType("varchar(50)")
-                .HasColumnName("FirstName");
+                .HasColumnName("FirstName")
+                .IsRequired(false);
 
             entity.Property(e => e.LastName)
                 .HasColumnType("varchar(50)")
-                .HasColumnName("LastName");
+                .HasColumnName("LastName")
+                .IsRequired(false);
 
             entity.Property(e => e.DisplayName)
                 .HasColumnType("varchar(100)")
-                .HasColumnName("DisplayName");
+                .HasColumnName("DisplayName")
+                .IsRequired(false);
 
             entity.Property(e => e.DepartmentID)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("DepartmentID");
+                .HasColumnName("DepartmentID")
+                .IsRequired(false);
 
             entity.Property(e => e.JobTitle)
                 .HasColumnType("varchar(100)")
-                .HasColumnName("JobTitle");
+                .HasColumnName("JobTitle")
+                .IsRequired(false);
 
             entity.Property(e => e.ReportTo)
                 .HasColumnType("varchar(100)")
-                .HasColumnName("ReportTo");
+                .HasColumnName("ReportTo")
+                .IsRequired(false);
 
             entity.Property(e => e.BusinessPhone)
                 .HasColumnType("varchar(20)")
-                .HasColumnName("BusinessPhone");
+                .HasColumnName("BusinessPhone")
+                .IsRequired(false);
 
             entity.Property(e => e.MobilePhone)
                 .HasColumnType("varchar(20)")
-                .HasColumnName("MobilePhone");
+                .HasColumnName("MobilePhone")
+                .IsRequired(false);
 
             entity.Property(e => e.eMail)
                 .HasColumnType("varchar(100)")
-                .HasColumnName("eMail");
+                .HasColumnName("eMail")
+                .IsRequired(false);
 
             entity.Property(e => e.Notifier)
                 .HasColumnType("tinyint")
@@ -635,23 +814,26 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.Property(e => e.NRIC)
                 .HasColumnType("varchar")
                 .HasMaxLength(50)
-                .HasColumnName("NRIC");
+                .HasColumnName("NRIC")
+                .IsRequired(false);
 
             entity.Property(e => e.CreatedDate)
-                .HasColumnName("CreatedDate");
+                .HasColumnName("CreatedDate")
+                .IsRequired(false);
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("CreatedBy")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.ModifiedDate)
-                .HasColumnName("ModifiedDate");
+                .HasColumnName("ModifiedDate")
+                .IsRequired(false);
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("ModifiedBy")
-                .IsRequired();
+                .IsRequired(true);
 
 
 

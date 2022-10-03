@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "r6RHsD4HrSNymUZsAyGZ3mrL3QxHb/Q8Gl/cbahQ/QXdONcGz08Bn8b0Wca0PJc07fGIVDvewkk36A13GxF+cA==",
+  "dgSpecHash": "81smfQ81H0H/Stzp7i86rD38BeQVzYxcV920nE1oj87MMqR+p8xw9RW+qNpeQ6oiW2Fz24aYx/eL+jzOEvJOPg==",
   "success": true,
   "projectFilePath": "/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Common/WiangtaiMemberApp.Common.csproj",
   "expectedPackageFiles": [
+    "/Users/satryawiguna/.nuget/packages/automapper/12.0.0/automapper.12.0.0.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/microsoft.aspnetcore.jsonpatch/6.0.9/microsoft.aspnetcore.jsonpatch.6.0.9.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/6.0.9/microsoft.aspnetcore.mvc.newtonsoftjson.6.0.9.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",

@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Reflection;
-using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using System.Reflection;
+using System.Text.RegularExpressions;
 using WiangtaiMemberApp.Model;
 
-namespace WiangtaiMemberApp.Common.Attribute;
+namespace WiangtaiMemberApp.Web.Commons.Attributes;
 
 public class BreadcrumbActionFilter : ActionFilterAttribute
 {
@@ -126,3 +126,4 @@ public class BreadcrumbActionFilter : ActionFilterAttribute
         return r.Replace(s, " ");
     }
 }
+

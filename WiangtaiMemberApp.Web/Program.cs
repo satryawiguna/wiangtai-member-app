@@ -9,6 +9,7 @@ using SimpleInjector;
 using SimpleInjector.Lifestyles;
 using WiangtaiMemberApp.Common;
 using WiangtaiMemberApp.Data;
+using WiangtaiMemberApp.Web.Commons.Mappers;
 using WiangtaiMemberApp.Web.Middleware;
 using WiangtaiMemberApp.Web.Repository;
 using WiangtaiMemberApp.Web.Repository.Contracts;
@@ -28,6 +29,7 @@ try
     ConfigureDbConnection();
     ConfigureLogger();
     ConfigureAuthentication();
+    ConfigureAutoMapper(container);
 
     services.AddRazorPages();
     services.AddControllersWithViews()
@@ -145,4 +147,10 @@ void ConfigureServiceContainer(Container container)
 
     container.Register<IAuthService, AuthService>(Lifestyle.Scoped);
     container.Register<IMemberService, MemberService>(Lifestyle.Scoped);
+}
+
+void ConfigureAutoMapper(Container container)
+{
+    container.RegisterSingleton<MapperProvider>();
+    container.RegisterSingleton(() => container.GetInstance<MapperProvider>().GetMapper());
 }

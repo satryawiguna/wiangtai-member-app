@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 using System.Reflection;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Model.Request;
@@ -14,9 +15,13 @@ public class MemberService : IMemberService
 {
     private readonly IMemberRepository _memberRepository;
 
-    public MemberService(IMemberRepository memberRepository)
+    private readonly IMemberTypeRepository _memberTypeRepository;
+
+    public MemberService(IMemberRepository memberRepository,
+        IMemberTypeRepository memberTypeRepository)
     {
         _memberRepository = memberRepository;
+        _memberTypeRepository = memberTypeRepository;
     }
 
     public async Task<IEnumerable<Member>> GetAllMembers()
@@ -24,12 +29,12 @@ public class MemberService : IMemberService
         return _memberRepository.GetAll();
     }
 
-    public async Task<SearchResponseDto<Member>> GetSearchMembers(SearchRequestDto searchRequest, int intNoType, int memberType)
+    public async Task<SearchResponseDto<Member>> GetSearchMembers(SearchRequestDto searchRequest, int? intNoType, int? memberType)
     {
         return _memberRepository.GetSearch(searchRequest, intNoType, memberType);
     }
 
-    public async Task<PageSearchResponseDto<Member>> GetPageSearchMembers(PageSearchRequestDto pageSearchRequest, int intNoType, int memberType)
+    public async Task<PageSearchResponseDto<Member>> GetPageSearchMembers(PageSearchRequestDto pageSearchRequest, int? intNoType, int? memberType)
     {
         return _memberRepository.GetPageSearch(pageSearchRequest, intNoType, memberType);
     }
@@ -52,6 +57,18 @@ public class MemberService : IMemberService
     public Task<(bool, Member)> UpdateMember(MemberRequestDto request)
     {
         throw new NotImplementedException();
+    }
+
+
+
+    public async Task<IEnumerable<MemberType>> GetAllMemberTypes()
+    {
+        return _memberTypeRepository.GetAll();
+    }
+
+    public async Task<IEnumerable<MemberType>> GetAllMemberTypesByFilter(Expression<Func<MemberType, bool>> filter)
+    {
+        return _memberTypeRepository.GetSelectListByFilter(filter);
     }
 }
 

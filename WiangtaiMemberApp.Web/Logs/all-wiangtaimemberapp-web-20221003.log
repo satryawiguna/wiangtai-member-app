@@ -1,0 +1,5 @@
+2022-10-03 07:36:01.785 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-10-03 07:36:01.952 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-10-03 07:36:01.952 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-10-03 07:36:01.952 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-10-03 07:38:20.393 +08:00 [WRN] 0HML4PRETPBTU:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.

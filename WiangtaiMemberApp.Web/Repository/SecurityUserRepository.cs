@@ -15,8 +15,8 @@ public class SecurityUserRepository : BaseRepository<SecurityUser>, ISecurityUse
 
     public SecurityUser? GetByFilterIncludeRole(Expression<Func<SecurityUser, bool>> filter)
     {
-        return _context.SecurityUser
-            .Include(sr => sr.SecurityUserRoles.Select(sr => sr.SecurityRole))
+        return _entities
+            .Include(securityRole => securityRole.SecurityUserRoles.Select(securityRole => securityRole.SecurityRole))
             .FirstOrDefault(filter);
     }
 }

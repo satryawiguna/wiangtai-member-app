@@ -9,13 +9,13 @@ public class UserProfile
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string DisplayName { get; set; }
-    public Nullable<Guid> DepartmentID { get; set; }
+    public Guid? DepartmentID { get; set; }
     public string JobTitle { get; set; }
     public string ReportTo { get; set; }
     public string BusinessPhone { get; set; }
     public string MobilePhone { get; set; }
     public string eMail { get; set; }
-    public Nullable<byte> Notifier { get; set; }
+    public byte? Notifier { get; set; }
     public Guid CreatedBy { get; set; }
     public DateTime CreatedDate { get; set; }
     public Guid ModifiedBy { get; set; }

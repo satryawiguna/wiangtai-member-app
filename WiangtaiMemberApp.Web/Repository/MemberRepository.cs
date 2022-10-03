@@ -3,82 +3,128 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
+using AutoMapper;
 using WiangtaiMemberApp.Data;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Model.Request;
 using WiangtaiMemberApp.Model.Response;
+using WiangtaiMemberApp.Web.Commons.Extensions;
 using WiangtaiMemberApp.Web.Repository.Contracts;
+using Z.EntityFramework.Plus;
+
 
 namespace WiangtaiMemberApp.Web.Repository;
 
 public class MemberRepository : BaseRepository<Member>, IMemberRepository
 {
-    public MemberRepository(WiangtaiMemberAppDbContext context) : base(context)
+    private readonly IMapper _mapper;
+
+    public MemberRepository(WiangtaiMemberAppDbContext context,
+        IMapper mapper) : base(context)
     {
+        _mapper = mapper;
     }
 
-    public SearchResponseDto<Member> GetSearch(SearchRequestDto searchRequest, int intNoType, int memberType)
+    public SearchResponseDto<Member> GetSearch(SearchRequestDto searchRequestDto, int? intNoType, int? memberType)
     {
-        var members = _context.Member;
+        var members = _entities
+            .Where(member => String.IsNullOrWhiteSpace(searchRequestDto.keyword) ||
+                member.FirstName.Contains(searchRequestDto.keyword) ||
+                member.LastName.Contains(searchRequestDto.keyword) ||
+                member.DisplayName.Contains(searchRequestDto.keyword) ||
+                member.MobilePhone.Contains(searchRequestDto.keyword) ||
+                member.intNoType.Equals(searchRequestDto.keyword) ||
+                member.Email.Contains(searchRequestDto.keyword));
 
-        if (searchRequest.keyword != String.Empty)
+        bool orderAsc = searchRequestDto.orderDirection == "ASC";
+
+        switch (searchRequestDto.orderColumn)
         {
-            members.Where(member => member.FirstName.Contains(searchRequest.keyword) ||
-            member.LastName.Contains(searchRequest.keyword) ||
-            member.DisplayName.Contains(searchRequest.keyword) ||
-            member.MobilePhone.Contains(searchRequest.keyword) ||
-            member.intNoType.Equals(searchRequest.keyword) ||
-            member.Email.Contains(searchRequest.keyword));
+            case "FirstName":
+                members = members.OrderByDirection(item => item.FirstName, orderAsc);
+                break;
+
+            case "LastName":
+                members = members.OrderByDirection(item => item.LastName, orderAsc);
+                break;
+
+            case "CreatedDate":
+            default:
+                members = members.OrderByDirection(item => item.CreatedDate, orderAsc);
+                break;
         }
 
-        if (intNoType != 0)
+        if (intNoType != null)
         {
             members.Where(member => member.intNoType.Equals(intNoType));
         }
 
-        if (memberType != 0)
+        if (memberType != null)
         {
             members.Where(member => member.MemberTypeID.Equals(intNoType));
         }
+
+        var data = members.ToList();
 
         return new SearchResponseDto<Member>
         {
             Total = members.Count(),
-            Data = members
+            Data = _mapper.Map<IEnumerable<Member>>(data)
         };
     }
 
-    public PageSearchResponseDto<Member> GetPageSearch(PageSearchRequestDto pageSearchRequest, int intNoType, int memberType)
+    public PageSearchResponseDto<Member> GetPageSearch(PageSearchRequestDto pageSearchRequest, int? intNoType, int? memberType)
     {
-        var members = _context.Member;
+        var members = _entities
+            .Where(member => String.IsNullOrWhiteSpace(pageSearchRequest.keyword) ||
+                member.FirstName.Contains(pageSearchRequest.keyword) ||
+                member.LastName.Contains(pageSearchRequest.keyword) ||
+                member.DisplayName.Contains(pageSearchRequest.keyword) ||
+                member.MobilePhone.Contains(pageSearchRequest.keyword) ||
+                member.intNoType.Equals(pageSearchRequest.keyword) ||
+                member.Email.Contains(pageSearchRequest.keyword));
 
-        if (pageSearchRequest.keyword != String.Empty)
+        bool orderAsc = pageSearchRequest.orderDirection == "ASC";
+
+        switch (pageSearchRequest.orderColumn)
         {
-            members.Where(member => member.FirstName.Contains(pageSearchRequest.keyword) ||
-            member.LastName.Contains(pageSearchRequest.keyword) ||
-            member.DisplayName.Contains(pageSearchRequest.keyword) ||
-            member.MobilePhone.Contains(pageSearchRequest.keyword) ||
-            member.intNoType.Equals(pageSearchRequest.keyword) ||
-            member.Email.Contains(pageSearchRequest.keyword));
+            case "FirstName":
+                members = members.OrderByDirection(item => item.FirstName, orderAsc);
+                break;
+
+            case "LastName":
+                members = members.OrderByDirection(item => item.LastName, orderAsc);
+                break;
+
+            case "CreatedDate":
+            default:
+                members = members.OrderByDirection(item => item.CreatedDate, orderAsc);
+                break;
         }
 
-        if (intNoType != 0)
+        if (intNoType != null)
         {
             members.Where(member => member.intNoType.Equals(intNoType));
         }
 
-        if (memberType != 0)
+        if (memberType != null)
         {
             members.Where(member => member.MemberTypeID.Equals(intNoType));
         }
+
+        var data = members.Skip(pageSearchRequest.offset)
+            .Take(pageSearchRequest.limit)
+            .ToList();
 
         return new PageSearchResponseDto<Member>
         {
             Total = members.Count(),
             Offset = pageSearchRequest.offset,
             Limit = pageSearchRequest.limit,
-            Data = members
+            Data = _mapper.Map<IEnumerable<Member>>(data)
         };
+
     }
 }
 

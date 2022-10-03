@@ -36,11 +36,18 @@
     <None Remove="Views\Shared\Partial\" />
     <None Remove="Views\Member\" />
     <None Remove="Models\Member\" />
+    <None Remove="Z.EntityFramework.Extensions.EFCore" />
+    <None Remove="Z.EntityFramework.Plus.EF6" />
+    <None Remove="Z.EntityFramework.Plus.EFCore" />
+    <None Remove="Commons\" />
+    <None Remove="Commons\Mappers\" />
+    <None Remove="Commons\Attributes\" />
+    <None Remove="Commons\Extensions\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
     <PackageReference Include="AutoMapper.EF6" Version="2.1.1" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.9">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -60,6 +67,7 @@
     <PackageReference Include="SimpleInjector" Version="5.4.0" />
     <PackageReference Include="SimpleInjector.Integration.AspNetCore" Version="5.4.0" />
     <PackageReference Include="SimpleInjector.Integration.AspNetCore.Mvc" Version="5.4.0" />
+    <PackageReference Include="Z.EntityFramework.Plus.EFCore" Version="6.15.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WiangtaiMemberApp.Internal\WiangtaiMemberApp.Internal.csproj">
@@ -77,6 +85,10 @@
     <Folder Include="Views\Shared\Partial\" />
     <Folder Include="Views\Member\" />
     <Folder Include="Models\Member\" />
+    <Folder Include="Commons\" />
+    <Folder Include="Commons\Mappers\" />
+    <Folder Include="Commons\Attributes\" />
+    <Folder Include="Commons\Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\adminlte\" />

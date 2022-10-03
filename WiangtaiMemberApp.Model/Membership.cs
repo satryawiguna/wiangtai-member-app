@@ -6,11 +6,11 @@ public class Membership
     public Guid MembershipID { get; set; }
     public Guid MemberID { get; set; }
     public Guid MemberTypeID { get; set; }
-    public Nullable<long> CardNumber { get; set; }
+    public long? CardNumber { get; set; }
     public DateTime StartDate { get; set; }
-    public Nullable<DateTime> EndDate { get; set; }
-    public Nullable<Guid> CurrencyID { get; set; }
-    public Nullable<decimal> AnnualFee { get; set; }
+    public DateTime? EndDate { get; set; }
+    public Guid? CurrencyID { get; set; }
+    public decimal? AnnualFee { get; set; }
     public Guid CreatedBy { get; set; }
     public DateTime CreatedDate { get; set; }
     public Guid ModifiedBy { get; set; }

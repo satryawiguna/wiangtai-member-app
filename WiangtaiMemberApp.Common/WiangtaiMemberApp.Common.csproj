@@ -9,16 +9,16 @@
   <ItemGroup>
     <None Remove="Constant\" />
     <None Remove="Setting\" />
-    <None Remove="Attribute\" />
     <None Remove="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+    <None Remove="AutoMapper" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Constant\" />
     <Folder Include="Setting\" />
-    <Folder Include="Attribute\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.9" />
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WiangtaiMemberApp.Model\WiangtaiMemberApp.Model.csproj" />

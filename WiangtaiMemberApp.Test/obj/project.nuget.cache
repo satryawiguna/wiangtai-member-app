@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Dv3RSvwvMoXrEh0xHN4g4OCnShQrgOIu3j63Rw2Pef99Uh1nQ4XJvEbOOjDPvmc1XCa5DOebrixuMV6UqjmJrA==",
+  "dgSpecHash": "vdN9N33KVjd5HYWc03zG1GshiCWG36xTFMtdKdrxKnZnCikAUsxhGLcodivLqtJEsRn6fOP/MUQti7vUOCeSWA==",
   "success": true,
   "projectFilePath": "/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Test/WiangtaiMemberApp.Test.csproj",
   "expectedPackageFiles": [
-    "/Users/satryawiguna/.nuget/packages/automapper/11.0.1/automapper.11.0.1.nupkg.sha512",
+    "/Users/satryawiguna/.nuget/packages/automapper/12.0.0/automapper.12.0.0.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/castle.core/5.1.0/castle.core.5.1.0.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/coverlet.collector/3.1.2/coverlet.collector.3.1.2.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/microsoft.aspnetcore.jsonpatch/6.0.9/microsoft.aspnetcore.jsonpatch.6.0.9.nupkg.sha512",
