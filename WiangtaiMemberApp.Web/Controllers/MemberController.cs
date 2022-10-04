@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json.Linq;
 using WiangtaiMemberApp.Model.Request;
 using WiangtaiMemberApp.Web.Services.Contracts;
@@ -14,6 +15,7 @@ namespace WiangtaiMemberApp.Web.Controllers;
 public class MemberController : Controller
 {
     private readonly IMemberService _memberService;
+
     private readonly ILogger<MemberController> _logger;
 
     public MemberController(IMemberService memberService,
@@ -69,7 +71,9 @@ public class MemberController : Controller
     [HttpGet]
     public IActionResult Create()
     {
-        var memberTypes = _memberService.GetAllMemberTypes();
+        var memberTypes = Commons.Common.MemberTypeSelectListItem(_memberService);
+
+
 
         return View();
     }

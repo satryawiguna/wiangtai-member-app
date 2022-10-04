@@ -6,24 +6,32 @@ namespace WiangtaiMemberApp.Web.Commons;
 
 public class Common
 {
-    private readonly IMemberService _memberService;
-
-    public Common(IMemberService memberService)
+    public Common()
     {
-        _memberService = memberService;
     }
 
-    public static SelectList MemberTypeSelectListItem(bool? bitPreRegister)
+    public static async Task<SelectList> MemberTypeSelectListItem(IMemberService memberService, bool? bitPreRegister = null)
     {
         if (bitPreRegister != null)
-        { 
-            //return new SelectList(await _memberService.GetAllMemberTypesByFilter(mt => mt.intCustomerType == 1 && mt.bitPreRegister == bitPreRegister.Value), "MemberTypeID", "MemberType1");
+        {
+            var items = await memberService.GetAllMemberTypesByFilter(mt => mt.intCustomerType == 1 && mt.bitPreRegister == bitPreRegister.Value);
+
+            return new SelectList(items, "MemberTypeID", "MemberTypeName");
         }
         else
         {
-            //
-        }
+            var items = await memberService.GetAllMemberTypesByFilter(mt => mt.intCustomerType == 1);
 
-        return null;
+            return new SelectList(items, "MemberTypeID", "MemberTypeName");
+        }
+    }
+
+    public enum RewardType
+    {
+        Point = 0,
+        Rebate = 1,
+        Subsidy = 2,
+        Coupon = 3,
+        eToken = 4
     }
 }

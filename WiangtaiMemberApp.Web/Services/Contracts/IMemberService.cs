@@ -4,6 +4,7 @@ using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Model.Request;
 using WiangtaiMemberApp.Model.Request.Member;
 using WiangtaiMemberApp.Model.Response;
+using WiangtaiMemberApp.Model.Response.Member;
 
 namespace WiangtaiMemberApp.Web.Services.Contracts;
 
@@ -11,9 +12,9 @@ public interface IMemberService
 {
     Task<IEnumerable<Member>> GetAllMembers();
 
-    Task<SearchResponseDto<Member>> GetSearchMembers(SearchRequestDto searchRequest, int? intNoType, int? memberType);
+    Task<SearchResponseDto<MemberDto>> GetSearchMembers(SearchRequestDto searchRequest, int? intNoType, int? memberType);
 
-    Task<PageSearchResponseDto<Member>> GetPageSearchMembers(PageSearchRequestDto pageSearchRequest, int? intNoType, int? memberType);
+    Task<PageSearchResponseDto<MemberDto>> GetPageSearchMembers(PageSearchRequestDto pageSearchRequest, int? intNoType, int? memberType);
 
     Task<Member> GetMemberByID(string memberId);
 

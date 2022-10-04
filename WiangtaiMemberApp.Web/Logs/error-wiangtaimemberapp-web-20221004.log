@@ -1,0 +1,4 @@
+2022-10-04 07:55:01.721 +08:00 [WRN] 0HML5JAN2TEC4:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-04 07:56:53.412 +08:00 [WRN] 0HML5JBOOF1DS:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-04 07:58:21.471 +08:00 [WRN] 0HML5JCJ0IIEE:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-04 08:06:39.208 +08:00 [WRN] 0HML5JH7B87KO:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.

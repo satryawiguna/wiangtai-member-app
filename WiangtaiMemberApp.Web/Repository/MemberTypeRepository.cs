@@ -17,7 +17,12 @@ public class MemberTypeRepository : BaseRepository<MemberType>, IMemberTypeRepos
         _mapper = mapper;
     }
 
-    public List<MemberType> GetSelectListByFilter(Expression<Func<MemberType, bool>> filter)
+    public MemberType GetById(Guid id)
+    {
+        return _entities.Find(id);
+    }
+
+    public IEnumerable<MemberType> GetSelectListByFilter(Expression<Func<MemberType, bool>> filter)
     {
         return _entities.Where(filter).OrderBy(mt => mt.MemberTypeName).ToList();
     }

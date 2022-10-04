@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using WiangtaiMemberApp.Model;
+
 
 namespace WiangtaiMemberApp.Data;
 
@@ -14,6 +17,8 @@ public class WiangtaiMemberAppDbContext : DbContext
     public DbSet<Currency> Currency { get; set; }
 
     public DbSet<Member> Member { get; set; }
+
+    public DbSet<MemberReward> MemberReward { get; set; }
 
     public DbSet<Membership> Membership { get; set; }
 
@@ -268,6 +273,133 @@ public class WiangtaiMemberAppDbContext : DbContext
 
             entity.HasMany(r => r.Memberships)
                 .WithOne(r => r.Member)
+                .HasForeignKey(r => r.MemberID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasMany(r => r.MemberRewards)
+                .WithOne(r => r.Member)
+                .HasForeignKey(r => r.MemberID)
+                .OnDelete(DeleteBehavior.NoAction);
+        });
+
+        modelBuilder.Entity<MemberReward>(entity =>
+        {
+            entity.ToTable("MemberReward");
+
+            entity.HasKey(e => e.RewardID);
+
+            entity.Property(e => e.RewardID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("RewardID");
+
+            entity.Property(e => e.MemberID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("MemberID")
+                .IsRequired(true);
+
+            entity.Property(e => e.ToMemberID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("ToMemberID")
+                .IsRequired(false);
+
+            entity.Property(e => e.RewardMethod)
+                .HasColumnType("tinyint")
+                .HasColumnName("RewardMethod")
+                .IsRequired(true);
+
+            entity.Property(e => e.RewardType)
+                .HasColumnType("tinyint")
+                .HasColumnName("RewardType")
+                .IsRequired(true);
+
+            entity.Property(e => e.RewardValue)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("RewardValue")
+                .IsRequired(false);
+
+            entity.Property(e => e.UsageAmount)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("UsageAmount")
+                .IsRequired(false);
+
+            entity.Property(e => e.RewardRefNo)
+                .HasColumnType("bigint(20)")
+                .HasColumnName("UsageAmount")
+                .IsRequired(true);
+
+            entity.Property(e => e.IssuedDate)
+                .HasColumnName("IssuedDate")
+                .IsRequired(false);
+
+            entity.Property(e => e.EffectiveDate)
+                .HasColumnName("EffectiveDate")
+                .IsRequired(false);
+
+            entity.Property(e => e.ExpiryDate)
+                .HasColumnName("ExpiryDate")
+                .IsRequired(false);
+
+            entity.Property(e => e.ConsumeValue)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("ConsumeValue")
+                .IsRequired(false);
+
+            entity.Property(e => e.BalanceValue)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("BalanceValue")
+                .IsRequired(false);
+
+            entity.Property(e => e.Remarks)
+                .HasColumnType("text")
+                .HasColumnName("Remarks")
+                .IsRequired(false);
+
+            entity.Property(e => e.CreatedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("CreatedBy")
+                .IsRequired(true);
+
+            entity.Property(e => e.CreatedDate)
+                .HasColumnName("CreatedDate")
+                .IsRequired(true);
+
+            entity.Property(e => e.ModifiedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("ModifiedBy")
+                .IsRequired(true);
+
+            entity.Property(e => e.ModifiedDate)
+                .HasColumnName("ModifiedDate")
+                .IsRequired(true);
+
+            entity.Property(e => e.EntitlementDate)
+                .HasColumnName("EntitlementDate")
+                .IsRequired(true);
+
+            entity.Property(e => e.RewardFundID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("RewardFundID")
+                .IsRequired(false);
+
+            entity.Property(e => e.idBatch)
+                .HasColumnType("varchar(200)")
+                .HasColumnName("idBatch")
+                .IsRequired(true);
+
+            entity.Property(e => e.isExpired)
+                .HasColumnType("bool")
+                .HasColumnName("isExpired")
+                .IsRequired(false);
+
+            entity.Property(e => e.decPointCost)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("decPointCost")
+                .IsRequired(false);
+
+
+
+            entity.HasOne(r => r.Member)
+                .WithMany(r => r.MemberRewards)
                 .HasForeignKey(r => r.MemberID)
                 .OnDelete(DeleteBehavior.NoAction);
         });
@@ -842,5 +974,15 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasForeignKey<UserProfile>(r => r.UserID)
                 .OnDelete(DeleteBehavior.Cascade);
         });
+    }
+
+    [DbFunction("LoyaltyEntities", "GetRedemptionAllowedFund")]
+    public virtual IQueryable<Guid?> GetRedemptionAllowedFund(Guid? redemptionProductId)
+    {
+        var redemptionProductIdParameter = redemptionProductId.HasValue ?
+            new ObjectParameter("RedemptionProductId", redemptionProductId) :
+            new ObjectParameter("RedemptionProductId", typeof(Guid));
+
+        return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<Guid?>("[LoyaltyEntities].[GetRedemptionAllowedFund](@RedemptionProductId)", redemptionProductIdParameter);
     }
 }

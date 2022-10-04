@@ -32,4 +32,5 @@ public class Member
     public virtual SalaryRange SalaryRange { get; set; }
 
     public virtual ICollection<Membership> Memberships { get; set; }
+    public virtual ICollection<MemberReward> MemberRewards { get; set; }
 }

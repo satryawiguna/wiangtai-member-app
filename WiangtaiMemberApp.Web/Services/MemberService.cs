@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Reflection;
+using AutoMapper;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Model.Request;
 using WiangtaiMemberApp.Model.Request.Member;
 using WiangtaiMemberApp.Model.Response;
+using WiangtaiMemberApp.Model.Response.Member;
 using WiangtaiMemberApp.Web.Repository;
 using WiangtaiMemberApp.Web.Repository.Contracts;
 using WiangtaiMemberApp.Web.Services.Contracts;
@@ -17,11 +19,15 @@ public class MemberService : IMemberService
 
     private readonly IMemberTypeRepository _memberTypeRepository;
 
+    private readonly IMapper _mapper;
+
     public MemberService(IMemberRepository memberRepository,
-        IMemberTypeRepository memberTypeRepository)
+        IMemberTypeRepository memberTypeRepository,
+        IMapper mapper)
     {
         _memberRepository = memberRepository;
         _memberTypeRepository = memberTypeRepository;
+        _mapper = mapper;
     }
 
     public async Task<IEnumerable<Member>> GetAllMembers()
@@ -29,12 +35,12 @@ public class MemberService : IMemberService
         return _memberRepository.GetAll();
     }
 
-    public async Task<SearchResponseDto<Member>> GetSearchMembers(SearchRequestDto searchRequest, int? intNoType, int? memberType)
+    public async Task<SearchResponseDto<MemberDto>> GetSearchMembers(SearchRequestDto searchRequest, int? intNoType, int? memberType)
     {
         return _memberRepository.GetSearch(searchRequest, intNoType, memberType);
     }
 
-    public async Task<PageSearchResponseDto<Member>> GetPageSearchMembers(PageSearchRequestDto pageSearchRequest, int? intNoType, int? memberType)
+    public async Task<PageSearchResponseDto<MemberDto>> GetPageSearchMembers(PageSearchRequestDto pageSearchRequest, int? intNoType, int? memberType)
     {
         return _memberRepository.GetPageSearch(pageSearchRequest, intNoType, memberType);
     }

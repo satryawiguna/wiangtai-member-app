@@ -6,5 +6,7 @@ namespace WiangtaiMemberApp.Web.Repository.Contracts;
 
 public interface IMemberTypeRepository : IBaseRepository<MemberType>
 {
-    public IEnumerable<MemberType> GetSelectListByFilter(Expression<Func<MemberType, bool>> filter);
+    MemberType GetById(Guid id);
+
+    IEnumerable<MemberType> GetSelectListByFilter(Expression<Func<MemberType, bool>> filter);
 }

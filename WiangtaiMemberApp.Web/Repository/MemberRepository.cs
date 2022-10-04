@@ -9,6 +9,7 @@ using WiangtaiMemberApp.Data;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Model.Request;
 using WiangtaiMemberApp.Model.Response;
+using WiangtaiMemberApp.Model.Response.Member;
 using WiangtaiMemberApp.Web.Commons.Extensions;
 using WiangtaiMemberApp.Web.Repository.Contracts;
 using Z.EntityFramework.Plus;
@@ -26,7 +27,7 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
         _mapper = mapper;
     }
 
-    public SearchResponseDto<Member> GetSearch(SearchRequestDto searchRequestDto, int? intNoType, int? memberType)
+    public SearchResponseDto<MemberDto> GetSearch(SearchRequestDto searchRequestDto, int? intNoType, int? memberType)
     {
         var members = _entities
             .Where(member => String.IsNullOrWhiteSpace(searchRequestDto.keyword) ||
@@ -67,14 +68,14 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
 
         var data = members.ToList();
 
-        return new SearchResponseDto<Member>
+        return new SearchResponseDto<MemberDto>
         {
             Total = members.Count(),
-            Data = _mapper.Map<IEnumerable<Member>>(data)
+            Data = _mapper.Map<IEnumerable<MemberDto>>(data)
         };
     }
 
-    public PageSearchResponseDto<Member> GetPageSearch(PageSearchRequestDto pageSearchRequest, int? intNoType, int? memberType)
+    public PageSearchResponseDto<MemberDto> GetPageSearch(PageSearchRequestDto pageSearchRequest, int? intNoType, int? memberType)
     {
         var members = _entities
             .Where(member => String.IsNullOrWhiteSpace(pageSearchRequest.keyword) ||
@@ -117,14 +118,15 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
             .Take(pageSearchRequest.limit)
             .ToList();
 
-        return new PageSearchResponseDto<Member>
+        return new PageSearchResponseDto<MemberDto>
         {
             Total = members.Count(),
             Offset = pageSearchRequest.offset,
             Limit = pageSearchRequest.limit,
-            Data = _mapper.Map<IEnumerable<Member>>(data)
+            Data = _mapper.Map<IEnumerable<MemberDto>>(data)
         };
 
     }
+
 }
 

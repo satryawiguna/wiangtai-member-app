@@ -17,7 +17,6 @@ public class MapperProvider
         var mapperConfig = new MapperConfiguration(config =>
         {
             config.ConstructServicesUsing(_container.GetInstance);
-
             config.AddProfile<DefaultMappingProfile>();
         });
 
