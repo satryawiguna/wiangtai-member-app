@@ -47,6 +47,17 @@
           }
         }
       },
+      "EntityFramework.Functions/1.5.0": {
+        "dependencies": {
+          "EntityFramework": "6.4.4"
+        },
+        "runtime": {
+          "lib/netstandard2.1/EntityFramework.Functions.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          }
+        }
+      },
       "Microsoft.AspNetCore.JsonPatch/6.0.9": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
@@ -597,6 +608,7 @@
       "WiangtaiMemberApp.Data/1.0.0": {
         "dependencies": {
           "EntityFramework": "6.4.4",
+          "EntityFramework.Functions": "1.5.0",
           "Microsoft.EntityFrameworkCore": "6.0.9",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.9",
@@ -635,6 +647,13 @@
       "sha512": "sha512-yj1+/4tci7Panu3jKDHYizxwVm0Jvm7b7m057b5h4u8NUHGCR8WIWirBTw+8EptRffwftIWPBeIRGNKD1ewEMQ==",
       "path": "entityframework/6.4.4",
       "hashPath": "entityframework.6.4.4.nupkg.sha512"
+    },
+    "EntityFramework.Functions/1.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mf4kYrHTEVXVlJdT4wbT4zVlIrSd6xLW2CjWAnGGsvclvnTNNigbW9mdtIgiMGdFUq7DC0skNofnuSnbvFQRKg==",
+      "path": "entityframework.functions/1.5.0",
+      "hashPath": "entityframework.functions.1.5.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.JsonPatch/6.0.9": {
       "type": "package",

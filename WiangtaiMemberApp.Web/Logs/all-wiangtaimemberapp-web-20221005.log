@@ -1,0 +1,169 @@
+2022-10-05 04:41:46.243 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-10-05 04:41:46.378 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-10-05 04:41:46.379 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-10-05 04:41:46.379 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-10-05 04:41:49.126 +08:00 [WRN] 0HML693DB6GC8:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-05 04:43:03.380 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-10-05 04:43:03.471 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-10-05 04:43:03.472 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-10-05 04:43:03.472 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-10-05 04:43:04.616 +08:00 [WRN] 0HML6944A0MNA:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-05 04:46:36.576 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-10-05 04:46:36.658 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-10-05 04:46:36.658 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-10-05 04:46:36.658 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-10-05 04:46:37.926 +08:00 [WRN] 0HML6963SKHUC:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-05 04:46:40.042 +08:00 [INF] 0HML6963SKHUC:00000003   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-10-05 05:16:29.239 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-10-05 05:16:29.336 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-10-05 05:16:29.336 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-10-05 05:16:29.336 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-10-05 05:16:30.531 +08:00 [WRN] 0HML69MQ3O8PG:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-05 05:57:19.645 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-10-05 05:57:19.763 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-10-05 05:57:19.763 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-10-05 05:57:19.763 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-10-05 05:57:20.886 +08:00 [WRN] 0HML6ADKCPLBA:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-05 06:03:01.725 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-10-05 06:03:01.843 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-10-05 06:03:01.843 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-10-05 06:03:01.843 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-10-05 06:03:03.009 +08:00 [WRN] 0HML6AGQB9DCU:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-05 06:03:05.095 +08:00 [INF] 0HML6AGQB9DCU:00000003   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-10-05 06:04:06.198 +08:00 [INF] 0HML6AGQB9DD0:00000002  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (131ms) [Parameters=[@__username_0='?' (Size = 100) (DbType = AnsiString), @__sha256_hash_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[UserID], [s].[CreatedBy], [s].[CreatedDate], [s].[ModifiedBy], [s].[ModifiedDate], [s].[UserLogin], [s].[UserName], [s].[UserPassword], [s].[UserStatus], [s].[bMustChangePassword], [s].[bSuspend], [s].[dteChangepass], [s].[dteSuspend], [s].[intAttempts]
+FROM [SecurityUser] AS [s]
+WHERE ([s].[UserName] = @__username_0) AND ([s].[UserPassword] = @__sha256_hash_1)
+2022-10-05 06:10:10.189 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-10-05 06:10:10.306 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-10-05 06:10:10.306 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-10-05 06:10:10.306 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-10-05 06:10:11.364 +08:00 [WRN] 0HML6AKQ18UKS:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-05 06:10:13.464 +08:00 [INF] 0HML6AKQ18UKS:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-10-05 06:11:21.865 +08:00 [WRN] 0HML6AKQ18UKS:00000004  Anonymous - Microsoft.EntityFrameworkCore.Query Possible unintended use of method 'Equals' for arguments 'm.intNoType' and '@__pageSearchRequest_keyword_0' of different types in a query. This comparison will always return false.
+2022-10-05 06:11:23.502 +08:00 [INF] 0HML6AKQ18UKS:00000004  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (578ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MemberID], [m].[BirthDate], [m].[CreatedBy], [m].[CreatedDate], [m].[DisplayName], [m].[Email], [m].[FirstName], [m].[Gender], [m].[LastName], [m].[MaritalStatus], [m].[MemberSince], [m].[MemberTypeID], [m].[MobilePhone], [m].[ModifiedBy], [m].[ModifiedDate], [m].[Notification], [m].[PassportNo], [m].[RaceTypeID], [m].[ReligionID], [m].[SalaryRangeID], [m].[intNoType]
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+ORDER BY [m].[CreatedDate] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2022-10-05 06:11:49.950 +08:00 [WRN] 0HML6AKQ18UKS:00000004  Anonymous - Microsoft.EntityFrameworkCore.Query Possible unintended use of method 'Equals' for arguments 'm.intNoType' and '@__pageSearchRequest_keyword_0' of different types in a query. This comparison will always return false.
+2022-10-05 06:11:50.329 +08:00 [INF] 0HML6AKQ18UKS:00000004  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (92ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+2022-10-05 06:13:42.169 +08:00 [WRN] 0HML6AKQ18UKS:00000005  Anonymous - Microsoft.EntityFrameworkCore.Query Possible unintended use of method 'Equals' for arguments 'm.intNoType' and '@__pageSearchRequest_keyword_0' of different types in a query. This comparison will always return false.
+2022-10-05 06:13:42.563 +08:00 [INF] 0HML6AKQ18UKS:00000005  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (106ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MemberID], [m].[BirthDate], [m].[CreatedBy], [m].[CreatedDate], [m].[DisplayName], [m].[Email], [m].[FirstName], [m].[Gender], [m].[LastName], [m].[MaritalStatus], [m].[MemberSince], [m].[MemberTypeID], [m].[MobilePhone], [m].[ModifiedBy], [m].[ModifiedDate], [m].[Notification], [m].[PassportNo], [m].[RaceTypeID], [m].[ReligionID], [m].[SalaryRangeID], [m].[intNoType]
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+ORDER BY [m].[CreatedDate] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2022-10-05 06:13:42.927 +08:00 [INF] 0HML6AKQ18UKS:00000005  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (95ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+2022-10-05 06:13:46.549 +08:00 [INF] 0HML6AKQ18UKS:00000006  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (104ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MemberID], [m].[BirthDate], [m].[CreatedBy], [m].[CreatedDate], [m].[DisplayName], [m].[Email], [m].[FirstName], [m].[Gender], [m].[LastName], [m].[MaritalStatus], [m].[MemberSince], [m].[MemberTypeID], [m].[MobilePhone], [m].[ModifiedBy], [m].[ModifiedDate], [m].[Notification], [m].[PassportNo], [m].[RaceTypeID], [m].[ReligionID], [m].[SalaryRangeID], [m].[intNoType]
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+ORDER BY [m].[CreatedDate] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2022-10-05 06:13:46.905 +08:00 [INF] 0HML6AKQ18UKS:00000006  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (91ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+2022-10-05 06:20:26.357 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-10-05 06:20:26.514 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-10-05 06:20:26.515 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-10-05 06:20:26.515 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-10-05 06:20:27.622 +08:00 [WRN] 0HML6AQHLPBMS:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-05 06:20:29.634 +08:00 [INF] 0HML6AQHLPBMS:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-10-05 06:21:42.680 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-10-05 06:21:42.793 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-10-05 06:21:42.793 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-10-05 06:21:42.793 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-10-05 06:21:43.911 +08:00 [WRN] 0HML6AR8DA7BI:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-05 06:21:45.817 +08:00 [INF] 0HML6AR8DA7BI:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-10-05 06:21:52.805 +08:00 [WRN] 0HML6AR8DA7BI:00000004  Anonymous - Microsoft.EntityFrameworkCore.Query Possible unintended use of method 'Equals' for arguments 'm.intNoType' and '@__pageSearchRequest_keyword_0' of different types in a query. This comparison will always return false.
+2022-10-05 06:21:54.036 +08:00 [INF] 0HML6AR8DA7BI:00000004  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (200ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MemberID], [m].[BirthDate], [m].[CreatedBy], [m].[CreatedDate], [m].[DisplayName], [m].[Email], [m].[FirstName], [m].[Gender], [m].[LastName], [m].[MaritalStatus], [m].[MemberSince], [m].[MemberTypeID], [m].[MobilePhone], [m].[ModifiedBy], [m].[ModifiedDate], [m].[Notification], [m].[PassportNo], [m].[RaceTypeID], [m].[ReligionID], [m].[SalaryRangeID], [m].[intNoType]
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+ORDER BY [m].[CreatedDate] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2022-10-05 06:21:54.256 +08:00 [WRN] 0HML6AR8DA7BI:00000004  Anonymous - Microsoft.EntityFrameworkCore.Query Possible unintended use of method 'Equals' for arguments 'm.intNoType' and '@__pageSearchRequest_keyword_0' of different types in a query. This comparison will always return false.
+2022-10-05 06:21:54.642 +08:00 [INF] 0HML6AR8DA7BI:00000004  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (89ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+2022-10-05 06:36:32.276 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-10-05 06:36:32.417 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-10-05 06:36:32.417 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-10-05 06:36:32.417 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-10-05 06:36:33.507 +08:00 [WRN] 0HML6B3HHI0J2:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-05 06:36:35.691 +08:00 [INF] 0HML6B3HHI0J2:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-10-05 06:36:40.896 +08:00 [WRN] 0HML6B3HHI0J2:00000004  Anonymous - Microsoft.EntityFrameworkCore.Query Possible unintended use of method 'Equals' for arguments 'm.intNoType' and '@__pageSearchRequest_keyword_0' of different types in a query. This comparison will always return false.
+2022-10-05 06:36:42.146 +08:00 [INF] 0HML6B3HHI0J2:00000004  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (201ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MemberID], [m].[BirthDate], [m].[CreatedBy], [m].[CreatedDate], [m].[DisplayName], [m].[Email], [m].[FirstName], [m].[Gender], [m].[LastName], [m].[MaritalStatus], [m].[MemberSince], [m].[MemberTypeID], [m].[MobilePhone], [m].[ModifiedBy], [m].[ModifiedDate], [m].[Notification], [m].[PassportNo], [m].[RaceTypeID], [m].[ReligionID], [m].[SalaryRangeID], [m].[intNoType]
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+ORDER BY [m].[CreatedDate] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2022-10-05 06:36:42.345 +08:00 [WRN] 0HML6B3HHI0J2:00000004  Anonymous - Microsoft.EntityFrameworkCore.Query Possible unintended use of method 'Equals' for arguments 'm.intNoType' and '@__pageSearchRequest_keyword_0' of different types in a query. This comparison will always return false.
+2022-10-05 06:36:42.714 +08:00 [INF] 0HML6B3HHI0J2:00000004  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (92ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+2022-10-05 06:47:43.906 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-10-05 06:47:44.071 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-10-05 06:47:44.071 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-10-05 06:47:44.071 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-10-05 06:47:45.159 +08:00 [WRN] 0HML6B9PMJSRG:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-05 06:47:47.097 +08:00 [INF] 0HML6B9PMJSRG:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-10-05 06:52:18.413 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-10-05 06:52:18.507 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-10-05 06:52:18.507 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-10-05 06:52:18.507 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-10-05 06:52:19.630 +08:00 [WRN] 0HML6BCBFQC0G:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-05 06:52:21.712 +08:00 [INF] 0HML6BCBFQC0G:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-10-05 06:52:25.396 +08:00 [WRN] 0HML6BCBFQC0G:00000004  Anonymous - Microsoft.EntityFrameworkCore.Query Possible unintended use of method 'Equals' for arguments 'm.intNoType' and '@__pageSearchRequest_keyword_0' of different types in a query. This comparison will always return false.
+2022-10-05 06:52:26.619 +08:00 [INF] 0HML6BCBFQC0G:00000004  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (189ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MemberID], [m].[BirthDate], [m].[CreatedBy], [m].[CreatedDate], [m].[DisplayName], [m].[Email], [m].[FirstName], [m].[Gender], [m].[LastName], [m].[MaritalStatus], [m].[MemberSince], [m].[MemberTypeID], [m].[MobilePhone], [m].[ModifiedBy], [m].[ModifiedDate], [m].[Notification], [m].[PassportNo], [m].[RaceTypeID], [m].[ReligionID], [m].[SalaryRangeID], [m].[intNoType]
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+ORDER BY [m].[CreatedDate] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2022-10-05 06:52:26.830 +08:00 [WRN] 0HML6BCBFQC0G:00000004  Anonymous - Microsoft.EntityFrameworkCore.Query Possible unintended use of method 'Equals' for arguments 'm.intNoType' and '@__pageSearchRequest_keyword_0' of different types in a query. This comparison will always return false.
+2022-10-05 06:52:27.279 +08:00 [INF] 0HML6BCBFQC0G:00000004  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (92ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+2022-10-05 06:58:37.760 +08:00 [INF]    - Microsoft.Hosting.Lifetime Now listening on: http://localhost:62412
+2022-10-05 06:58:37.856 +08:00 [INF]    - Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2022-10-05 06:58:37.856 +08:00 [INF]    - Microsoft.Hosting.Lifetime Hosting environment: Development
+2022-10-05 06:58:37.856 +08:00 [INF]    - Microsoft.Hosting.Lifetime Content root path: /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/
+2022-10-05 06:58:38.940 +08:00 [WRN] 0HML6BFSHHLNI:00000002   - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+2022-10-05 06:58:40.975 +08:00 [INF] 0HML6BFSHHLNI:00000002   - Microsoft.EntityFrameworkCore.Infrastructure Entity Framework Core 6.0.9 initialized 'WiangtaiMemberAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: MaxPoolSize=1024 
+2022-10-05 06:58:44.361 +08:00 [WRN] 0HML6BFSHHLNI:00000004  Anonymous - Microsoft.EntityFrameworkCore.Query Possible unintended use of method 'Equals' for arguments 'm.intNoType' and '@__pageSearchRequest_keyword_0' of different types in a query. This comparison will always return false.
+2022-10-05 06:58:45.639 +08:00 [INF] 0HML6BFSHHLNI:00000004  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (192ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MemberID], [m].[BirthDate], [m].[CreatedBy], [m].[CreatedDate], [m].[DisplayName], [m].[Email], [m].[FirstName], [m].[Gender], [m].[LastName], [m].[MaritalStatus], [m].[MemberSince], [m].[MemberTypeID], [m].[MobilePhone], [m].[ModifiedBy], [m].[ModifiedDate], [m].[Notification], [m].[PassportNo], [m].[RaceTypeID], [m].[ReligionID], [m].[SalaryRangeID], [m].[intNoType]
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+ORDER BY [m].[CreatedDate] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2022-10-05 06:58:45.850 +08:00 [WRN] 0HML6BFSHHLNI:00000004  Anonymous - Microsoft.EntityFrameworkCore.Query Possible unintended use of method 'Equals' for arguments 'm.intNoType' and '@__pageSearchRequest_keyword_0' of different types in a query. This comparison will always return false.
+2022-10-05 06:58:46.242 +08:00 [INF] 0HML6BFSHHLNI:00000004  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (92ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+2022-10-05 06:59:13.415 +08:00 [INF] 0HML6BFSHHLNN:00000002  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (119ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MemberID], [m].[BirthDate], [m].[CreatedBy], [m].[CreatedDate], [m].[DisplayName], [m].[Email], [m].[FirstName], [m].[Gender], [m].[LastName], [m].[MaritalStatus], [m].[MemberSince], [m].[MemberTypeID], [m].[MobilePhone], [m].[ModifiedBy], [m].[ModifiedDate], [m].[Notification], [m].[PassportNo], [m].[RaceTypeID], [m].[ReligionID], [m].[SalaryRangeID], [m].[intNoType]
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))
+ORDER BY [m].[CreatedDate] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2022-10-05 06:59:13.771 +08:00 [INF] 0HML6BFSHHLNN:00000002  Anonymous - Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (87ms) [Parameters=[@__pageSearchRequest_keyword_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Member] AS [m]
+WHERE (((((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[FirstName]) > 0)) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[LastName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[DisplayName]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[MobilePhone]) > 0))) OR ((@__pageSearchRequest_keyword_0 LIKE '') OR (CHARINDEX(@__pageSearchRequest_keyword_0, [m].[Email]) > 0))

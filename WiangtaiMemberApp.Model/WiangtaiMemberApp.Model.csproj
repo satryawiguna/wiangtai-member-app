@@ -12,6 +12,7 @@
     <None Remove="Response\" />
     <None Remove="Request\Member\" />
     <None Remove="Response\Member\" />
+    <None Remove="Response\Functions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.9" />
@@ -21,5 +22,6 @@
     <Folder Include="Response\" />
     <Folder Include="Request\Member\" />
     <Folder Include="Response\Member\" />
+    <Folder Include="Response\Functions\" />
   </ItemGroup>
 </Project>

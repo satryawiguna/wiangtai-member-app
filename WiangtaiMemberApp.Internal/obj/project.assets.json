@@ -36,6 +36,18 @@
           "buildTransitive/netcoreapp3.0/EntityFramework.targets": {}
         }
       },
+      "EntityFramework.Functions/1.5.0": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework": "6.4.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/EntityFramework.Functions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/EntityFramework.Functions.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.JsonPatch/6.0.9": {
         "type": "package",
         "dependencies": {
@@ -835,6 +847,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "EntityFramework": "6.4.4",
+          "EntityFramework.Functions": "1.5.0",
           "Microsoft.EntityFrameworkCore": "6.0.9",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.9",
@@ -933,6 +946,23 @@
         "tools/netcoreapp3.0/any/ef6.dll",
         "tools/netcoreapp3.0/any/ef6.pdb",
         "tools/netcoreapp3.0/any/ef6.runtimeconfig.json"
+      ]
+    },
+    "EntityFramework.Functions/1.5.0": {
+      "sha512": "mf4kYrHTEVXVlJdT4wbT4zVlIrSd6xLW2CjWAnGGsvclvnTNNigbW9mdtIgiMGdFUq7DC0skNofnuSnbvFQRKg==",
+      "type": "package",
+      "path": "entityframework.functions/1.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "entityframework.functions.1.5.0.nupkg.sha512",
+        "entityframework.functions.nuspec",
+        "lib/net40/EntityFramework.Functions.dll",
+        "lib/net45/EntityFramework.Functions.dll",
+        "lib/net46/EntityFramework.Functions.dll",
+        "lib/net47/EntityFramework.Functions.dll",
+        "lib/net48/EntityFramework.Functions.dll",
+        "lib/netstandard2.1/EntityFramework.Functions.dll"
       ]
     },
     "Microsoft.AspNetCore.JsonPatch/6.0.9": {

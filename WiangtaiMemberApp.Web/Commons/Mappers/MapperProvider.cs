@@ -20,8 +20,6 @@ public class MapperProvider
             config.AddProfile<DefaultMappingProfile>();
         });
 
-        mapperConfig.AssertConfigurationIsValid();
-
         return new Mapper(mapperConfig, serviceType => _container.GetInstance(serviceType));
     }
 }

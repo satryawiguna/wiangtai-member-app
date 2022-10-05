@@ -23,7 +23,7 @@ public class MemberDto
 
     public string? MemberType { get; set; }
 
-    public long? MemberCard { get; set; }
+    public long[]? MemberCard { get; set; }
 
     public DateTime? MemberSince { get; set; }
 
@@ -43,13 +43,13 @@ public class MemberDto
 
     public byte? Gender { get; set; }
 
-    public RaceType? Race { get; set; }
+    public string? Race { get; set; }
 
     public int? MaritalStatus { get; set; }
 
-    public Religion? Religion { get; set; }
+    public string? Religion { get; set; }
 
-    public SalaryRange? SalaryRange { get; set; }
+    public string? SalaryRange { get; set; }
 
 }
 

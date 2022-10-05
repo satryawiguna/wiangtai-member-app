@@ -120,3 +120,4 @@
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/obj/Debug/net6.0/WiangtaiMemberApp.Web.pdb
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/obj/Debug/net6.0/WiangtaiMemberApp.Web.genruntimeconfig.cache
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/obj/Debug/net6.0/ref/WiangtaiMemberApp.Web.dll
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/bin/Debug/net6.0/EntityFramework.Functions.dll

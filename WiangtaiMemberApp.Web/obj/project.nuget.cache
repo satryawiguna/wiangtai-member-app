@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "J31kTpAuzqer8xUrT4j7dsIgxqWOulOjLBBPRL0hL6jMB5wn8YUOkfKwxa8+j7oZDqNtWxpljHKMY8tDxR852w==",
+  "dgSpecHash": "2wvkusHnOh1Ub7i4xZ755qwkCz6+hoayGvTUOk9VhBr0lEiRaGBANXG9w42fCieu5kWyZVFENa95thnx9tdgxg==",
   "success": true,
   "projectFilePath": "/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/WiangtaiMemberApp.Web.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "/Users/satryawiguna/.nuget/packages/delegatedecompiler/0.28.0/delegatedecompiler.0.28.0.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/delegatedecompiler.entityframework/0.28.0/delegatedecompiler.entityframework.0.28.0.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/entityframework/6.4.4/entityframework.6.4.4.nupkg.sha512",
+    "/Users/satryawiguna/.nuget/packages/entityframework.functions/1.5.0/entityframework.functions.1.5.0.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/microsoft.aspnetcore.antiforgery/2.1.1/microsoft.aspnetcore.antiforgery.2.1.1.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.1.1/microsoft.aspnetcore.authentication.abstractions.2.1.1.nupkg.sha512",

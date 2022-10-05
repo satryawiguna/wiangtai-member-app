@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Dm2kPy20mPAen7Sks7P+ZqwlVJ75e1NrvPjFkNU/PR+dfPKImR5NNZ3LUEg552JeAlMvf+GXztfqIiZPESNF1A==",
+  "dgSpecHash": "2AuugxHjG+ArgYjUmwCfAzCHZQdQTDzG1yaquR7L4Np6lQ7R928ghkn9VjnPjmxulr4bKUMGP0LALt31Zv0Qkw==",
   "success": true,
   "projectFilePath": "/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Internal/WiangtaiMemberApp.Internal.csproj",
   "expectedPackageFiles": [
     "/Users/satryawiguna/.nuget/packages/automapper/12.0.0/automapper.12.0.0.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/entityframework/6.4.4/entityframework.6.4.4.nupkg.sha512",
+    "/Users/satryawiguna/.nuget/packages/entityframework.functions/1.5.0/entityframework.functions.1.5.0.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/microsoft.aspnetcore.jsonpatch/6.0.9/microsoft.aspnetcore.jsonpatch.6.0.9.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/6.0.9/microsoft.aspnetcore.mvc.newtonsoftjson.6.0.9.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/microsoft.aspnetcore.mvc.versioning/5.0.0/microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",

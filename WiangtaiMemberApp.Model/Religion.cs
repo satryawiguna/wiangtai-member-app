@@ -4,7 +4,7 @@ namespace WiangtaiMemberApp.Model;
 public class Religion
 {
     public Guid ReligionID { get; set; }
-    public string Religion1 { get; set; }
+    public string ReligionName { get; set; }
     public Guid CreatedBy { get; set; }
     public DateTime CreatedDate { get; set; }
     public Guid ModifiedBy { get; set; }

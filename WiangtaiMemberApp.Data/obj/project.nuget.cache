@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "+8cR2/sP4VyJvqTXICy+n8d4fGwbf/LVlQ8amImlMJJwldVPn2RfZL0MgL2eHy5tCSdMsXxn5x0KRyz2NTwo1g==",
+  "dgSpecHash": "tQC6YApr/YxvcvVtY0Lok5YbB2eejx5j6qQ0zcMlnouJTUqXSty0W6mtQpQCkmOyzy1/PmVThVsBY9uNGJrmbg==",
   "success": true,
   "projectFilePath": "/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/WiangtaiMemberApp.Data.csproj",
   "expectedPackageFiles": [
     "/Users/satryawiguna/.nuget/packages/entityframework/6.4.4/entityframework.6.4.4.nupkg.sha512",
+    "/Users/satryawiguna/.nuget/packages/entityframework.functions/1.5.0/entityframework.functions.1.5.0.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/microsoft.aspnetcore.jsonpatch/6.0.9/microsoft.aspnetcore.jsonpatch.6.0.9.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/6.0.9/microsoft.aspnetcore.mvc.newtonsoftjson.6.0.9.nupkg.sha512",
     "/Users/satryawiguna/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",

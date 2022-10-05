@@ -27,6 +27,12 @@ public class MemberController : Controller
 
     public IActionResult Index()
     {
+        //db.MemberTypes.OrderBy().Select(m => new SelectListItem()
+        //{
+        //    Text = m.MemberType1,
+        //    Value = m.MemberTypeID.ToString()
+        //}).ToList();
+
         return View();
     }
 

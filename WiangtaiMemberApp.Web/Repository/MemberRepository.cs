@@ -56,12 +56,12 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
                 break;
         }
 
-        if (intNoType != null)
+        if (intNoType != 0)
         {
             members.Where(member => member.intNoType.Equals(intNoType));
         }
 
-        if (memberType != null)
+        if (memberType != 0)
         {
             members.Where(member => member.MemberTypeID.Equals(intNoType));
         }
@@ -71,7 +71,7 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
         return new SearchResponseDto<MemberDto>
         {
             Total = members.Count(),
-            Data = _mapper.Map<IEnumerable<MemberDto>>(data)
+            Data = _mapper.Map<IEnumerable<Member>, IEnumerable<MemberDto>>(data)
         };
     }
 
@@ -104,12 +104,12 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
                 break;
         }
 
-        if (intNoType != null)
+        if (intNoType != 0)
         {
             members.Where(member => member.intNoType.Equals(intNoType));
         }
 
-        if (memberType != null)
+        if (memberType != 0)
         {
             members.Where(member => member.MemberTypeID.Equals(intNoType));
         }
@@ -123,7 +123,7 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
             Total = members.Count(),
             Offset = pageSearchRequest.offset,
             Limit = pageSearchRequest.limit,
-            Data = _mapper.Map<IEnumerable<MemberDto>>(data)
+            Data = _mapper.Map<IEnumerable<Member>, IEnumerable<MemberDto>>(data)
         };
 
     }

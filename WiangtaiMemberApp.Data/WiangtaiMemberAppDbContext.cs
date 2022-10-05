@@ -2,7 +2,7 @@
 using System.Data.Entity.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using WiangtaiMemberApp.Model;
-
+using WiangtaiMemberApp.Model.Response.Functions;
 
 namespace WiangtaiMemberApp.Data;
 
@@ -34,6 +34,8 @@ public class WiangtaiMemberAppDbContext : DbContext
 
     public DbSet<UserProfile> UserProfile { get; set; }
 
+    public DbSet<Setting> Setting { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -60,21 +62,17 @@ public class WiangtaiMemberAppDbContext : DbContext
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired(true);
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.CreatedDate)
-                .HasColumnName("CreatedDate")
-                .IsRequired(true);
+                .HasColumnName("CreatedDate");
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired(true);
+                .HasColumnName("ModifiedBy");
 
             entity.Property(e => e.ModifiedDate)
-                .HasColumnName("ModifiedDate")
-                .IsRequired(true);
+                .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.CardNumberEncrypted)
                 .HasColumnName("CardNumberEncrypted")
@@ -117,21 +115,17 @@ public class WiangtaiMemberAppDbContext : DbContext
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired(true);
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.CreatedDate)
-                .HasColumnName("CreatedDate")
-                .IsRequired(true);
+                .HasColumnName("CreatedDate");
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired(true);
+                .HasColumnName("ModifiedBy");
 
             entity.Property(e => e.ModifiedDate)
-                .HasColumnName("ModifiedDate")
-                .IsRequired(true);
+                .HasColumnName("ModifiedDate");
 
 
 
@@ -228,28 +222,24 @@ public class WiangtaiMemberAppDbContext : DbContext
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired(true);
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.CreatedDate)
-                .HasColumnName("CreatedDate")
-                .IsRequired(true);
+                .HasColumnName("CreatedDate");
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired(true);
+                .HasColumnName("ModifiedBy");
 
             entity.Property(e => e.ModifiedDate)
-                .HasColumnName("ModifiedDate")
-                .IsRequired(true);
+                .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.intNoType)
                .HasColumnType("tinyint")
                .HasColumnName("intNoType")
                .IsRequired(false);
 
-            
+
 
             entity.HasOne(r => r.MemberType)
                 .WithMany(r => r.Members)
@@ -324,7 +314,7 @@ public class WiangtaiMemberAppDbContext : DbContext
 
             entity.Property(e => e.RewardRefNo)
                 .HasColumnType("bigint(20)")
-                .HasColumnName("UsageAmount")
+                .HasColumnName("RewardRefNo")
                 .IsRequired(true);
 
             entity.Property(e => e.IssuedDate)
@@ -356,21 +346,17 @@ public class WiangtaiMemberAppDbContext : DbContext
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired(true);
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.CreatedDate)
-                .HasColumnName("CreatedDate")
-                .IsRequired(true);
+                .HasColumnName("CreatedDate");
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired(true);
+                .HasColumnName("ModifiedBy");
 
             entity.Property(e => e.ModifiedDate)
-                .HasColumnName("ModifiedDate")
-                .IsRequired(true);
+                .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.EntitlementDate)
                 .HasColumnName("EntitlementDate")
@@ -449,21 +435,17 @@ public class WiangtaiMemberAppDbContext : DbContext
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired(true);
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.CreatedDate)
-                .HasColumnName("CreatedDate")
-                .IsRequired(true);
+                .HasColumnName("CreatedDate");
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired(true);
+                .HasColumnName("ModifiedBy");
 
             entity.Property(e => e.ModifiedDate)
-                .HasColumnName("ModifiedDate")
-                .IsRequired(true);
+                .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.NotifyExpired15Days)
                 .HasColumnType("bool")
@@ -555,21 +537,17 @@ public class WiangtaiMemberAppDbContext : DbContext
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired(true);
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.CreatedDate)
-                .HasColumnName("CreatedDate")
-                .IsRequired(true);
+                .HasColumnName("CreatedDate");
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired(true);
+                .HasColumnName("ModifiedBy");
 
             entity.Property(e => e.ModifiedDate)
-                .HasColumnName("ModifiedDate")
-                .IsRequired(true);
+                .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.CurrencyID)
                 .HasColumnType("uniqueindentifier")
@@ -584,7 +562,7 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.Property(e => e.ValidityPeriod)
                 .HasColumnType("tinyint")
                 .HasColumnName("ValidityPeriod")
-                .IsRequired(false);
+                .IsRequired(true);
 
             entity.Property(e => e.ReferenceCode)
                 .HasColumnType("varchar(50)")
@@ -686,21 +664,19 @@ public class WiangtaiMemberAppDbContext : DbContext
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired(true);
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.CreatedDate)
                 .HasColumnName("CreatedDate");
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired(true);
+                .HasColumnName("ModifiedBy");
 
             entity.Property(e => e.ModifiedDate)
                 .HasColumnName("ModifiedDate");
 
-            
+
 
             entity.HasMany(r => r.SecurityUserRoles)
                 .WithOne(r => r.SecurityRole)
@@ -799,22 +775,18 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .IsRequired(true);
 
             entity.Property(e => e.CreatedDate)
-                .HasColumnName("CreatedDate")
-                .IsRequired(false);
+                .HasColumnName("CreatedDate");
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired(true);
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.ModifiedDate)
-                .HasColumnName("ModifiedDate")
-                .IsRequired(false);
+                .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired(true);
+                .HasColumnName("ModifiedBy");
 
 
 
@@ -850,21 +822,17 @@ public class WiangtaiMemberAppDbContext : DbContext
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired(true);
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.CreatedDate)
-                .HasColumnName("CreatedDate")
-                .IsRequired(false);
+                .HasColumnName("CreatedDate");
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired(true);
+                .HasColumnName("ModifiedBy");
 
             entity.Property(e => e.ModifiedDate)
-                .HasColumnName("ModifiedDate")
-                .IsRequired(false);
+                .HasColumnName("ModifiedDate");
 
 
 
@@ -950,22 +918,18 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .IsRequired(false);
 
             entity.Property(e => e.CreatedDate)
-                .HasColumnName("CreatedDate")
-                .IsRequired(false);
+                .HasColumnName("CreatedDate");
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired(true);
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.ModifiedDate)
-                .HasColumnName("ModifiedDate")
-                .IsRequired(false);
+                .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired(true);
+                .HasColumnName("ModifiedBy");
 
 
 
@@ -974,15 +938,60 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasForeignKey<UserProfile>(r => r.UserID)
                 .OnDelete(DeleteBehavior.Cascade);
         });
+
+        modelBuilder.Entity<Setting>(entity =>
+        {
+            entity.ToTable("tblSetting");
+
+            entity.HasKey(e => e.idSetting);
+
+            entity.Property(e => e.idSetting)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("idSetting");
+
+            entity.Property(e => e.strName)
+                .HasColumnType("varchar(200)")
+                .HasColumnName("strName")
+                .IsRequired(false);
+
+            entity.Property(e => e.strValue)
+                .HasColumnType("varchar(200)")
+                .HasColumnName("strValue")
+                .IsRequired(false);
+
+            entity.Property(e => e.strType)
+                .HasColumnType("varchar(50)")
+                .HasColumnName("strType")
+                .IsRequired(false);
+
+            entity.Property(e => e.intSort)
+                .HasColumnType("smallint")
+                .HasColumnName("intSort")
+                .IsRequired(false);
+
+            entity.Property(e => e.intGroup)
+                .HasColumnType("smallint")
+                .HasColumnName("intGroup")
+                .IsRequired(false);
+        });
+
+
+
+        modelBuilder.Entity<RedemptionAllowedFundDto>(entity =>
+        {
+            entity.HasNoKey();
+        });
     }
 
-    [DbFunction("LoyaltyEntities", "GetRedemptionAllowedFund")]
-    public virtual IQueryable<Guid?> GetRedemptionAllowedFund(Guid? redemptionProductId)
+
+    [DbFunction("GetRedemptionAllowedFund", "dbo")]
+    public virtual IQueryable<RedemptionAllowedFundDto> GetRedemptionAllowedFund(Guid? redemptionProductId)
     {
         var redemptionProductIdParameter = redemptionProductId.HasValue ?
             new ObjectParameter("RedemptionProductId", redemptionProductId) :
             new ObjectParameter("RedemptionProductId", typeof(Guid));
 
-        return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<Guid?>("[LoyaltyEntities].[GetRedemptionAllowedFund](@RedemptionProductId)", redemptionProductIdParameter);
+        return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<RedemptionAllowedFundDto>(string.Format("[{0}].{1}", GetType().Name,
+                    "[GetRedemptionAllowedFund](@RedemptionProductId)"), redemptionProductIdParameter);
     }
 }
