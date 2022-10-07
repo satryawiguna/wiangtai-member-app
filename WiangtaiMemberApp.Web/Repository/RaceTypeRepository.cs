@@ -1,11 +1,14 @@
 ﻿using System;
-namespace WiangtaiMemberApp.Web.Repository
+using WiangtaiMemberApp.Data;
+using WiangtaiMemberApp.Model;
+using WiangtaiMemberApp.Web.Repository.Contracts;
+
+namespace WiangtaiMemberApp.Web.Repository;
+
+public class RaceTypeRepository : BaseRepository<RaceType>, IRaceTypeRepository
 {
-    public class RaceTypeRepository
+    public RaceTypeRepository(WiangtaiMemberAppDbContext context) : base(context)
     {
-        public RaceTypeRepository()
-        {
-        }
     }
 }
 

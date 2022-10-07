@@ -1,4 +1,86 @@
-﻿@page
+﻿@model WiangtaiMemberApp.Web.Models.Member.CreateMemberVM;
+
 @{
+    ViewData["Title"] = "Member";
+    ViewBag.Breadcrumbs = new List<Breadcrumb>()
+{
+        new Breadcrumb("Create", nameof(MemberController.Create), "Create", false),
+        new Breadcrumb("Member", nameof(MemberController.Index), "Member", true)
+    };
+}
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mt-3">
+                        <div class="col-6 form-group">
+                            <label for="FirstName">First Name</label>
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="FirstName">Last Name</label>
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="intNoType">Reference Type</label>
+                            @Html.DropDownList("intNoType", (IEnumerable<SelectListItem>)ViewBag.ReferenceType, "-- Reference Type --", new { @class = "form-control select2" })
+                            @Html.ValidationMessageFor(m => m.intNoType, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="PassportNo">Reference No</label>
+                            @Html.TextBoxFor(m => m.PassportNo, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.PassportNo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="MobilePhone">Mobile Phonee</label>
+                            @Html.TextBoxFor(m => m.MobilePhone, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.MobilePhone, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="Email">Email</label>
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="MemberType">Member Type</label>
+                            @Html.DropDownList("MemberType", (IEnumerable<SelectListItem>)ViewBag.MemberTypes, "-- Member Type --", new { @class = "form-control select2" })
+                            @Html.ValidationMessageFor(m => m.MemberType, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <input type="submit" value="Save Member" class="btn btn-primary mr-3" />
+                            @Html.ActionLink("Back to List", "Index", "Member")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 }
 
+@section Links {
+    <!-- Select2 -->
+    <link rel="stylesheet" href="~/adminlte/plugins/select2/css/select2.min.css">
+}
+
+@section Scripts {
+    <!-- Select2 -->
+    <script src="~/adminlte/plugins/select2/js/select2.full.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.select2').select2();
+        });
+    </script>
+}

@@ -9,10 +9,13 @@ namespace WiangtaiMemberApp.Web.Commons.Mappers.ValueResolver;
 
 public class TotalCashbackBalanceResolver : IValueResolver<Member, MemberDto, decimal>
 {
+    private readonly ILogger<TotalCashbackBalanceResolver> _logger;
     private readonly IMemberRewardRepository _memberRewardRepository;
 
-    public TotalCashbackBalanceResolver(IMemberRewardRepository memberRewardRepository)
+    public TotalCashbackBalanceResolver(ILogger<TotalCashbackBalanceResolver> logger,
+        IMemberRewardRepository memberRewardRepository)
     {
+        _logger = logger;
         _memberRewardRepository = memberRewardRepository;
     }
 

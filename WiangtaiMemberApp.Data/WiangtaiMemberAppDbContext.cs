@@ -1,6 +1,8 @@
 ﻿using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Model.Response.Functions;
 
@@ -35,6 +37,9 @@ public class WiangtaiMemberAppDbContext : DbContext
     public DbSet<UserProfile> UserProfile { get; set; }
 
     public DbSet<Setting> Setting { get; set; }
+
+    public DbSet<ReferenceType> ReferenceType { get; set; }
+
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -522,7 +527,7 @@ public class WiangtaiMemberAppDbContext : DbContext
 
             entity.Property(e => e.MemberTypeName)
                 .HasColumnType("varchar(100)")
-                .HasColumnName("MemberTypeName")
+                .HasColumnName("MemberType")
                 .IsRequired(true);
 
             entity.Property(e => e.MemberTypeDesc)
@@ -975,23 +980,67 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .IsRequired(false);
         });
 
-
-
-        modelBuilder.Entity<RedemptionAllowedFundDto>(entity =>
+        modelBuilder.Entity<ReferenceType>(entity =>
         {
-            entity.HasNoKey();
+            entity.ToTable("tblReferenceType");
+
+            entity.HasKey(e => e.idReferenceType);
+
+            entity.Property(e => e.ReferenceTypeCode)
+                .HasColumnType("int(11)")
+                .HasColumnName("ReferenceTypeCode")
+                .IsRequired(true);
+
+            entity.Property(e => e.ReferenceTypeName)
+                .HasColumnType("varchar(50)")
+                .HasColumnName("ReferenceTypeName")
+                .IsRequired(true);
+
+            entity.Property(e => e.ReferenceTypeLable)
+                .HasColumnType("varchar(50)")
+                .HasColumnName("ReferenceTypeLable")
+                .IsRequired(false);
+
+            entity.Property(e => e.TextboxMask)
+                .HasColumnType("varchar(100)")
+                .HasColumnName("TextboxMask")
+                .IsRequired(false);
+
+            entity.Property(e => e.Validation)
+                .HasColumnType("varchar(100)")
+                .HasColumnName("Validation")
+                .IsRequired(false);
+
+            entity.Property(e => e.isVisible)
+                .HasColumnName("isVisible")
+                .IsRequired(false);
+
+            entity.Property(e => e.intSort)
+                .HasColumnType("int(11)")
+                .HasColumnName("intSort")
+                .IsRequired(false);
+
+            entity.Property(e => e.CreatedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("CreatedBy");
+
+            entity.Property(e => e.CreatedDate)
+                .HasColumnName("CreatedDate");
+
+            entity.Property(e => e.ModifiedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("ModifiedBy");
+
+            entity.Property(e => e.ModifiedDate)
+                .HasColumnName("ModifiedDate");
+
         });
+
+
+
+        modelBuilder.Entity<RedemptionAllowedFundDto>().HasNoKey();
+        modelBuilder.HasDbFunction(typeof(WiangtaiMemberAppDbContext).GetMethod(nameof(GetRedemptionAllowedFund), new[] { typeof(Guid?) }));
     }
 
-
-    [DbFunction("GetRedemptionAllowedFund", "dbo")]
-    public virtual IQueryable<RedemptionAllowedFundDto> GetRedemptionAllowedFund(Guid? redemptionProductId)
-    {
-        var redemptionProductIdParameter = redemptionProductId.HasValue ?
-            new ObjectParameter("RedemptionProductId", redemptionProductId) :
-            new ObjectParameter("RedemptionProductId", typeof(Guid));
-
-        return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<RedemptionAllowedFundDto>(string.Format("[{0}].{1}", GetType().Name,
-                    "[GetRedemptionAllowedFund](@RedemptionProductId)"), redemptionProductIdParameter);
-    }
+    public IQueryable<RedemptionAllowedFundDto> GetRedemptionAllowedFund(Guid? redemptionProductId) => FromExpression(() => GetRedemptionAllowedFund(redemptionProductId));
 }

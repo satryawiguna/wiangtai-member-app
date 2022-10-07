@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using WiangtaiMemberApp.Data;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Web.Repository.Contracts;
@@ -9,21 +10,17 @@ namespace WiangtaiMemberApp.Web.Repository;
 
 public class MemberTypeRepository : BaseRepository<MemberType>, IMemberTypeRepository
 {
-    private readonly IMapper _mapper;
-
-    public MemberTypeRepository(WiangtaiMemberAppDbContext context,
-        IMapper mapper) : base(context)
+    public MemberTypeRepository(WiangtaiMemberAppDbContext context) : base(context)
     {
-        _mapper = mapper;
     }
 
-    public MemberType GetById(Guid id)
+    public MemberType? GetById(Guid id)
     {
         return _entities.Find(id);
     }
 
-    public IEnumerable<MemberType> GetSelectListByFilter(Expression<Func<MemberType, bool>> filter)
+    public IEnumerable<MemberType> GetAll<TOrderBy>(Expression<Func<MemberType, TOrderBy>> orderBy)
     {
-        return _entities.Where(filter).OrderBy(mt => mt.MemberTypeName).ToList();
+        return _entities.OrderBy(orderBy).ToList();
     }
 }

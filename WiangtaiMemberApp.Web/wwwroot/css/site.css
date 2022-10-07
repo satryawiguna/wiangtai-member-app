@@ -1,18 +1,11 @@
-﻿html {
-  font-size: 14px;
+﻿div.dt-buttons {
+    float: right;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.select2-container .select2-selection--single {
+    height: 38px !important;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    margin-top: 2px !important;
 }

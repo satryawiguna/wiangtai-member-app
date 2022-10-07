@@ -27,7 +27,7 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
         _mapper = mapper;
     }
 
-    public SearchResponseDto<MemberDto> GetSearch(SearchRequestDto searchRequestDto, int? intNoType, int? memberType)
+    public SearchResponseDto<MemberDto> GetSearch(SearchRequestDto searchRequestDto, string? memberType, int referenceType)
     {
         var members = _entities
             .Where(member => String.IsNullOrWhiteSpace(searchRequestDto.keyword) ||
@@ -35,7 +35,6 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
                 member.LastName.Contains(searchRequestDto.keyword) ||
                 member.DisplayName.Contains(searchRequestDto.keyword) ||
                 member.MobilePhone.Contains(searchRequestDto.keyword) ||
-                member.intNoType.Equals(searchRequestDto.keyword) ||
                 member.Email.Contains(searchRequestDto.keyword));
 
         bool orderAsc = searchRequestDto.orderDirection == "ASC";
@@ -56,14 +55,14 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
                 break;
         }
 
-        if (intNoType != 0)
+        if (!String.IsNullOrEmpty(memberType))
         {
-            members.Where(member => member.intNoType.Equals(intNoType));
+            members.Where(member => member.MemberTypeID.Equals(memberType));
         }
 
-        if (memberType != 0)
+        if (referenceType != 0)
         {
-            members.Where(member => member.MemberTypeID.Equals(intNoType));
+            members.Where(member => member.intNoType == referenceType);
         }
 
         var data = members.ToList();
@@ -75,7 +74,7 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
         };
     }
 
-    public PageSearchResponseDto<MemberDto> GetPageSearch(PageSearchRequestDto pageSearchRequest, int? intNoType, int? memberType)
+    public PageSearchResponseDto<MemberDto> GetPageSearch(PageSearchRequestDto pageSearchRequest, string? memberType, int referenceType)
     {
         var members = _entities
             .Where(member => String.IsNullOrWhiteSpace(pageSearchRequest.keyword) ||
@@ -83,7 +82,6 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
                 member.LastName.Contains(pageSearchRequest.keyword) ||
                 member.DisplayName.Contains(pageSearchRequest.keyword) ||
                 member.MobilePhone.Contains(pageSearchRequest.keyword) ||
-                member.intNoType.Equals(pageSearchRequest.keyword) ||
                 member.Email.Contains(pageSearchRequest.keyword));
 
         bool orderAsc = pageSearchRequest.orderDirection == "ASC";
@@ -104,14 +102,14 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
                 break;
         }
 
-        if (intNoType != 0)
+        if (!String.IsNullOrEmpty(memberType))
         {
-            members.Where(member => member.intNoType.Equals(intNoType));
+            members.Where(member => member.MemberTypeID.Equals(memberType));
         }
 
-        if (memberType != 0)
+        if (referenceType != 0)
         {
-            members.Where(member => member.MemberTypeID.Equals(intNoType));
+            members.Where(member => member.intNoType == referenceType);
         }
 
         var data = members.Skip(pageSearchRequest.offset)

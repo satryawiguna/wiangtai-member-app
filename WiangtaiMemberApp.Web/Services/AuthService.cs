@@ -1,11 +1,6 @@
-﻿using System;
-using System.Linq.Expressions;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Security.Principal;
+﻿using System.Security.Cryptography;
 using System.Text;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using AutoMapper;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Web.Repository.Contracts;
 using WiangtaiMemberApp.Web.Services.Contracts;
@@ -14,10 +9,16 @@ namespace WiangtaiMemberApp.Web.Services;
 
 public class AuthService : IAuthService
 {
+    private readonly ILogger<AuthService> _logger;
+    private readonly IMapper _mapper;
     private readonly ISecurityUserRepository _securityUserRepository;
 
-    public AuthService(ISecurityUserRepository securityUserRepository)
+    public AuthService(ILogger<AuthService> logger,
+        IMapper mapper,
+        ISecurityUserRepository securityUserRepository)
     {
+        _logger = logger;
+        _mapper = mapper;
         _securityUserRepository = securityUserRepository;
     }
 

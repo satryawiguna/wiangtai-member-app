@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -10,6 +11,7 @@ using SimpleInjector.Lifestyles;
 using WiangtaiMemberApp.Common;
 using WiangtaiMemberApp.Data;
 using WiangtaiMemberApp.Web.Commons.Mappers;
+using WiangtaiMemberApp.Web.Commons.Mappers.ValueResolver;
 using WiangtaiMemberApp.Web.Middleware;
 using WiangtaiMemberApp.Web.Repository;
 using WiangtaiMemberApp.Web.Repository.Contracts;
@@ -99,8 +101,6 @@ finally
     Log.CloseAndFlush();
 }
 
-
-
 void ConfigureDbConnection()
 {
     services.AddDbContextPool<WiangtaiMemberAppDbContext>(options =>
@@ -141,14 +141,20 @@ void ConfigureAuthentication()
 
 void ConfigureServiceContainer(Container container)
 {
+    container.Register<TotalPointsBalanceResolver>();
+    container.Register<TotalCashbackBalanceResolver>();
+
     //container.Register(typeof(IBaseRepository<>), new[] { typeof(BaseRepository<>).Assembly });
     container.Register<ISecurityUserRepository, SecurityUserRepository>(Lifestyle.Scoped);
     container.Register<IMemberRepository, MemberRepository>(Lifestyle.Scoped);
     container.Register<IMemberTypeRepository, MemberTypeRepository>(Lifestyle.Scoped);
     container.Register<IMemberRewardRepository, MemberRewardRepository>(Lifestyle.Scoped);
+    container.Register<ISettingRepository, SettingRepository>(Lifestyle.Scoped);
+    container.Register<IReferenceTypeRepository, ReferenceTypeRepository>(Lifestyle.Scoped);
 
     container.Register<IAuthService, AuthService>(Lifestyle.Scoped);
     container.Register<IMemberService, MemberService>(Lifestyle.Scoped);
+    container.Register<ISettingService, SettingService>(Lifestyle.Scoped);
 }
 
 void ConfigureAutoMapper(Container container)

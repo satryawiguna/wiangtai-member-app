@@ -10,19 +10,21 @@ namespace WiangtaiMemberApp.Web.Services;
 
 public class SettingService : ISettingService
 {
+    private readonly ILogger<SettingService> _logger;
+    private readonly IMapper _mapper;
     private readonly ISettingRepository _settingRepository;
 
-    private readonly IMapper _mapper;
-
-    public SettingService(ISettingRepository settingRepository,
-        IMapper mapper)
+    public SettingService(ILogger<SettingService> logger,
+        IMapper mapper,
+        ISettingRepository settingRepository)
     {
-        _settingRepository = settingRepository;
+        _logger = logger;
         _mapper = mapper;
+        _settingRepository = settingRepository;
     }
 
-    public string GetSettingByFilter(Expression<Func<Setting, bool>> filter)
+    public Setting? GetSettingByFilter(Expression<Func<Setting, bool>> filter)
     {
-        return _settingRepository.GetSettingEncryptCardNumberByFilter(filter);
+        return _settingRepository.GetByFilter(filter);
     }
 }

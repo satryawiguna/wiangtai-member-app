@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using WiangtaiMemberApp.Data;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Web.Repository.Contracts;
@@ -13,8 +11,8 @@ public class SettingRepository : BaseRepository<Setting>, ISettingRepository
     {
     }
 
-    public string GetSettingEncryptCardNumberByFilter(Expression<Func<Setting, bool>> filter)
+    public Setting? GetByFilter(Expression<Func<Setting, bool>> filter)
     {
-        return _entities.Where(filter).FirstOrDefault().strValue;
+        return _entities.Where(filter).FirstOrDefault();
     }
 }

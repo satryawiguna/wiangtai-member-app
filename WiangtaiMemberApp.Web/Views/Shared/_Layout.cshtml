@@ -6,11 +6,6 @@
 
     <title>@ViewData["Title"] - WiangtaiMemberApp.Web</title>
 
-    <!-- Site -->
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/WiangtaiMemberApp.Web.styles.css" asp-append-version="true" />
-
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
@@ -22,6 +17,10 @@
 
     <!-- Theme style -->
     <link rel="stylesheet" href="~/adminlte/dist/css/adminlte.min.css">
+
+    <!-- Site -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WiangtaiMemberApp.Web.styles.css" asp-append-version="true" />
 
     @await RenderSectionAsync("Links", required: false)
 </head>
@@ -103,20 +102,12 @@
     </div>
 
     <!-- jQuery -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/adminlte/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- overlayScrollbars -->
-    <script src="~/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="~/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
     <!-- AdminLTE App -->
     <script src="~/adminlte/dist/js/adminlte.js"></script>
-
-    <!-- PAGE PLUGINS -->
-    <!-- jQuery Mapael -->
-    <script src="~/adminlte/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-    <script src="~/adminlte/plugins/raphael/raphael.min.js"></script>
-    <script src="~/adminlte/plugins/jquery-mapael/jquery.mapael.min.js"></script>
-    <script src="~/adminlte/plugins/jquery-mapael/maps/usa_states.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     @*<script src="~/adminlte/dist/js/demo.js"></script>*@
     <!-- Site -->

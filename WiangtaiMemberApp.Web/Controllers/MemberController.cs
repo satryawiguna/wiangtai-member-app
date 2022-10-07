@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Newtonsoft.Json.Linq;
 using WiangtaiMemberApp.Model.Request;
+using WiangtaiMemberApp.Model.Request.Member;
 using WiangtaiMemberApp.Web.Services.Contracts;
 
 namespace WiangtaiMemberApp.Web.Controllers;
@@ -14,24 +10,20 @@ namespace WiangtaiMemberApp.Web.Controllers;
 [Authorize]
 public class MemberController : Controller
 {
+    private readonly ILogger<MemberController> _logger;
     private readonly IMemberService _memberService;
 
-    private readonly ILogger<MemberController> _logger;
-
-    public MemberController(IMemberService memberService,
-        ILogger<MemberController> logger)
+    public MemberController(ILogger<MemberController> logger,
+        IMemberService memberService)
     {
-        _memberService = memberService;
         _logger = logger;
+        _memberService = memberService;
     }
 
     public IActionResult Index()
     {
-        //db.MemberTypes.OrderBy().Select(m => new SelectListItem()
-        //{
-        //    Text = m.MemberType1,
-        //    Value = m.MemberTypeID.ToString()
-        //}).ToList();
+        ViewBag.MemberTypes = new SelectList(_memberService.GetAllMemberTypes(mt => mt.MemberTypeName), "MemberTypeID", "MemberTypeName");
+        ViewBag.ReferenceType = new SelectList(_memberService.GetAllReferenceTypes(rt => rt.isVisible == true, rt => rt.intSort), "ReferenceTypeCode", "ReferenceTypeName");
 
         return View();
     }
@@ -49,7 +41,9 @@ public class MemberController : Controller
 
         string orderDirection = Request.Form["order[0][dir]"].FirstOrDefault() ?? "DESC";
 
-        string keyword = Request.Form["draw"].FirstOrDefault() ?? String.Empty;
+        string keyword = Request.Form["general_search"].FirstOrDefault() ?? String.Empty;
+        string? memberType = String.IsNullOrEmpty(Request.Form["member_type_search"].FirstOrDefault()) ? null : Request.Form["member_type_search"].FirstOrDefault();
+        int referenceType = String.IsNullOrEmpty(Request.Form["reference_type_search"].FirstOrDefault()) ? 0 : Convert.ToInt32(Request.Form["reference_type_search"]);
 
         var pageSearchRequest = new PageSearchRequestDto()
         {
@@ -60,10 +54,7 @@ public class MemberController : Controller
             keyword = keyword
         };
 
-        int intNoType = Convert.ToInt32(Request.Form["filter_int_no_type"].FirstOrDefault());
-        int memberType = Convert.ToInt32(Request.Form["filter_member_type"].FirstOrDefault());
-
-        var response = await _memberService.GetPageSearchMembers(pageSearchRequest, intNoType, memberType);
+        var response = await _memberService.GetPageSearchMembersAsync(pageSearchRequest, memberType, referenceType);
 
         return new JsonResult(new
         {
@@ -77,23 +68,27 @@ public class MemberController : Controller
     [HttpGet]
     public IActionResult Create()
     {
-        var memberTypes = Commons.Common.MemberTypeSelectListItem(_memberService);
-
-
+        ViewBag.MemberTypes = new SelectList(_memberService.GetAllMemberTypes(mt => mt.MemberTypeName), "MemberTypeID", "MemberTypeName");
+        ViewBag.ReferenceType = new SelectList(_memberService.GetAllReferenceTypes(rt => rt.isVisible == true, rt => rt.intSort), "ReferenceTypeCode", "ReferenceTypeName");
 
         return View();
     }
 
-    public async Task<IActionResult> Edit(string? memberId)
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create([Bind("FirstName, LastName, intNoType, PassportNo, MobilePhone, Email, MemberType")] SubmitMemberRequestDto request)
     {
-        var member = await _memberService.GetMemberByID(memberId);
-
-        if (member == null)
+        if (ModelState.IsValid)
         {
-            return NotFound();
+            await _memberService.StoreMemberAsync(request);
+
+            return RedirectToAction(nameof(Index));
         }
 
-        return View(member);
+        ViewBag.MemberTypes = new SelectList(_memberService.GetAllMemberTypes(mt => mt.MemberTypeName), "MemberTypeID", "MemberTypeName");
+        ViewBag.ReferenceType = new SelectList(_memberService.GetAllReferenceTypes(rt => rt.isVisible == true, rt => rt.intSort), "ReferenceTypeCode", "ReferenceTypeName");
+
+        return View();
     }
 }
 

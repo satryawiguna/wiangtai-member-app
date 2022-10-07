@@ -1,13 +1,10 @@
-﻿using System;
-using System.Linq.Expressions;
-using System.Reflection;
+﻿using System.Linq.Expressions;
 using AutoMapper;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Model.Request;
 using WiangtaiMemberApp.Model.Request.Member;
 using WiangtaiMemberApp.Model.Response;
 using WiangtaiMemberApp.Model.Response.Member;
-using WiangtaiMemberApp.Web.Repository;
 using WiangtaiMemberApp.Web.Repository.Contracts;
 using WiangtaiMemberApp.Web.Services.Contracts;
 
@@ -15,66 +12,56 @@ namespace WiangtaiMemberApp.Web.Services;
 
 public class MemberService : IMemberService
 {
-    private readonly IMemberRepository _memberRepository;
-
-    private readonly IMemberTypeRepository _memberTypeRepository;
-
+    private readonly ILogger<MemberService> _logger;
     private readonly IMapper _mapper;
+    private readonly IMemberRepository _memberRepository;
+    private readonly IMemberTypeRepository _memberTypeRepository;
+    private readonly IReferenceTypeRepository _referenceTypeRepository;
 
-    public MemberService(IMemberRepository memberRepository,
+    public MemberService(ILogger<MemberService> logger,
+        IMapper mapper,
+        IMemberRepository memberRepository,
         IMemberTypeRepository memberTypeRepository,
-        IMapper mapper)
+        IReferenceTypeRepository referenceTypeRepository)
     {
+        _logger = logger;
+        _mapper = mapper;
         _memberRepository = memberRepository;
         _memberTypeRepository = memberTypeRepository;
-        _mapper = mapper;
+        _referenceTypeRepository = referenceTypeRepository;
     }
 
-    public async Task<IEnumerable<Member>> GetAllMembers()
+    public async Task<PageSearchResponseDto<MemberDto>> GetPageSearchMembersAsync(PageSearchRequestDto pageSearchRequest, string? memberType, int referenceType)
     {
-        return _memberRepository.GetAll();
+        return _memberRepository.GetPageSearch(pageSearchRequest, memberType, referenceType);
     }
 
-    public async Task<SearchResponseDto<MemberDto>> GetSearchMembers(SearchRequestDto searchRequest, int? intNoType, int? memberType)
+    public async Task<bool> StoreMemberAsync(SubmitMemberRequestDto request)
     {
-        return _memberRepository.GetSearch(searchRequest, intNoType, memberType);
-    }
+        Member entity = _mapper.Map<Member>(request);
 
-    public async Task<PageSearchResponseDto<MemberDto>> GetPageSearchMembers(PageSearchRequestDto pageSearchRequest, int? intNoType, int? memberType)
-    {
-        return _memberRepository.GetPageSearch(pageSearchRequest, intNoType, memberType);
-    }
+        _memberRepository.Insert(entity);
 
-    public Task<(bool, Member)> CreateMember(MemberRequestDto request)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> DeleteMember(string memberId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Member> GetMemberByID(string memberId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<(bool, Member)> UpdateMember(MemberRequestDto request)
-    {
-        throw new NotImplementedException();
+        return true;
     }
 
 
 
-    public async Task<IEnumerable<MemberType>> GetAllMemberTypes()
+    public IEnumerable<MemberType> GetAllMemberTypes()
     {
         return _memberTypeRepository.GetAll();
     }
 
-    public async Task<IEnumerable<MemberType>> GetAllMemberTypesByFilter(Expression<Func<MemberType, bool>> filter)
+    public IEnumerable<MemberType> GetAllMemberTypes<TOrderBy>(Expression<Func<MemberType, TOrderBy>> orderBy)
     {
-        return _memberTypeRepository.GetSelectListByFilter(filter);
+        return _memberTypeRepository.GetAll(orderBy);
+    }
+
+
+
+    public IEnumerable<ReferenceType> GetAllReferenceTypes<TOrderBy>(Expression<Func<ReferenceType, bool>> filter, Expression<Func<ReferenceType, TOrderBy>> orderBy)
+    {
+        return _referenceTypeRepository.GetAll(filter, orderBy);
     }
 }
 

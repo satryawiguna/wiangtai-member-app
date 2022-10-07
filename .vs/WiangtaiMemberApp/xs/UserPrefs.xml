@@ -1,24 +1,22 @@
 ﻿<Properties StartupConfiguration="{65B5DBD1-E9C8-40C6-B6D7-CA736A47CBCE}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="WiangtaiMemberApp.Data/WiangtaiMemberAppDbContext.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.WiangtaiMemberApp.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WiangtaiMemberApp.Web/Controllers/MemberController.cs">
     <Files>
-      <File FileName="WiangtaiMemberApp.Web/Controllers/MemberController.cs" Line="1" Column="1" />
-      <File FileName="WiangtaiMemberApp.Web/Commons/Mappers/MapperProvider.cs" Line="21" Column="12" />
-      <File FileName="WiangtaiMemberApp.Web/Commons/Mappers/DefaultMappingProfile.cs" Line="9" Column="1" />
-      <File FileName="WiangtaiMemberApp.Model/Member.cs" Line="5" Column="20" />
-      <File FileName="WiangtaiMemberApp.Model/Response/Member/MemberDto.cs" Line="50" Column="42" />
-      <File FileName="WiangtaiMemberApp.Model/Membership.cs" Line="4" Column="14" />
-      <File FileName="WiangtaiMemberApp.Web/Repository/Contracts/IMembershipRepository.cs" Line="1" Column="1" />
-      <File FileName="WiangtaiMemberApp.Model/RaceType.cs" Line="8" Column="31" />
-      <File FileName="WiangtaiMemberApp.Model/Religion.cs" Line="6" Column="41" />
-      <File FileName="WiangtaiMemberApp.Model/SalaryRange.cs" Line="17" Column="1" />
-      <File FileName="WiangtaiMemberApp.Web/Services/MemberService.cs" Line="1" Column="1" />
-      <File FileName="WiangtaiMemberApp.Web/Repository/MemberRepository.cs" Line="126" Column="82" />
-      <File FileName="WiangtaiMemberApp.Data/WiangtaiMemberAppDbContext.cs" Line="945" Column="46" />
+      <File FileName="WiangtaiMemberApp.Web/Views/Member/Index.cshtml" Line="68" Column="37" />
+      <File FileName="WiangtaiMemberApp.Web/Views/Member/Create.cshtml" Line="54" Column="27" />
+      <File FileName="../../../../Downloads/AdminLTE-3.2.0/pages/forms/general.html" Line="866" Column="86" />
+      <File FileName="WiangtaiMemberApp.Web/Models/Member/CreateMemberVM.cs" Line="12" Column="41" />
+      <File FileName="WiangtaiMemberApp.Web/Repository/MemberTypeRepository.cs" Line="24" Column="1" />
+      <File FileName="WiangtaiMemberApp.Web/wwwroot/css/site.css" Line="11" Column="2" />
+      <File FileName="WiangtaiMemberApp.Web/Views/Shared/_Layout.cshtml" Line="40" Column="33" />
+      <File FileName="WiangtaiMemberApp.Web/Controllers/MemberController.cs" Line="82" Column="23" />
+      <File FileName="WiangtaiMemberApp.Model/Request/Member/SubmitMemberRequestDto.cs" Line="6" Column="12" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="WiangtaiMemberApp" expanded="True" selected="True">
+          <Node name="WiangtaiMemberApp" expanded="True">
             <Node name="WiangtaiMemberApp.Data" expanded="True" />
             <Node name="WiangtaiMemberApp.Model" expanded="True">
               <Node name="Request" expanded="True">
@@ -46,6 +44,17 @@
               <Node name="Services" expanded="True">
                 <Node name="Contracts" expanded="True" />
               </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Auth" expanded="True" />
+                <Node name="Dashboard" expanded="True" />
+                <Node name="Member" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
+                <Node name="js" expanded="True" />
+                <Node name="lib" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -60,14 +69,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/Controllers/AuthController.cs" relfile="WiangtaiMemberApp.Web/Controllers/AuthController.cs" line="32" column="1" />
-      <Breakpoint file="/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/Controllers/MemberController.cs" relfile="WiangtaiMemberApp.Web/Controllers/MemberController.cs" line="36" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.WiangtaiMemberApp.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

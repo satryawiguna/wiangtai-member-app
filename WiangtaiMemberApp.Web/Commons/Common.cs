@@ -1,32 +1,17 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using WiangtaiMemberApp.Web.Services.Contracts;
+﻿using WiangtaiMemberApp.Web.Services.Contracts;
 
 namespace WiangtaiMemberApp.Web.Commons;
 
 public class Common
 {
+    private readonly ILogger<Common> _logger;
     private readonly ISettingService _settingService;
 
-    public Common(ISettingService settingService)
+    public Common(ILogger<Common> logger,
+        ISettingService settingService)
     {
+        _logger = logger;
         _settingService = settingService;
-    }
-
-    public static async Task<SelectList> MemberTypeSelectListItem(IMemberService memberService, bool? bitPreRegister = null)
-    {
-        if (bitPreRegister != null)
-        {
-            var items = await memberService.GetAllMemberTypesByFilter(mt => mt.intCustomerType == 1 && mt.bitPreRegister == bitPreRegister.Value);
-
-            return new SelectList(items, "MemberTypeID", "MemberTypeName");
-        }
-        else
-        {
-            var items = await memberService.GetAllMemberTypesByFilter(mt => mt.intCustomerType == 1);
-
-            return new SelectList(items, "MemberTypeID", "MemberTypeName");
-        }
     }
 
     public enum RewardType
@@ -42,7 +27,9 @@ public class Common
     {
         Guid id = new Guid("e42145cf-9544-49a8-8cd7-c3ed1b842d42");
 
-        return bool.Parse(_settingService.GetSettingByFilter(p => p.idSetting == id)) ;
+        var idSetting = _settingService.GetSettingByFilter(p => p.idSetting == id);
+
+        return bool.Parse(idSetting.strValue);
     }
 
     public string DoEncryptCard(string CardNumber)
@@ -62,8 +49,6 @@ public class Common
         {
             return "";
         }
-
-
     }
 
     public string DoDecryptCard(string CardNumber)

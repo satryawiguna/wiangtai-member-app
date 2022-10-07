@@ -10,6 +10,7 @@
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Test/bin/Debug/net6.0/Castle.Core.dll
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Test/bin/Debug/net6.0/EntityFramework.SqlServer.dll
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Test/bin/Debug/net6.0/EntityFramework.dll
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Test/bin/Debug/net6.0/EntityFramework.Functions.dll
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Test/bin/Debug/net6.0/Microsoft.AspNetCore.JsonPatch.dll
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Test/bin/Debug/net6.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Test/bin/Debug/net6.0/Microsoft.AspNetCore.Mvc.Versioning.dll

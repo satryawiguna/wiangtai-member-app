@@ -7,5 +7,4 @@ namespace WiangtaiMemberApp.Web.Controllers;
 [BreadcrumbActionFilter]
 public class BaseController : Controller
 {
-
 }

@@ -45,6 +45,8 @@
     <None Remove="Commons\Extensions\" />
     <None Remove="Commons\Mappers\contract\" />
     <None Remove="Commons\Mappers\ValueResolver\Contract\" />
+    <None Remove="Logs\" />
+    <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.0" />
@@ -70,6 +72,7 @@
     <PackageReference Include="SimpleInjector.Integration.AspNetCore" Version="5.4.0" />
     <PackageReference Include="SimpleInjector.Integration.AspNetCore.Mvc" Version="5.4.0" />
     <PackageReference Include="Z.EntityFramework.Plus.EFCore" Version="6.15.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WiangtaiMemberApp.Internal\WiangtaiMemberApp.Internal.csproj">
@@ -93,6 +96,7 @@
     <Folder Include="Commons\Extensions\" />
     <Folder Include="Commons\Mappers\ValueResolver\" />
     <Folder Include="Commons\Mappers\ValueResolver\Contract\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\adminlte\" />

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Model.Request;
 using WiangtaiMemberApp.Model.Request.Member;
@@ -10,23 +9,17 @@ namespace WiangtaiMemberApp.Web.Services.Contracts;
 
 public interface IMemberService
 {
-    Task<IEnumerable<Member>> GetAllMembers();
+    Task<PageSearchResponseDto<MemberDto>> GetPageSearchMembersAsync(PageSearchRequestDto pageSearchRequest, string? memberType, int referenceType);
 
-    Task<SearchResponseDto<MemberDto>> GetSearchMembers(SearchRequestDto searchRequest, int? intNoType, int? memberType);
-
-    Task<PageSearchResponseDto<MemberDto>> GetPageSearchMembers(PageSearchRequestDto pageSearchRequest, int? intNoType, int? memberType);
-
-    Task<Member> GetMemberByID(string memberId);
-
-    Task<(bool, Member)> CreateMember(MemberRequestDto request);
-
-    Task<(bool, Member)> UpdateMember(MemberRequestDto request);
-
-    Task<bool> DeleteMember(string memberId);
+    Task<bool> StoreMemberAsync(SubmitMemberRequestDto request);
 
 
-    Task<IEnumerable<MemberType>> GetAllMemberTypes();
+    IEnumerable<MemberType> GetAllMemberTypes();
 
-    Task<IEnumerable<MemberType>> GetAllMemberTypesByFilter(Expression<Func<MemberType, bool>> filter);
+    IEnumerable<MemberType> GetAllMemberTypes<TOrderBy>(Expression<Func<MemberType, TOrderBy>> orderBy);
+
+
+    IEnumerable<ReferenceType> GetAllReferenceTypes<TOrderBy>(Expression<Func<ReferenceType, bool>> filter, Expression<Func<ReferenceType, TOrderBy>> orderBy);
+
 }
 
