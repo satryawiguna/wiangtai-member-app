@@ -1,4 +1,5 @@
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/bin/Debug/net6.0/WiangtaiMemberApp.Data.deps.json
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/bin/Debug/net6.0/WiangtaiMemberApp.Data.runtimeconfig.json
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/bin/Debug/net6.0/WiangtaiMemberApp.Data.dll
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/bin/Debug/net6.0/WiangtaiMemberApp.Data.pdb
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/bin/Debug/net6.0/WiangtaiMemberApp.Model.dll
@@ -12,4 +13,5 @@
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/WiangtaiMemberApp.Data.dll
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/refint/WiangtaiMemberApp.Data.dll
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/WiangtaiMemberApp.Data.pdb
+/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/WiangtaiMemberApp.Data.genruntimeconfig.cache
 /Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Data/obj/Debug/net6.0/ref/WiangtaiMemberApp.Data.dll

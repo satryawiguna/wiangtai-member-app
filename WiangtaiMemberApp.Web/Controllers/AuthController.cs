@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WiangtaiMemberApp.Model;
@@ -45,7 +45,7 @@ public class AuthController : Controller
 
             if (securityUser is not null)
             {
-                 await SignInUser(securityUser);
+                 await SignInUserAsync(securityUser);
 
                 if (string.IsNullOrWhiteSpace(model.ReturnUrl) || !model.ReturnUrl.StartsWith("/"))
                 {
@@ -79,7 +79,7 @@ public class AuthController : Controller
         }
     }
 
-    private async Task SignInUser(SecurityUser? securityUser)
+    private async Task SignInUserAsync(SecurityUser? securityUser)
     {
         var securityRole = (securityUser.SecurityUserRoles is not null) ? securityUser.SecurityUserRoles.First() : null;
 

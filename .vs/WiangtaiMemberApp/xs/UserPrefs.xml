@@ -1,23 +1,17 @@
 ﻿<Properties StartupConfiguration="{65B5DBD1-E9C8-40C6-B6D7-CA736A47CBCE}|Default">
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.WiangtaiMemberApp.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/Services/AuthService.cs" relfile="WiangtaiMemberApp.Web/Services/AuthService.cs" line="24" column="1" />
-      <Breakpoint file="/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/Repository/BaseRepository.cs" relfile="WiangtaiMemberApp.Web/Repository/BaseRepository.cs" line="31" column="1" />
-      <Breakpoint file="/Users/satryawiguna/Documents/NetProjects/Mibo/WiangtaiMemberApp/WiangtaiMemberApp.Web/Controllers/AuthController.cs" relfile="WiangtaiMemberApp.Web/Controllers/AuthController.cs" line="32" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="WiangtaiMemberApp.Web/Controllers/WebBaseController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WiangtaiMemberApp.Web/Controllers/MemberController.cs">
     <Files>
-      <File FileName="WiangtaiMemberApp.Web/Controllers/AuthController.cs" Line="62" Column="2" />
-      <File FileName="WiangtaiMemberApp.Web/Controllers/DashboardController.cs" Line="17" Column="5" />
-      <File FileName="WiangtaiMemberApp.Model/Response/BasicResponse.cs" Line="1" Column="1" />
-      <File FileName="WiangtaiMemberApp.Model/Response/BooleanResponse.cs" Line="1" Column="1" />
-      <File FileName="WiangtaiMemberApp.Model/Response/GenericCollectionResponse.cs" Line="1" Column="1" />
-      <File FileName="WiangtaiMemberApp.Model/Response/GenericObjectResponse.cs" Line="1" Column="1" />
-      <File FileName="WiangtaiMemberApp.Model/Response/GenericPagedSearchResponse.cs" Line="1" Column="1" />
-      <File FileName="WiangtaiMemberApp.Web/Controllers/WebBaseController.cs" Line="81" Column="55" />
-      <File FileName="WiangtaiMemberApp.Model/Request/AuditableRequest.cs" Line="7" Column="17" />
+      <File FileName="WiangtaiMemberApp.Web/Views/Member/Index.cshtml" Line="68" Column="37" />
+      <File FileName="WiangtaiMemberApp.Web/Views/Member/Create.cshtml" Line="54" Column="27" />
+      <File FileName="../../../../Downloads/AdminLTE-3.2.0/pages/forms/general.html" Line="866" Column="86" />
+      <File FileName="WiangtaiMemberApp.Web/Models/Member/CreateMemberVM.cs" Line="12" Column="41" />
+      <File FileName="WiangtaiMemberApp.Web/Repository/MemberTypeRepository.cs" Line="24" Column="1" />
+      <File FileName="WiangtaiMemberApp.Web/wwwroot/css/site.css" Line="11" Column="2" />
+      <File FileName="WiangtaiMemberApp.Web/Views/Shared/_Layout.cshtml" Line="40" Column="33" />
+      <File FileName="WiangtaiMemberApp.Web/Controllers/MemberController.cs" Line="82" Column="23" />
+      <File FileName="WiangtaiMemberApp.Model/Request/Member/SubmitMemberRequestDto.cs" Line="6" Column="12" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,14 +19,41 @@
           <Node name="WiangtaiMemberApp" expanded="True">
             <Node name="WiangtaiMemberApp.Data" expanded="True" />
             <Node name="WiangtaiMemberApp.Model" expanded="True">
-              <Node name="Request" expanded="True" />
-              <Node name="Response" expanded="True" />
+              <Node name="Request" expanded="True">
+                <Node name="Member" expanded="True" />
+              </Node>
+              <Node name="Response" expanded="True">
+                <Node name="Member" expanded="True" />
+              </Node>
             </Node>
             <Node name="WiangtaiMemberApp.Web" expanded="True">
+              <Node name="Commons" expanded="True">
+                <Node name="Mappers" expanded="True">
+                  <Node name="ValueResolver" expanded="True">
+                    <Node name="Contract" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
               <Node name="Controllers" expanded="True" />
-              <Node name="Middleware" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Member" expanded="True" />
+              </Node>
               <Node name="Repository" expanded="True">
                 <Node name="Contracts" expanded="True" />
+              </Node>
+              <Node name="Services" expanded="True">
+                <Node name="Contracts" expanded="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Auth" expanded="True" />
+                <Node name="Dashboard" expanded="True" />
+                <Node name="Member" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
+                <Node name="js" expanded="True" />
+                <Node name="lib" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -48,7 +69,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

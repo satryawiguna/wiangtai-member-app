@@ -1,5 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using WiangtaiMemberApp.Model;
+using WiangtaiMemberApp.Model.Response.Functions;
 
 namespace WiangtaiMemberApp.Data;
 
@@ -9,11 +14,19 @@ public class WiangtaiMemberAppDbContext : DbContext
     {
     }
 
+    public DbSet<CardMaster> CardMaster { get; set; }
+
+    public DbSet<Currency> Currency { get; set; }
+
+    public DbSet<Member> Member { get; set; }
+
+    public DbSet<MemberReward> MemberReward { get; set; }
+
+    public DbSet<Membership> Membership { get; set; }
+
+    public DbSet<MemberType> MemberType { get; set; }
+
     public DbSet<SecurityRole> SecurityRole { get; set; }
-
-    public DbSet<SecurityRoleAccess> SecurityRoleAccess { get; set; }
-
-    public DbSet<SecurityRoleEntity> SecurityRoleEntity { get; set; }
 
     public DbSet<SecuritySessionLogin> SecuritySessionLogin { get; set; }
 
@@ -23,114 +36,615 @@ public class WiangtaiMemberAppDbContext : DbContext
 
     public DbSet<UserProfile> UserProfile { get; set; }
 
-    public DbSet<UserProfilePasswordHistory> UserProfilePasswordHistory { get; set; }
+    public DbSet<Setting> Setting { get; set; }
+
+    public DbSet<ReferenceType> ReferenceType { get; set; }
+
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<SecurityElement>(entity =>
+        modelBuilder.Entity<CardMaster>(entity =>
         {
-            entity.ToTable("SecurityElement");
+            entity.ToTable("CardMaster");
 
-            entity.HasKey(e => e.ElementID);
+            entity.HasKey(e => e.CardMasterID);
 
-            entity.Property(e => e.ElementID)
+            entity.Property(e => e.CardMasterID)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ElementID");
+                .HasColumnName("CardMasterID");
 
-            entity.Property(e => e.PageID)
+            entity.Property(e => e.CardNumber)
+                .HasColumnType("bigint(20)")
+                .HasColumnName("CardNumber")
+                .IsRequired(false);
+
+            entity.Property(e => e.SalesDate)
+                .HasColumnName("SalesDate")
+                .IsRequired(true);
+
+            entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("PageID")
-                .IsRequired();
-
-            entity.Property(e => e.ElementName)
-                .HasColumnType("varchar")
-                .HasMaxLength(100)
-                .HasColumnName("ElementName")
-                .IsRequired();
-
-            entity.Property(e => e.ElementPageName)
-                .HasColumnType("varchar")
-                .HasMaxLength(100)
-                .HasColumnName("ElementPageName")
-                .IsRequired();
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.CreatedDate)
                 .HasColumnName("CreatedDate");
 
-            entity.Property(e => e.CreatedBy)
+            entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired();
+                .HasColumnName("ModifiedBy");
 
             entity.Property(e => e.ModifiedDate)
                 .HasColumnName("ModifiedDate");
 
-            entity.Property(e => e.ModifiedBy)
-                .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired();
+            entity.Property(e => e.CardNumberEncrypted)
+                .HasColumnName("CardNumberEncrypted")
+                .IsRequired(true);
 
-
-
-            entity.HasOne(r => r.SecurityPage)
-                .WithMany(r => r.SecurityElements)
-                .HasForeignKey(r => r.PageID)
-                .OnDelete(DeleteBehavior.Restrict);
+            entity.Property(e => e.CardNumberShow)
+                .HasColumnName("CardNumberShow")
+                .IsRequired(true);
         });
 
-        modelBuilder.Entity<SecurityPage>(entity =>
+        modelBuilder.Entity<Currency>(entity =>
         {
-            entity.ToTable("SecurityPage");
+            entity.ToTable("Currency");
 
-            entity.HasKey(e => e.PageID);
+            entity.HasKey(e => e.CurrencyID);
 
-            entity.Property(e => e.PageID)
+            entity.Property(e => e.CurrencyID)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ElementID");
+                .HasColumnName("CurrencyID");
 
-            entity.Property(e => e.ModuleID)
+            entity.Property(e => e.CurrencyCode)
+                .HasColumnType("char(3)")
+                .HasColumnName("CurrencyCode")
+                .IsRequired(true);
+
+            entity.Property(e => e.CurrencyName)
+                .HasColumnType("varchar(100)")
+                .HasColumnName("CurrencyName")
+                .IsRequired(true);
+
+            entity.Property(e => e.ExchangeUnit)
+                .HasColumnType("int(11)")
+                .HasColumnName("ExchangeUnit")
+                .IsRequired(false);
+
+            entity.Property(e => e.ExchangeRate)
+                .HasColumnType("decimal(18,4)")
+                .HasColumnName("ExchangeRate")
+                .IsRequired(false);
+
+            entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModuleID")
-                .IsRequired();
-
-            entity.Property(e => e.PageName)
-                .HasColumnType("varchar")
-                .HasMaxLength(100)
-                .HasColumnName("PageName")
-                .IsRequired();
-
-            entity.Property(e => e.FilePath)
-                .HasColumnType("varchar")
-                .HasMaxLength(100)
-                .HasColumnName("FilePath")
-                .IsRequired();
-
-            entity.Property(e => e.Icon)
-                .HasColumnType("varchar")
-                .HasMaxLength(100)
-                .HasColumnName("Icon");
-
-            entity.Property(e => e.Sort)
-                .HasColumnType("smallint")
-                .HasColumnName("Sort");
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.CreatedDate)
                 .HasColumnName("CreatedDate");
 
-            entity.Property(e => e.CreatedBy)
+            entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired();
+                .HasColumnName("ModifiedBy");
 
             entity.Property(e => e.ModifiedDate)
                 .HasColumnName("ModifiedDate");
 
+
+
+            entity.HasMany(r => r.Memberships)
+                .WithOne(r => r.Currency)
+                .HasForeignKey(r => r.CurrencyID)
+                .OnDelete(DeleteBehavior.NoAction);
+        });
+
+        modelBuilder.Entity<Member>(entity =>
+        {
+            entity.ToTable("Member");
+
+            entity.HasKey(e => e.MemberID);
+
+            entity.Property(e => e.MemberID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("MemberID");
+
+            entity.Property(e => e.FirstName)
+                .HasColumnType("varchar(100)")
+                .HasColumnName("FirstName")
+                .IsRequired(true);
+
+            entity.Property(e => e.LastName)
+                .HasColumnType("varchar(100)")
+                .HasColumnName("LastName")
+                .IsRequired(false); ;
+
+            entity.Property(e => e.DisplayName)
+                .HasColumnType("varchar(100)")
+                .HasColumnName("DisplayName")
+                .IsRequired(false); ;
+
+            entity.Property(e => e.BirthDate)
+                .HasColumnType("datetime")
+                .HasColumnName("BirthDate")
+                .IsRequired(false); ;
+
+            entity.Property(e => e.Gender)
+                .HasColumnType("tinyint")
+                .HasColumnName("Gender")
+                .IsRequired(false); ;
+
+            entity.Property(e => e.MaritalStatus)
+                .HasColumnType("tinyint")
+                .HasColumnName("MaritalStatus")
+                .IsRequired(false); ;
+
+            entity.Property(e => e.PassportNo)
+                .HasColumnType("varchar(200)")
+                .HasColumnName("PassportNo")
+                .IsRequired(false); ;
+
+            entity.Property(e => e.MobilePhone)
+               .HasColumnType("varchar(50)")
+               .HasColumnName("MobilePhone")
+               .IsRequired(false); ;
+
+            entity.Property(e => e.Email)
+               .HasColumnType("varchar(100)")
+               .HasColumnName("Email")
+               .IsRequired(false); ;
+
+            entity.Property(e => e.MemberTypeID)
+               .HasColumnType("uniqueindentifier")
+               .HasColumnName("MemberTypeID")
+               .IsRequired(false); ;
+
+            entity.Property(e => e.MemberSince)
+               .HasColumnType("datetime")
+               .HasColumnName("MemberSince")
+               .IsRequired(false); ;
+
+            entity.Property(e => e.Notification)
+               .HasColumnType("tinyint")
+               .HasColumnName("Notification")
+               .IsRequired(false); ;
+
+            entity.Property(e => e.SalaryRangeID)
+               .HasColumnType("uniqueindentifier")
+               .HasColumnName("SalaryRangeID")
+               .IsRequired(false); ;
+
+            entity.Property(e => e.RaceTypeID)
+               .HasColumnType("uniqueindentifier")
+               .HasColumnName("RaceTypeID")
+               .IsRequired(false); ;
+
+            entity.Property(e => e.ReligionID)
+               .HasColumnType("uniqueindentifier")
+               .HasColumnName("ReligionID")
+               .IsRequired(false); ;
+
+            entity.Property(e => e.CreatedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("CreatedBy");
+
+            entity.Property(e => e.CreatedDate)
+                .HasColumnName("CreatedDate");
+
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired();
+                .HasColumnName("ModifiedBy");
+
+            entity.Property(e => e.ModifiedDate)
+                .HasColumnName("ModifiedDate");
+
+            entity.Property(e => e.intNoType)
+               .HasColumnType("tinyint")
+               .HasColumnName("intNoType")
+               .IsRequired(false);
+
+
+
+            entity.HasOne(r => r.MemberType)
+                .WithMany(r => r.Members)
+                .HasForeignKey(r => r.MemberTypeID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasOne(r => r.RaceType)
+                .WithMany(r => r.Members)
+                .HasForeignKey(r => r.RaceTypeID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasOne(r => r.Religion)
+                .WithMany(r => r.Members)
+                .HasForeignKey(r => r.ReligionID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasOne(r => r.SalaryRange)
+                .WithMany(r => r.Members)
+                .HasForeignKey(r => r.SalaryRangeID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasMany(r => r.Memberships)
+                .WithOne(r => r.Member)
+                .HasForeignKey(r => r.MemberID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasMany(r => r.MemberRewards)
+                .WithOne(r => r.Member)
+                .HasForeignKey(r => r.MemberID)
+                .OnDelete(DeleteBehavior.NoAction);
+        });
+
+        modelBuilder.Entity<MemberReward>(entity =>
+        {
+            entity.ToTable("MemberReward");
+
+            entity.HasKey(e => e.RewardID);
+
+            entity.Property(e => e.RewardID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("RewardID");
+
+            entity.Property(e => e.MemberID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("MemberID")
+                .IsRequired(true);
+
+            entity.Property(e => e.ToMemberID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("ToMemberID")
+                .IsRequired(false);
+
+            entity.Property(e => e.RewardMethod)
+                .HasColumnType("tinyint")
+                .HasColumnName("RewardMethod")
+                .IsRequired(true);
+
+            entity.Property(e => e.RewardType)
+                .HasColumnType("tinyint")
+                .HasColumnName("RewardType")
+                .IsRequired(true);
+
+            entity.Property(e => e.RewardValue)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("RewardValue")
+                .IsRequired(false);
+
+            entity.Property(e => e.UsageAmount)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("UsageAmount")
+                .IsRequired(false);
+
+            entity.Property(e => e.RewardRefNo)
+                .HasColumnType("bigint(20)")
+                .HasColumnName("RewardRefNo")
+                .IsRequired(true);
+
+            entity.Property(e => e.IssuedDate)
+                .HasColumnName("IssuedDate")
+                .IsRequired(false);
+
+            entity.Property(e => e.EffectiveDate)
+                .HasColumnName("EffectiveDate")
+                .IsRequired(false);
+
+            entity.Property(e => e.ExpiryDate)
+                .HasColumnName("ExpiryDate")
+                .IsRequired(false);
+
+            entity.Property(e => e.ConsumeValue)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("ConsumeValue")
+                .IsRequired(false);
+
+            entity.Property(e => e.BalanceValue)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("BalanceValue")
+                .IsRequired(false);
+
+            entity.Property(e => e.Remarks)
+                .HasColumnType("text")
+                .HasColumnName("Remarks")
+                .IsRequired(false);
+
+            entity.Property(e => e.CreatedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("CreatedBy");
+
+            entity.Property(e => e.CreatedDate)
+                .HasColumnName("CreatedDate");
+
+            entity.Property(e => e.ModifiedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("ModifiedBy");
+
+            entity.Property(e => e.ModifiedDate)
+                .HasColumnName("ModifiedDate");
+
+            entity.Property(e => e.EntitlementDate)
+                .HasColumnName("EntitlementDate")
+                .IsRequired(true);
+
+            entity.Property(e => e.RewardFundID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("RewardFundID")
+                .IsRequired(false);
+
+            entity.Property(e => e.idBatch)
+                .HasColumnType("varchar(200)")
+                .HasColumnName("idBatch")
+                .IsRequired(true);
+
+            entity.Property(e => e.isExpired)
+                .HasColumnType("bool")
+                .HasColumnName("isExpired")
+                .IsRequired(false);
+
+            entity.Property(e => e.decPointCost)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("decPointCost")
+                .IsRequired(false);
+
+
+
+            entity.HasOne(r => r.Member)
+                .WithMany(r => r.MemberRewards)
+                .HasForeignKey(r => r.MemberID)
+                .OnDelete(DeleteBehavior.NoAction);
+        });
+
+        modelBuilder.Entity<Membership>(entity =>
+        {
+            entity.ToTable("Membership");
+
+            entity.HasKey(e => e.MembershipID);
+
+            entity.Property(e => e.MembershipID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("MembershipID");
+
+            entity.Property(e => e.MemberID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("MemberID")
+                .IsRequired(true);
+
+            entity.Property(e => e.MemberTypeID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("MemberTypeID")
+                .IsRequired(true);
+
+            entity.Property(e => e.CardNumber)
+                .HasColumnType("bigint(20)")
+                .HasColumnName("CardNumber")
+                .IsRequired(false);
+
+            entity.Property(e => e.StartDate)
+                .HasColumnName("StartDate")
+                .IsRequired(true);
+
+            entity.Property(e => e.EndDate)
+                .HasColumnName("EndDate")
+                .IsRequired(false);
+
+            entity.Property(e => e.CurrencyID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("CurrencyID")
+                .IsRequired(false);
+
+            entity.Property(e => e.AnnualFee)
+                .HasColumnType("decimal(18,2)")
+                .HasColumnName("AnnualFee")
+                .IsRequired(false);
+
+            entity.Property(e => e.CreatedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("CreatedBy");
+
+            entity.Property(e => e.CreatedDate)
+                .HasColumnName("CreatedDate");
+
+            entity.Property(e => e.ModifiedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("ModifiedBy");
+
+            entity.Property(e => e.ModifiedDate)
+                .HasColumnName("ModifiedDate");
+
+            entity.Property(e => e.NotifyExpired15Days)
+                .HasColumnType("bool")
+                .HasColumnName("NotifyExpired15Days")
+                .IsRequired(true);
+
+            entity.Property(e => e.NotifyExpired15Days)
+                .HasColumnType("bool")
+                .HasColumnName("NotifyExpired15Days")
+                .IsRequired(true);
+
+            entity.Property(e => e.NotifyExpired30Days)
+                .HasColumnType("bool")
+                .HasColumnName("NotifyExpired30Days")
+                .IsRequired(true);
+
+            entity.Property(e => e.PassAutoRenewal)
+                .HasColumnType("bool")
+                .HasColumnName("PassAutoRenewal")
+                .IsRequired(true);
+
+            entity.Property(e => e.SMSNotifyExpiring15Days)
+                .HasColumnType("bool")
+                .HasColumnName("SMSNotifyExpiring15Days")
+                .IsRequired(true);
+
+            entity.Property(e => e.CardNumberEncrypted)
+                .HasColumnName("CardNumberEncrypted")
+                .IsRequired(true);
+
+            entity.Property(e => e.CardNumberShow)
+                .HasColumnName("CardNumberShow")
+                .IsRequired(true);
+
+            entity.Property(e => e.strIndicatorCode)
+                .HasColumnName("strIndicatorCode")
+                .IsRequired(true);
+
+            entity.Property(e => e.strReasonCode)
+                .HasColumnName("strReasonCode")
+                .IsRequired(true);
+
+            entity.Property(e => e.strReasonDesc)
+                .HasColumnName("strReasonDesc")
+                .IsRequired(true);
+
+
+
+            entity.HasOne(r => r.Member)
+                .WithMany(r => r.Memberships)
+                .HasForeignKey(r => r.MemberID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasOne(r => r.MemberType)
+                .WithMany(r => r.Memberships)
+                .HasForeignKey(r => r.MemberTypeID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasOne(r => r.Currency)
+                .WithMany(r => r.Memberships)
+                .HasForeignKey(r => r.CurrencyID)
+                .OnDelete(DeleteBehavior.NoAction);
+        });
+
+        modelBuilder.Entity<MemberType>(entity =>
+        {
+            entity.ToTable("MemberType");
+
+            entity.HasKey(e => e.MemberTypeID);
+
+            entity.Property(e => e.MemberTypeID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("MemberTypeID");
+
+            entity.Property(e => e.MemberTypeName)
+                .HasColumnType("varchar(100)")
+                .HasColumnName("MemberType")
+                .IsRequired(true);
+
+            entity.Property(e => e.MemberTypeDesc)
+                .HasColumnType("text")
+                .HasColumnName("MemberTypeDesc")
+                .IsRequired(true);
+
+            entity.Property(e => e.Grade)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("Grade")
+                .IsRequired(false);
+
+            entity.Property(e => e.CreatedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("CreatedBy");
+
+            entity.Property(e => e.CreatedDate)
+                .HasColumnName("CreatedDate");
+
+            entity.Property(e => e.ModifiedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("ModifiedBy");
+
+            entity.Property(e => e.ModifiedDate)
+                .HasColumnName("ModifiedDate");
+
+            entity.Property(e => e.CurrencyID)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("CurrencyID")
+                .IsRequired(false);
+
+            entity.Property(e => e.AnnualFee)
+                .HasColumnType("decimal(8, 2)")
+                .HasColumnName("AnnualFee")
+                .IsRequired(false);
+
+            entity.Property(e => e.ValidityPeriod)
+                .HasColumnType("tinyint")
+                .HasColumnName("ValidityPeriod")
+                .IsRequired(true);
+
+            entity.Property(e => e.ReferenceCode)
+                .HasColumnType("varchar(50)")
+                .HasColumnName("ReferenceCode")
+                .IsRequired(false);
+
+            entity.Property(e => e.intCustomerType)
+                .HasColumnType("tinyint")
+                .HasColumnName("intCustomerType")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitAllowPointTransfer)
+                .HasColumnType("bool")
+                .HasColumnName("bitAllowPointTransfer")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitAllowCashTransfer)
+                .HasColumnType("bool")
+                .HasColumnName("bitAllowCashTransfer")
+                .IsRequired(false);
+
+            entity.Property(e => e.idDocument)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("idDocument")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitPreRegister)
+                .HasColumnType("bool")
+                .HasColumnName("bitPreRegister")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitEnableEmoney)
+                .HasColumnType("bool")
+                .HasColumnName("bitEnableEmoney")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitEnableWriteToCard)
+                .HasColumnType("bool")
+                .HasColumnName("bitEnableWriteToCard")
+                .IsRequired(false);
+
+            entity.Property(e => e.intCardProtocal)
+                .HasColumnType("int")
+                .HasColumnName("intCardProtocal")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitMandatoryMemberReg)
+                .HasColumnType("bool")
+                .HasColumnName("bitMandatoryMemberReg")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitMandatoryNonMemberReg)
+                .HasColumnType("bool")
+                .HasColumnName("bitMandatoryNonMemberReg")
+                .IsRequired(false);
+
+            entity.Property(e => e.bitMandatoryCardReplacement)
+                .HasColumnType("bool")
+                .HasColumnName("bitMandatoryCardReplacement")
+                .IsRequired(false);
+
+
+
+            entity.HasOne(r => r.Currency)
+                .WithMany(r => r.MemberTypes)
+                .HasForeignKey(r => r.CurrencyID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasMany(r => r.Members)
+                .WithOne(r => r.MemberType)
+                .HasForeignKey(r => r.MemberID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasMany(r => r.Memberships)
+                .WithOne(r => r.MemberType)
+                .HasForeignKey(r => r.MemberTypeID)
+                .OnDelete(DeleteBehavior.NoAction);
         });
 
         modelBuilder.Entity<SecurityRole>(entity =>
@@ -144,137 +658,35 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("RoleID");
 
             entity.Property(e => e.RoleName)
-                .HasColumnType("varchar")
-                .HasMaxLength(100)
+                .HasColumnType("varchar(100)")
                 .HasColumnName("RoleName")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.RoleDesc)
                 .HasColumnType("text")
                 .HasColumnName("RoleDesc")
-                .IsRequired();
+                .IsRequired(true);
+
+            entity.Property(e => e.CreatedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.CreatedDate)
                 .HasColumnName("CreatedDate");
 
-            entity.Property(e => e.CreatedBy)
+            entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired();
+                .HasColumnName("ModifiedBy");
 
             entity.Property(e => e.ModifiedDate)
                 .HasColumnName("ModifiedDate");
 
-            entity.Property(e => e.ModifiedBy)
-                .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired();
-        });
-
-        modelBuilder.Entity<SecurityRoleAccess>(entity =>
-        {
-            entity.ToTable("SecurityRoleAccess");
-
-            entity.HasKey(e => e.AccessID);
-
-            entity.Property(e => e.AccessID)
-                .HasColumnType("uniqueindentifier")
-                .HasColumnName("AccessID");
-
-            entity.Property(e => e.RoleID)
-                .HasColumnType("uniqueindentifier")
-                .HasColumnName("RoleId")
-                .IsRequired();
-
-            entity.Property(e => e.ModuleID)
-                .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModuleID")
-                .IsRequired();
-
-            entity.Property(e => e.PageID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
-                .HasColumnName("PageID");
-
-            entity.Property(e => e.ElementID)
-                .HasColumnType("varchar(32)")
-                .HasColumnName("ElementID");
-
-            entity.Property(e => e.Access)
-                .HasColumnType("tinyint")
-                .HasColumnName("Access")
-                .IsRequired();
-
-            entity.Property(e => e.CreatedDate)
-                .HasColumnName("CreatedDate");
-
-            entity.Property(e => e.CreatedBy)
-                .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired();
-
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnName("ModifiedDate");
-
-            entity.Property(e => e.ModifiedBy)
-                .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired();
 
 
-
-            entity.HasOne(r => r.SecurityRole)
-                .WithMany(r => r.SecurityRoleAccesses)
+            entity.HasMany(r => r.SecurityUserRoles)
+                .WithOne(r => r.SecurityRole)
                 .HasForeignKey(r => r.RoleID)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            entity.HasOne(r => r.SecurityElement)
-                .WithMany(r => r.SecurityRoleAccesses)
-                .HasForeignKey(r => r.RoleID)
-                .OnDelete(DeleteBehavior.Restrict);
-        });
-
-        modelBuilder.Entity<SecurityRoleEntity>(entity =>
-        {
-            entity.ToTable("SecurityRoleEntity");
-
-            entity.HasKey(e => new { e.RoleID, e.EntityID });
-
-            entity.Property(e => e.RoleID)
-                .HasColumnType("uniqueindentifier")
-                .HasColumnName("RoleID");
-
-            entity.Property(e => e.EntityID)
-                .HasColumnType("uniqueindentifier")
-                .HasColumnName("EntityID");
-
-            entity.Property(e => e.UserID)
-                .HasColumnType("varchar")
-                .HasMaxLength(32)
-                .HasColumnName("UserID");
-
-            entity.Property(e => e.CreatedDate)
-                .HasColumnName("CreatedDate");
-
-            entity.Property(e => e.CreatedBy)
-                .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired();
-
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnName("ModifiedDate");
-
-            entity.Property(e => e.ModifiedBy)
-                .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired();
-
-
-
-            entity.HasOne(r => r.SecurityUser)
-                .WithMany(r => r.SecurityRoleEntities)
-                .HasForeignKey(r => r.UserID)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.NoAction);
         });
 
         modelBuilder.Entity<SecuritySessionLogin>(entity =>
@@ -290,27 +702,28 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.Property(e => e.UserID)
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("UserID")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.dtCreate)
                 .HasColumnName("dtCreate")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.dtExpiry)
                 .HasColumnName("dtExpiry")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.strCode)
                 .HasColumnType("varchar")
                 .HasMaxLength(50)
                 .HasColumnName("strCode")
-                .IsRequired();
+                .IsRequired(true);
+
 
 
             entity.HasOne(r => r.SecurityUser)
                 .WithMany(r => r.SecuritySessionLogins)
                 .HasForeignKey(r => r.UserID)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.NoAction);
         });
 
         modelBuilder.Entity<SecurityUser>(entity =>
@@ -324,66 +737,78 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("UserID");
 
             entity.Property(e => e.UserName)
-                .HasColumnType("varchar")
-                .HasMaxLength(100)
+                .HasColumnType("varchar(100)")
                 .HasColumnName("UserName")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.UserLogin)
-                .HasColumnType("varchar")
-                .HasMaxLength(20)
+                .HasColumnType("varchar(20)")
                 .HasColumnName("UserLogin")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.UserPassword)
-                .HasColumnType("varchar")
-                .HasMaxLength(100)
+                .HasColumnType("varchar(100)")
                 .HasColumnName("UserPassword")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.UserStatus)
                 .HasColumnType("tinyint")
                 .HasColumnName("UserStatus")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.bMustChangePassword)
                 .HasColumnType("bit")
                 .HasColumnName("bMustChangePassword")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.bSuspend)
                 .HasColumnType("bit")
                 .HasColumnName("bSuspend")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.intAttempts)
                 .HasColumnType("tinyint")
                 .HasColumnName("intAttempts")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.dteChangepass)
                 .HasColumnName("dteChangepass")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.dteSuspend)
                 .HasColumnName("dteSuspend")
-                .IsRequired();
+                .IsRequired(true);
 
             entity.Property(e => e.CreatedDate)
                 .HasColumnName("CreatedDate");
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired();
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.ModifiedDate)
                 .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired();
+                .HasColumnName("ModifiedBy");
+
+
+
+            entity.HasOne(r => r.UserProfile)
+                .WithOne(r => r.SecurityUser)
+                .HasForeignKey<UserProfile>(r => r.UserID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasMany(r => r.SecurityUserRoles)
+                .WithOne(r => r.SecurityUser)
+                .HasForeignKey(r => r.UserID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasMany(r => r.SecuritySessionLogins)
+                .WithOne(r => r.SecurityUser)
+                .HasForeignKey(r => r.UserID)
+                .OnDelete(DeleteBehavior.NoAction);
         });
 
         modelBuilder.Entity<SecurityUserRole>(entity =>
@@ -400,21 +825,31 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnType("uniqueindentifier")
                 .HasColumnName("RoleID");
 
+            entity.Property(e => e.CreatedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("CreatedBy");
+
             entity.Property(e => e.CreatedDate)
                 .HasColumnName("CreatedDate");
 
-            entity.Property(e => e.CreatedBy)
+            entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired();
+                .HasColumnName("ModifiedBy");
 
             entity.Property(e => e.ModifiedDate)
                 .HasColumnName("ModifiedDate");
 
-            entity.Property(e => e.ModifiedBy)
-                .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired();
+
+
+            entity.HasOne(r => r.SecurityRole)
+                .WithMany(r => r.SecurityUserRoles)
+                .HasForeignKey(r => r.RoleID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasOne(r => r.SecurityUser)
+                .WithMany(r => r.SecurityUserRoles)
+                .HasForeignKey(r => r.UserID)
+                .OnDelete(DeleteBehavior.NoAction);
         });
 
         modelBuilder.Entity<UserProfile>(entity =>
@@ -428,53 +863,54 @@ public class WiangtaiMemberAppDbContext : DbContext
                 .HasColumnName("UserID");
 
             entity.Property(e => e.EmployeeCode)
-                .HasColumnType("varchar")
-                .HasMaxLength(10)
-                .HasColumnName("EmployeeCode");
+                .HasColumnType("varchar(10)")
+                .HasColumnName("EmployeeCode")
+                .IsRequired(false);
 
             entity.Property(e => e.FirstName)
-                .HasColumnType("varchar")
-                .HasMaxLength(50)
-                .HasColumnName("FirstName");
+                .HasColumnType("varchar(50)")
+                .HasColumnName("FirstName")
+                .IsRequired(false);
 
             entity.Property(e => e.LastName)
-                .HasColumnType("varchar")
-                .HasMaxLength(50)
-                .HasColumnName("LastName");
+                .HasColumnType("varchar(50)")
+                .HasColumnName("LastName")
+                .IsRequired(false);
 
             entity.Property(e => e.DisplayName)
-                .HasColumnType("varchar")
-                .HasMaxLength(100)
-                .HasColumnName("DisplayName");
+                .HasColumnType("varchar(100)")
+                .HasColumnName("DisplayName")
+                .IsRequired(false);
 
             entity.Property(e => e.DepartmentID)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("DepartmentID");
+                .HasColumnName("DepartmentID")
+                .IsRequired(false);
 
             entity.Property(e => e.JobTitle)
-                .HasColumnType("varchar")
-                .HasMaxLength(100)
-                .HasColumnName("JobTitle");
+                .HasColumnType("varchar(100)")
+                .HasColumnName("JobTitle")
+                .IsRequired(false);
 
             entity.Property(e => e.ReportTo)
-                .HasColumnType("varchar")
-                .HasMaxLength(100)
-                .HasColumnName("ReportTo");
+                .HasColumnType("varchar(100)")
+                .HasColumnName("ReportTo")
+                .IsRequired(false);
 
             entity.Property(e => e.BusinessPhone)
-                .HasColumnType("varchar")
-                .HasMaxLength(20)
-                .HasColumnName("BusinessPhone");
+                .HasColumnType("varchar(20)")
+                .HasColumnName("BusinessPhone")
+                .IsRequired(false);
 
             entity.Property(e => e.MobilePhone)
-                .HasColumnType("varchar")
-                .HasMaxLength(20)
-                .HasColumnName("MobilePhone");
+                .HasColumnType("varchar(20)")
+                .HasColumnName("MobilePhone")
+                .IsRequired(false);
 
             entity.Property(e => e.eMail)
-                .HasColumnType("varchar")
-                .HasMaxLength(100)
-                .HasColumnName("eMail");
+                .HasColumnType("varchar(100)")
+                .HasColumnName("eMail")
+                .IsRequired(false);
 
             entity.Property(e => e.Notifier)
                 .HasColumnType("tinyint")
@@ -483,71 +919,128 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.Property(e => e.NRIC)
                 .HasColumnType("varchar")
                 .HasMaxLength(50)
-                .HasColumnName("NRIC");
+                .HasColumnName("NRIC")
+                .IsRequired(false);
 
             entity.Property(e => e.CreatedDate)
                 .HasColumnName("CreatedDate");
 
             entity.Property(e => e.CreatedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("CreatedBy")
-                .IsRequired();
+                .HasColumnName("CreatedBy");
 
             entity.Property(e => e.ModifiedDate)
                 .HasColumnName("ModifiedDate");
 
             entity.Property(e => e.ModifiedBy)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("ModifiedBy")
-                .IsRequired();
+                .HasColumnName("ModifiedBy");
 
 
 
             entity.HasOne(r => r.SecurityUser)
                 .WithOne(r => r.UserProfile)
-                .HasForeignKey<UserProfile>(r => r.UserID);
+                .HasForeignKey<UserProfile>(r => r.UserID)
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
-        modelBuilder.Entity<UserProfilePasswordHistory>(entity =>
+        modelBuilder.Entity<Setting>(entity =>
         {
-            entity.ToTable("tblUserProfilePwdHistory");
+            entity.ToTable("tblSetting");
 
-            entity.HasKey(e => e.idPwdHistory);
+            entity.HasKey(e => e.idSetting);
 
-            entity.Property(e => e.idPwdHistory)
+            entity.Property(e => e.idSetting)
                 .HasColumnType("uniqueindentifier")
-                .HasColumnName("idPwdHistory");
+                .HasColumnName("idSetting");
 
-            entity.Property(e => e.strLoginId)
-                .HasColumnType("varchar")
-                .HasMaxLength(100)
-                .HasColumnName("strLoginId")
-                .IsRequired();
+            entity.Property(e => e.strName)
+                .HasColumnType("varchar(200)")
+                .HasColumnName("strName")
+                .IsRequired(false);
 
-            entity.Property(e => e.strPassword)
-                .HasColumnType("text")
-                .HasColumnName("strPassword")
-                .IsRequired();
+            entity.Property(e => e.strValue)
+                .HasColumnType("varchar(200)")
+                .HasColumnName("strValue")
+                .IsRequired(false);
 
-            entity.Property(e => e.dtPwdGenerate)
-                .HasColumnName("dtPwdGenerate")
-                .IsRequired();
+            entity.Property(e => e.strType)
+                .HasColumnType("varchar(50)")
+                .HasColumnName("strType")
+                .IsRequired(false);
 
-            entity.Property(e => e.UserID)
-                .HasColumnType("uniqueindentifier")
-                .HasColumnName("UserID")
-                .IsRequired();
+            entity.Property(e => e.intSort)
+                .HasColumnType("smallint")
+                .HasColumnName("intSort")
+                .IsRequired(false);
 
-            entity.Property(e => e.intChangeType)
-                .HasColumnType("tinyint")
-                .HasColumnName("intChangeType");
-
-
-
-            entity.HasOne(r => r.UserProfile)
-                .WithMany(r => r.UserProfilePasswordHistories)
-                .HasForeignKey(r => r.UserID)
-                .OnDelete(DeleteBehavior.Restrict);
+            entity.Property(e => e.intGroup)
+                .HasColumnType("smallint")
+                .HasColumnName("intGroup")
+                .IsRequired(false);
         });
+
+        modelBuilder.Entity<ReferenceType>(entity =>
+        {
+            entity.ToTable("tblReferenceType");
+
+            entity.HasKey(e => e.idReferenceType);
+
+            entity.Property(e => e.ReferenceTypeCode)
+                .HasColumnType("int(11)")
+                .HasColumnName("ReferenceTypeCode")
+                .IsRequired(true);
+
+            entity.Property(e => e.ReferenceTypeName)
+                .HasColumnType("varchar(50)")
+                .HasColumnName("ReferenceTypeName")
+                .IsRequired(true);
+
+            entity.Property(e => e.ReferenceTypeLable)
+                .HasColumnType("varchar(50)")
+                .HasColumnName("ReferenceTypeLable")
+                .IsRequired(false);
+
+            entity.Property(e => e.TextboxMask)
+                .HasColumnType("varchar(100)")
+                .HasColumnName("TextboxMask")
+                .IsRequired(false);
+
+            entity.Property(e => e.Validation)
+                .HasColumnType("varchar(100)")
+                .HasColumnName("Validation")
+                .IsRequired(false);
+
+            entity.Property(e => e.isVisible)
+                .HasColumnName("isVisible")
+                .IsRequired(false);
+
+            entity.Property(e => e.intSort)
+                .HasColumnType("int(11)")
+                .HasColumnName("intSort")
+                .IsRequired(false);
+
+            entity.Property(e => e.CreatedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("CreatedBy");
+
+            entity.Property(e => e.CreatedDate)
+                .HasColumnName("CreatedDate");
+
+            entity.Property(e => e.ModifiedBy)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("ModifiedBy");
+
+            entity.Property(e => e.ModifiedDate)
+                .HasColumnName("ModifiedDate");
+
+        });
+
+
+
+        modelBuilder.Entity<RedemptionAllowedFundDto>().HasNoKey();
+        modelBuilder.HasDbFunction(typeof(WiangtaiMemberAppDbContext).GetMethod(nameof(GetRedemptionAllowedFund), new[] { typeof(Guid?) }));
     }
+
+    public IQueryable<RedemptionAllowedFundDto> GetRedemptionAllowedFund(Guid? redemptionProductId) => FromExpression(() => GetRedemptionAllowedFund(redemptionProductId));
 }

@@ -54,7 +54,7 @@
                     <!-- /.col -->
                     <div class="col-4">
                         <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                        <input type="text" name="ReturnUrl" class="form-control" value="@Context.Request.Query["ReturnUrl"]" placeholder="ReturnUrl">
+                        <input type="hidden" name="ReturnUrl" class="form-control" value="@Context.Request.Query["ReturnUrl"]" placeholder="ReturnUrl">
                     </div>
                     <!-- /.col -->
                 </div>
