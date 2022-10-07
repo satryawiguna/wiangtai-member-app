@@ -1,2 +1,8 @@
 /WiangtaiMemberApp.Web/appsettings.json
 /WiangtaiMemberApp.Web/Logs/*
+/WiangtaiMemberApp.Web/obj/Debug/*
+/WiangtaiMemberApp.Test/obj/Debug/*
+/WiangtaiMemberApp.Model/obj/Debug/*
+/WiangtaiMemberApp.Internal/obj/Debug/*
+/WiangtaiMemberApp.Data/obj/Debug/*
+/WiangtaiMemberApp.Common/obj/Debug/*
