@@ -1,9 +1,5 @@
-﻿using System;
-namespace WiangtaiMemberApp.Web.Repository.Contracts;
+﻿namespace WiangtaiMemberApp.Web.Repository.Contracts;
 
-public class IMembershipRepository
+public interface IMembershipRepository : IBaseRepository<IMembershipRepository>
 {
-    public IMembershipRepository()
-    {
-    }
 }

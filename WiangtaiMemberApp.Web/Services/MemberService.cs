@@ -31,18 +31,21 @@ public class MemberService : IMemberService
         _referenceTypeRepository = referenceTypeRepository;
     }
 
-    public async Task<PageSearchResponseDto<MemberDto>> GetPageSearchMembersAsync(PageSearchRequestDto pageSearchRequest, string? memberType, int referenceType)
+    public async Task<PageSearchResponseDto<MemberDto>> GetPageSearchMembersAsync(PageSearchRequestDto pageSearchRequest, string? userId, string? memberType, int referenceType)
     {
-        return _memberRepository.GetPageSearch(pageSearchRequest, memberType, referenceType);
+        return _memberRepository.GetPageSearch(pageSearchRequest, userId, memberType, referenceType);
     }
 
-    public async Task<bool> StoreMemberAsync(SubmitMemberRequestDto request)
+    public Member StoreMember(SubmitMemberRequestDto request)
     {
         Member entity = _mapper.Map<Member>(request);
 
-        _memberRepository.Insert(entity);
+        return _memberRepository.Insert(entity);
+    }
 
-        return true;
+    public MemberDto ShowMember(Guid memberId)
+    {
+        return _memberRepository.GetById(memberId);
     }
 
 
@@ -63,5 +66,7 @@ public class MemberService : IMemberService
     {
         return _referenceTypeRepository.GetAll(filter, orderBy);
     }
+
+    
 }
 

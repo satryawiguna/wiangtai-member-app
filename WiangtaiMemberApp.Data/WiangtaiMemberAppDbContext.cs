@@ -40,6 +40,8 @@ public class WiangtaiMemberAppDbContext : DbContext
 
     public DbSet<ReferenceType> ReferenceType { get; set; }
 
+    public DbSet<ServiceAgentConfig> ServiceAgentConfig { get; set; }
+
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -1034,6 +1036,55 @@ public class WiangtaiMemberAppDbContext : DbContext
             entity.Property(e => e.ModifiedDate)
                 .HasColumnName("ModifiedDate");
 
+        });
+
+        modelBuilder.Entity<ServiceAgentConfig>(entity =>
+        {
+            entity.ToTable("tblServiceAgentConfig");
+
+            entity.HasKey(e => e.idServiceAgentConfig);
+
+            entity.Property(e => e.idServiceAgentConfig)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("idServiceAgentConfig");
+
+            entity.Property(e => e.UserId)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("UserId")
+                .IsRequired(true);
+
+            entity.Property(e => e.MemberTypeId)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("MemberTypeId")
+                .IsRequired(true);
+
+            entity.Property(e => e.dtCreate)
+                .HasColumnName("dtCreate")
+                .IsRequired(true);
+
+            entity.Property(e => e.dtModify)
+                .HasColumnName("dtModify")
+                .IsRequired(true);
+
+            entity.Property(e => e.strCreatedBy)
+                .HasColumnName("strCreatedBy")
+                .IsRequired(true);
+
+            entity.Property(e => e.strModifiedBy)
+                .HasColumnName("strModifiedBy")
+                .IsRequired(true);
+
+            entity.Property(e => e.MemberGroupId)
+                .HasColumnType("uniqueindentifier")
+                .HasColumnName("MemberGroupId")
+                .IsRequired(false);
+
+
+
+            entity.HasOne(r => r.SecurityUser)
+                .WithMany(r => r.ServiceAgentConfigs)
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
         });
 
 

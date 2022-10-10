@@ -151,10 +151,12 @@ void ConfigureServiceContainer(Container container)
     container.Register<IMemberRewardRepository, MemberRewardRepository>(Lifestyle.Scoped);
     container.Register<ISettingRepository, SettingRepository>(Lifestyle.Scoped);
     container.Register<IReferenceTypeRepository, ReferenceTypeRepository>(Lifestyle.Scoped);
+    container.Register<IServiceAgentConfigRepository, ServiceAgentConfigRepository>(Lifestyle.Scoped); 
 
     container.Register<IAuthService, AuthService>(Lifestyle.Scoped);
     container.Register<IMemberService, MemberService>(Lifestyle.Scoped);
     container.Register<ISettingService, SettingService>(Lifestyle.Scoped);
+    container.Register<IConfigurationService, ConfigurationService>(Lifestyle.Scoped);
 }
 
 void ConfigureAutoMapper(Container container)

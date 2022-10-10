@@ -1,0 +1,146 @@
+﻿@model WiangtaiMemberApp.Web.Models.Member.ShowMemberVM;
+
+@{
+    ViewData["Title"] = "Member";
+    ViewBag.Breadcrumbs = new List<Breadcrumb>()
+{
+        new Breadcrumb(ViewBag.Member.FirstName + " " + ViewBag.Member.LastName, nameof(MemberController.Show), "Member", false),
+        new Breadcrumb("Member", nameof(MemberController.Index), "Member", true)
+    };
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row mt-3">
+                    <div class="col-2 form-group">
+                        <label>First Name</label>
+                    </div>
+                    <div class="col-4">
+                        @ViewBag.Member.FirstName
+                    </div>
+                    <div class="col-2 form-group">
+                        <label>Last Name</label>
+                    </div>
+                    <div class="col-4">
+                        @ViewBag.Member.LastName
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label>Reference Type</label>
+                    </div>
+                    <div class="col-4">
+                        @*@ViewBag.ReferenceTypes.Where(rt => rt.idReferenceType == ViewBag.Member.intNoType)*@
+                    </div>
+                    <div class="col-2">
+                        <label for="FirstName">Reference Number</label>
+                    </div>
+                    <div class="col-4">
+                        @ViewBag.Member.PassportNo
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label>Email</label>
+                    </div>
+                    <div class="col-4">
+                        @ViewBag.Member.Email
+                    </div>
+                    <div class="col-2">
+                        <label for="FirstName">Mobile</label>
+                    </div>
+                    <div class="col-4">
+                        @ViewBag.Member.Mobile
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-4">
+                                <label>Email Consent</label>
+                            </div>
+                            <div class="col-2">
+                                -
+                            </div>
+                            <div class="col-4">
+                                <label for="FirstName">Mobile Consent</label>
+                            </div>
+                            <div class="col-2">
+                                -
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label>Member Type</label>
+                    </div>
+                    <div class="col-4">
+                        <label>Member Card</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label>Member Since</label>
+                    </div>
+                    <div class="col-4">
+                        <label>Total Point Balance</label>
+                    </div>
+                    <div class="col-4">
+                        <label>Total Cashback Balance</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label>Date Birth</label>
+                    </div>
+                    <div class="col-4">
+                        @ViewBag.Member.DateBirth
+                    </div>
+                    <div class="col-2">
+                        <label>Gender</label>
+                    </div>
+                    <div class="col-4">
+                        -
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label>Race</label>
+                    </div>
+                    <div class="col-4">
+                        -
+                    </div>
+                    <div class="col-2">
+                        <label>Marital Status</label>
+                    </div>
+                    <div class="col-4">
+                        -
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label>Religion</label>
+                    </div>
+                    <div class="col-4">
+                        -
+                    </div>
+                    <div class="col-2">
+                        <label>Income Level</label>
+                    </div>
+                    <div class="col-4">
+                        -
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-12">
+                        @Html.ActionLink("Edit Member", "Edit", "Member", new { id = ViewBag.Member.MemberID })
+                        @Html.ActionLink("Create Ticket", "Create", "Ticket")
+                        @Html.ActionLink("Back to List", "Index", "Member")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

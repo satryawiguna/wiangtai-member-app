@@ -1,9 +1,9 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using WiangtaiMemberApp.Model;
+using WiangtaiMemberApp.Model.Request.Member;
 using WiangtaiMemberApp.Model.Response.Member;
 using WiangtaiMemberApp.Web.Commons.Mappers.ValueResolver;
-using WiangtaiMemberApp.Web.Repository.Contracts;
+using WiangtaiMemberApp.Web.Models.Member;
 
 namespace WiangtaiMemberApp.Web.Commons.Mappers;
 
@@ -22,5 +22,8 @@ public class DefaultMappingProfile : Profile
             .ForMember(d => d.MemberSince, opt => opt.MapFrom(s => ((DateTime)s.MemberSince).ToString("MM/dd/yyyy")))
             .ForMember(d => d.TotalPointBalance, opt => opt.MapFrom<TotalPointsBalanceResolver>())
             .ForMember(d => d.TotalCashBack, opt => opt.MapFrom<TotalCashbackBalanceResolver>());
+
+        CreateMap<CreateMemberVM, SubmitMemberRequestDto>();
+        CreateMap<SubmitMemberRequestDto, Member>();
     }
 }

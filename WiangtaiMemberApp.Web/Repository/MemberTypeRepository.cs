@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq.Expressions;
-using AutoMapper;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using System.Linq.Expressions;
 using WiangtaiMemberApp.Data;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Web.Repository.Contracts;

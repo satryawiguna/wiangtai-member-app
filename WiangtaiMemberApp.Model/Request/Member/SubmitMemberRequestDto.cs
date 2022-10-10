@@ -1,5 +1,4 @@
-﻿using System;
-namespace WiangtaiMemberApp.Model.Request.Member;
+﻿namespace WiangtaiMemberApp.Model.Request.Member;
 
 public class SubmitMemberRequestDto
 {

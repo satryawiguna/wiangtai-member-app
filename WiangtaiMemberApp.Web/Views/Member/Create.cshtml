@@ -3,11 +3,12 @@
 @{
     ViewData["Title"] = "Member";
     ViewBag.Breadcrumbs = new List<Breadcrumb>()
-{
-        new Breadcrumb("Create", nameof(MemberController.Create), "Create", false),
+    {
+        new Breadcrumb("Create", nameof(MemberController.Create), "Member", false),
         new Breadcrumb("Member", nameof(MemberController.Index), "Member", true)
     };
 }
+
 @using (Html.BeginForm())
 {
     <div class="row">
@@ -29,7 +30,7 @@
                     <div class="row">
                         <div class="col-6 form-group">
                             <label for="intNoType">Reference Type</label>
-                            @Html.DropDownList("intNoType", (IEnumerable<SelectListItem>)ViewBag.ReferenceType, "-- Reference Type --", new { @class = "form-control select2" })
+                            @Html.DropDownList("intNoType", (IEnumerable<SelectListItem>)ViewBag.ReferenceTypes, "-- Reference Type --", new { @class = "form-control select2" })
                             @Html.ValidationMessageFor(m => m.intNoType, "", new { @class = "text-danger" })
                         </div>
                         <div class="col-6 form-group">
@@ -53,9 +54,23 @@
                     <div class="row">
                         <div class="col-6 form-group">
                             <label for="MemberType">Member Type</label>
-                            @Html.DropDownList("MemberType", (IEnumerable<SelectListItem>)ViewBag.MemberTypes, "-- Member Type --", new { @class = "form-control select2" })
-                            @Html.ValidationMessageFor(m => m.MemberType, "", new { @class = "text-danger" })
+                            @Html.DropDownList("MemberTypeId", (IEnumerable<SelectListItem>)ViewBag.MemberTypes, "-- Member Type --", new { @class = "form-control select2" })
+                            @Html.ValidationMessageFor(m => m.MemberTypeId, "", new { @class = "text-danger" })
                         </div>
+                        @*<div class="col-6 form-group">
+                            <div class="row">
+                                <div class="col-6 d-flex flex-column form-group">
+                                    <label for="EmailConsent ">Email Consent</label>
+                                    <input type="checkbox" name="EmailConsent" checked data-bootstrap-switch />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 d-flex flex-column form-group">
+                                    <label for="MobilePhoneConsent">Mobile Phone Consent</label>
+                                    <input type="checkbox" name="MobilePhoneConsent" checked data-bootstrap-switch />
+                                </div>
+                            </div>
+                        </div>*@
                     </div>
                     <div class="row mt-5">
                         <div class="col-12">
@@ -77,10 +92,16 @@
 @section Scripts {
     <!-- Select2 -->
     <script src="~/adminlte/plugins/select2/js/select2.full.min.js"></script>
+    <!-- Bootstrap Switch -->
+    <script src="~/adminlte/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 
     <script>
         $(document).ready(function () {
             $('.select2').select2();
+
+            $("input[data-bootstrap-switch]").each(function () {
+                $(this).bootstrapSwitch('state', $(this).prop('checked'));
+            })
         });
     </script>
 }

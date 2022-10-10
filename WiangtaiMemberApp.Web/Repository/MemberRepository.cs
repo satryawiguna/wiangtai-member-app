@@ -1,15 +1,11 @@
-﻿
-using System;
-using System.Data.Entity;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
+﻿using System.Data.Entity;
 using AutoMapper;
 using WiangtaiMemberApp.Data;
 using WiangtaiMemberApp.Model;
 using WiangtaiMemberApp.Model.Request;
 using WiangtaiMemberApp.Model.Response;
 using WiangtaiMemberApp.Model.Response.Member;
+using WiangtaiMemberApp.Web.Commons;
 using WiangtaiMemberApp.Web.Commons.Extensions;
 using WiangtaiMemberApp.Web.Repository.Contracts;
 using Z.EntityFramework.Plus;
@@ -20,22 +16,31 @@ namespace WiangtaiMemberApp.Web.Repository;
 public class MemberRepository : BaseRepository<Member>, IMemberRepository
 {
     private readonly IMapper _mapper;
+    private readonly IServiceAgentConfigRepository _serviceAgentConfigRepository;
 
     public MemberRepository(WiangtaiMemberAppDbContext context,
-        IMapper mapper) : base(context)
+        IMapper mapper,
+        IServiceAgentConfigRepository serviceAgentConfigRepository) : base(context)
     {
         _mapper = mapper;
+        _serviceAgentConfigRepository = serviceAgentConfigRepository;
     }
 
-    public SearchResponseDto<MemberDto> GetSearch(SearchRequestDto searchRequestDto, string? memberType, int referenceType)
+    public SearchResponseDto<MemberDto> GetSearch(SearchRequestDto searchRequestDto, string? userId, string? memberType, int referenceType)
     {
-        var members = _entities
-            .Where(member => String.IsNullOrWhiteSpace(searchRequestDto.keyword) ||
-                member.FirstName.Contains(searchRequestDto.keyword) ||
+        List<ServiceAgentConfig> serviceAgentConfigs = _serviceAgentConfigRepository.GetListByFilter(sac => sac.UserId == new Guid(userId)).ToList();
+        UserMemberTierAccess userMemberTierAccess = Shared.GetUserMemberTierAccessList(serviceAgentConfigs);
+
+        var members = userMemberTierAccess.MemberTypeList.Count > 0 ? _entities.Where(member => userMemberTierAccess.MemberTypeList.Contains(member.MemberTypeID.Value)) : _entities;
+
+        if (!String.IsNullOrWhiteSpace(searchRequestDto.keyword))
+        {
+            members = members.Where(member => member.FirstName.Contains(searchRequestDto.keyword) ||
                 member.LastName.Contains(searchRequestDto.keyword) ||
                 member.DisplayName.Contains(searchRequestDto.keyword) ||
                 member.MobilePhone.Contains(searchRequestDto.keyword) ||
                 member.Email.Contains(searchRequestDto.keyword));
+        }
 
         bool orderAsc = searchRequestDto.orderDirection == "ASC";
 
@@ -74,15 +79,22 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
         };
     }
 
-    public PageSearchResponseDto<MemberDto> GetPageSearch(PageSearchRequestDto pageSearchRequest, string? memberType, int referenceType)
+    public PageSearchResponseDto<MemberDto> GetPageSearch(PageSearchRequestDto pageSearchRequest, string? userId, string? memberType, int referenceType)
     {
-        var members = _entities
-            .Where(member => String.IsNullOrWhiteSpace(pageSearchRequest.keyword) ||
-                member.FirstName.Contains(pageSearchRequest.keyword) ||
+        List<ServiceAgentConfig> serviceAgentConfigs = _serviceAgentConfigRepository.GetListByFilter(sac => sac.UserId == new Guid(userId)).ToList();
+        UserMemberTierAccess userMemberTierAccess = Shared.GetUserMemberTierAccessList(serviceAgentConfigs);
+
+        var members = userMemberTierAccess.MemberTypeList.Count > 0 ? _entities.Where(member => userMemberTierAccess.MemberTypeList.Contains(member.MemberTypeID.Value)) : _entities;
+
+        if (!String.IsNullOrWhiteSpace(pageSearchRequest.keyword))
+        {
+            members = members.Where(member => member.FirstName.Contains(pageSearchRequest.keyword) ||
                 member.LastName.Contains(pageSearchRequest.keyword) ||
                 member.DisplayName.Contains(pageSearchRequest.keyword) ||
                 member.MobilePhone.Contains(pageSearchRequest.keyword) ||
                 member.Email.Contains(pageSearchRequest.keyword));
+        }
+            
 
         bool orderAsc = pageSearchRequest.orderDirection == "ASC";
 
@@ -126,5 +138,26 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
 
     }
 
-}
 
+    public Member Insert(Member entity)
+    {
+        if (entity == null)
+        {
+            throw new ArgumentNullException("entity");
+        }
+
+        _entities.Add(entity);
+
+        _context.SaveChanges();
+
+        return entity;
+    }
+
+    public MemberDto GetById(Guid id)
+    {
+        var member = _entities.Find(id);
+
+        return _mapper.Map<Member, MemberDto>(member);
+    }
+
+}

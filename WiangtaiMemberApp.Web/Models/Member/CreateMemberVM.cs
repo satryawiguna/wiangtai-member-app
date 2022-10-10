@@ -1,30 +1,29 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace WiangtaiMemberApp.Web.Models.Member;
 
 public class CreateMemberVM
 {
-    [Required(ErrorMessage = "First name is required")]
+    [Required]
     public string FirstName { get; set; }
 
-    [Required(ErrorMessage = "Last name is required")]
+    [Required]
     public string LastName { get; set; }
 
-    [Required(ErrorMessage = "Reference type is required")]
+    [Required]
     public byte intNoType { get; set; }
 
-    [Required(ErrorMessage = "First number is required")]
+    [Required]
     public string PassportNo { get; set; }
 
-    [Required(ErrorMessage = "Mobile phone is required")]
-    [Phone(ErrorMessage = "Phone format invalid")]
+    [Required]
+    [Phone]
     public string MobilePhone { get; set; }
 
-    [Required(ErrorMessage = "Email is required")]
-    [EmailAddress(ErrorMessage = "Email format invalid")]
+    [Required]
+    [EmailAddress]
     public string Email { get; set; }
 
-    [Required(ErrorMessage = "Member type is required")]
-    public Guid MemberType { get; set; }
+    [Required]
+    public Guid MemberTypeId { get; set; }
 }

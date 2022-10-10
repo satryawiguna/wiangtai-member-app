@@ -23,4 +23,5 @@ public class SecurityUser
 
     public virtual ICollection<SecurityUserRole> SecurityUserRoles { get; set; }
     public virtual ICollection<SecuritySessionLogin> SecuritySessionLogins { get; set; }
+    public virtual ICollection<ServiceAgentConfig> ServiceAgentConfigs { get; set; }
 }

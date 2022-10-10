@@ -89,6 +89,7 @@ public class AuthController : Controller
             {
                 new Claim(ClaimTypes.Name, securityUser.UserLogin),
                 new Claim(ClaimTypes.Role, roleName),
+                new Claim("UserId", securityUser.UserID.ToString()),
                 new Claim("FullName", securityUser.UserName),
             };
 

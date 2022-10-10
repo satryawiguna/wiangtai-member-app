@@ -9,9 +9,11 @@ namespace WiangtaiMemberApp.Web.Services.Contracts;
 
 public interface IMemberService
 {
-    Task<PageSearchResponseDto<MemberDto>> GetPageSearchMembersAsync(PageSearchRequestDto pageSearchRequest, string? memberType, int referenceType);
+    Task<PageSearchResponseDto<MemberDto>> GetPageSearchMembersAsync(PageSearchRequestDto pageSearchRequest, string? userId, string? memberType, int referenceType);
 
-    Task<bool> StoreMemberAsync(SubmitMemberRequestDto request);
+    Member StoreMember(SubmitMemberRequestDto request);
+
+    MemberDto ShowMember(Guid memberId);
 
 
     IEnumerable<MemberType> GetAllMemberTypes();

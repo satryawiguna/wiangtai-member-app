@@ -1,5 +1,4 @@
-﻿using System;
-namespace WiangtaiMemberApp.Model.Request;
+﻿namespace WiangtaiMemberApp.Model.Request;
 
 public class PageSearchRequestDto
 {
@@ -8,6 +7,5 @@ public class PageSearchRequestDto
     public string? orderColumn;
     public string orderDirection = "ASC";
     public string? keyword;
-    
 }
 

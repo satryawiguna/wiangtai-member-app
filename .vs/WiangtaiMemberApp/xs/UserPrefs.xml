@@ -1,18 +1,5 @@
 ﻿<Properties StartupConfiguration="{65B5DBD1-E9C8-40C6-B6D7-CA736A47CBCE}|Default">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.WiangtaiMemberApp.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="WiangtaiMemberApp.Web/Controllers/MemberController.cs">
-    <Files>
-      <File FileName="WiangtaiMemberApp.Web/Views/Member/Index.cshtml" Line="68" Column="37" />
-      <File FileName="WiangtaiMemberApp.Web/Views/Member/Create.cshtml" Line="54" Column="27" />
-      <File FileName="../../../../Downloads/AdminLTE-3.2.0/pages/forms/general.html" Line="866" Column="86" />
-      <File FileName="WiangtaiMemberApp.Web/Models/Member/CreateMemberVM.cs" Line="12" Column="41" />
-      <File FileName="WiangtaiMemberApp.Web/Repository/MemberTypeRepository.cs" Line="24" Column="1" />
-      <File FileName="WiangtaiMemberApp.Web/wwwroot/css/site.css" Line="11" Column="2" />
-      <File FileName="WiangtaiMemberApp.Web/Views/Shared/_Layout.cshtml" Line="40" Column="33" />
-      <File FileName="WiangtaiMemberApp.Web/Controllers/MemberController.cs" Line="82" Column="23" />
-      <File FileName="WiangtaiMemberApp.Model/Request/Member/SubmitMemberRequestDto.cs" Line="6" Column="12" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -69,7 +56,11 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.WiangtaiMemberApp.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>
