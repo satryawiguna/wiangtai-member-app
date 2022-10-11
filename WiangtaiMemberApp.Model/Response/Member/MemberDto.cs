@@ -1,5 +1,4 @@
-﻿using System;
-namespace WiangtaiMemberApp.Model.Response.Member;
+﻿namespace WiangtaiMemberApp.Model.Response.Member;
 
 public class MemberDto
 {
@@ -20,6 +19,8 @@ public class MemberDto
     public byte? EmailConsent { get; set; }
 
     public byte? MobileConsent { get; set; }
+
+    public Guid? MemberTypeID { get; set; }
 
     public string? MemberType { get; set; }
 

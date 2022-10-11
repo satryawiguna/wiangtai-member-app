@@ -11,7 +11,9 @@ public interface IMemberService
 {
     Task<PageSearchResponseDto<MemberDto>> GetPageSearchMembersAsync(PageSearchRequestDto pageSearchRequest, string? userId, string? memberType, int referenceType);
 
-    Member StoreMember(SubmitMemberRequestDto request);
+    Member StoreMember(CreateMemberRequestDto request);
+
+    Member UpdateMember(UpdateMemberRequestDto request);
 
     MemberDto ShowMember(Guid memberId);
 
@@ -22,6 +24,9 @@ public interface IMemberService
 
 
     IEnumerable<ReferenceType> GetAllReferenceTypes<TOrderBy>(Expression<Func<ReferenceType, bool>> filter, Expression<Func<ReferenceType, TOrderBy>> orderBy);
+
+
+    IEnumerable<RaceType> GetAllRaceTypes();
 
 }
 

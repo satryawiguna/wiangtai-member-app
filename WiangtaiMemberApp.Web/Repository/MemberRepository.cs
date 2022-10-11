@@ -138,7 +138,6 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
 
     }
 
-
     public Member Insert(Member entity)
     {
         if (entity == null)
@@ -147,6 +146,20 @@ public class MemberRepository : BaseRepository<Member>, IMemberRepository
         }
 
         _entities.Add(entity);
+
+        _context.SaveChanges();
+
+        return entity;
+    }
+
+    public Member Update(Member entity)
+    {
+        if (entity == null)
+        {
+            throw new ArgumentNullException("entity");
+        }
+
+        _entities.Update(entity);
 
         _context.SaveChanges();
 

@@ -123,17 +123,11 @@
                         visible: false
                     },
                     {
-                        targets: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ],
+                        targets: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ],
                         type: 'string',
                         orderable: true,
                         searchable: true,
                         width: "150px"
-                    },
-                    {
-                        targets: 15,
-                        orderable: false,
-                        searchable: false,
-                        width: "100px"
                     }
                 ],
                 columns: [
@@ -145,7 +139,10 @@
                     {
                         title: 'Member ID',
                         name: 'MemberID',
-                        data: 'member_id'
+                        data: 'member_id',
+                        render: function (data, type, row) {
+                            return '<a href="@Url.Action("Show", "Member")/' + data + '">' + data + '</a>'
+                        }
                     },
                     {
                         title: 'First Name',
@@ -220,13 +217,6 @@
                         title: 'Total Cashback',
                         name: 'TotalCashBack',
                         data: 'total_cash_back'
-                    },
-                    {
-                        title: '',
-                        render: function(data, type, row) {
-                            return '<a class="btn btn-sm" href="@Url.Action("Edit", "Member")/' + row.member_id + '"><i class="fas fa-edit"></i></a>' +
-                                   '<a class="btn btn-sm" href="#"><i class="fas fa-trash"></i></a>';
-                        }
                     }
                 ],
                 order: [

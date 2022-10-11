@@ -30,7 +30,7 @@
                     <div class="row">
                         <div class="col-6 form-group">
                             <label for="intNoType">Reference Type</label>
-                            @Html.DropDownList("intNoType", (IEnumerable<SelectListItem>)ViewBag.ReferenceTypes, "-- Reference Type --", new { @class = "form-control select2" })
+                            @Html.DropDownListFor(m => m.intNoType, (SelectList)ViewBag.ReferenceTypes, "-- Reference Type --", new { @class = "form-control select2" })
                             @Html.ValidationMessageFor(m => m.intNoType, "", new { @class = "text-danger" })
                         </div>
                         <div class="col-6 form-group">
@@ -54,7 +54,7 @@
                     <div class="row">
                         <div class="col-6 form-group">
                             <label for="MemberType">Member Type</label>
-                            @Html.DropDownList("MemberTypeId", (IEnumerable<SelectListItem>)ViewBag.MemberTypes, "-- Member Type --", new { @class = "form-control select2" })
+                            @Html.DropDownListFor(m => m.MemberTypeId, (SelectList)ViewBag.MemberTypes, "-- Member Type --", new { @class = "form-control select2" })
                             @Html.ValidationMessageFor(m => m.MemberTypeId, "", new { @class = "text-danger" })
                         </div>
                         @*<div class="col-6 form-group">

@@ -14,94 +14,150 @@
         <div class="card">
             <div class="card-body">
                 <div class="row mt-3">
-                    <div class="col-2 form-group">
-                        <label>First Name</label>
-                    </div>
-                    <div class="col-4">
+                    <div class="col-6 d-flex flex-row">
+                        <label class="mr-2">First Name:</label>
                         @ViewBag.Member.FirstName
                     </div>
-                    <div class="col-2 form-group">
-                        <label>Last Name</label>
-                    </div>
-                    <div class="col-4">
+                    <div class="col-6 d-flex flex-row">
+                        <label class="mr-2">Last Name:</label>
                         @ViewBag.Member.LastName
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-2">
-                        <label>Reference Type</label>
+                    <div class="col-6 d-flex flex-row">
+                        <label class="mr-2">Reference Type:</label>
+                        @{
+                            var refrenceTypeName = "-";
+
+                            foreach (var referenceType in ViewBag.ReferenceTypes)
+                            {
+                                if (referenceType.ReferenceTypeCode == ViewBag.Member.intNoType)
+                                {
+                                    refrenceTypeName = referenceType.ReferenceTypeName;
+                                }
+                            }
+                        }
+
+                        @refrenceTypeName
                     </div>
-                    <div class="col-4">
-                        @*@ViewBag.ReferenceTypes.Where(rt => rt.idReferenceType == ViewBag.Member.intNoType)*@
-                    </div>
-                    <div class="col-2">
-                        <label for="FirstName">Reference Number</label>
-                    </div>
-                    <div class="col-4">
-                        @ViewBag.Member.PassportNo
+                    <div class="col-6 d-flex flex-row">
+                        <label class="mr-2">Reference Number:</label>
+                        @{
+                            var referenceNumber = "-";
+
+                            if (!String.IsNullOrEmpty(ViewBag.Member.PassportNo))
+                            {
+                                referenceNumber = ViewBag.Member.PassportNo;
+                            }
+                        }
+
+                        @referenceNumber
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-2">
-                        <label>Email</label>
-                    </div>
-                    <div class="col-4">
+                    <div class="col-6 d-flex flex-row">
+                        <label class="mr-2">Email:</label>
                         @ViewBag.Member.Email
                     </div>
-                    <div class="col-2">
-                        <label for="FirstName">Mobile</label>
-                    </div>
-                    <div class="col-4">
-                        @ViewBag.Member.Mobile
+                    <div class="col-6 d-flex flex-row">
+                        <label class="mr-2">Mobile:</label>
+                        @ViewBag.Member.MobilePhone
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">
-                        <div class="row">
-                            <div class="col-4">
-                                <label>Email Consent</label>
-                            </div>
-                            <div class="col-2">
-                                -
-                            </div>
-                            <div class="col-4">
-                                <label for="FirstName">Mobile Consent</label>
-                            </div>
-                            <div class="col-2">
-                                -
-                            </div>
+                    <div class="col-3 d-flex flex-column">
+                        <label>Email Consent:</label>
+                        <div style="text-align: left;">
+                            @if (ViewBag.Member.EmailConsent == 1 || ViewBag.Member.EmailConsent == 3)
+                            {
+                                <input type="checkbox" checked disabled />
+                            }
+                            else
+                            {
+                                <input type="checkbox" disabled />
+                            }
                         </div>
                     </div>
-                    <div class="col-4">
-                        <label>Member Type</label>
+                    <div class="col-3 d-flex flex-column">
+                        <label>Mobile Consent:</label>
+                        <div style="text-align: left;">
+                            @if (ViewBag.Member.MobileConsent == 2 || ViewBag.Member.MobileConsent == 3)
+                            {
+                                <input type="checkbox" checked disabled />
+                            }
+                            else
+                            {
+                                <input type="checkbox" disabled />
+                            }
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <label>Member Card</label>
+                    <div class="col-3 d-flex flex-column">
+                        <label>Member Type:</label>
+                        @{
+                            var memberType = "-";
+
+                            if (!String.IsNullOrEmpty(ViewBag.Member.MemberType))
+                            {
+                                memberType = ViewBag.Member.MemberType;
+                            }
+                        }
+
+                        @memberType
+                    </div>
+                    <div class="col-3 d-flex flex-column">
+                        <label>Member Card:</label>
+                        @{
+                            var memberCard = "-";
+
+                            if (ViewBag.Member.MemberCard.Length > 0)
+                            {
+                                memberCard = string.Join(",", ViewBag.Member.MemberCard);
+                            }
+                        }
+                        
+                        @memberCard
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">
-                        <label>Member Since</label>
+                    <div class="col-4 d-flex flex-column">
+                        <label>Member Since:</label>
+                        @ViewBag.Member.MemberSince
                     </div>
-                    <div class="col-4">
-                        <label>Total Point Balance</label>
+                    <div class="col-4 d-flex flex-column">
+                        <label>Total Point Balance:</label>
+                        @ViewBag.Member.TotalPointBalance
                     </div>
-                    <div class="col-4">
-                        <label>Total Cashback Balance</label>
+                    <div class="col-4 d-flex flex-column">
+                        <label>Total Cashback Balance:</label>
+                        @ViewBag.Member.TotalCashBack
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-3">
                     <div class="col-2">
                         <label>Date Birth</label>
                     </div>
                     <div class="col-4">
-                        @ViewBag.Member.DateBirth
+                        @ViewBag.Member.BirthDate
                     </div>
                     <div class="col-2">
                         <label>Gender</label>
                     </div>
                     <div class="col-4">
-                        -
+                        @{
+                            var gender = "-";
+
+                            if (ViewBag.Member.Gender == 0)
+                            {
+                                gender = "Male";
+                            }
+
+                            if (ViewBag.Member.Gender == 1)
+                            {
+                                gender = "Female";
+                            }
+                        }
+
+                        @gender
                     </div>
                 </div>
                 <div class="row">
@@ -109,13 +165,39 @@
                         <label>Race</label>
                     </div>
                     <div class="col-4">
-                        -
+                        @{
+                            var race = "-";
+
+                            foreach (var raceType in ViewBag.RaceTypes)
+                            {
+                                if (raceType.RaceTypeID == ViewBag.Member.Race)
+                                {
+                                    race = raceType.RaceName;
+                                }
+                            }
+                        }
+
+                        @race
                     </div>
                     <div class="col-2">
                         <label>Marital Status</label>
                     </div>
                     <div class="col-4">
-                        -
+                        @{
+                            var maritalStatus = "-";
+
+                            if (ViewBag.Member.MaritalStatus == 0)
+                            {
+                                maritalStatus = "Single";
+                            }
+
+                            if (ViewBag.Member.MaritalStatus == 1)
+                            {
+                                maritalStatus = "Married";
+                            }
+                        }
+
+                        @maritalStatus
                     </div>
                 </div>
                 <div class="row">
@@ -123,20 +205,38 @@
                         <label>Religion</label>
                     </div>
                     <div class="col-4">
-                        -
+                        @{
+                            var religion = "-";
+
+                            if (!String.IsNullOrEmpty(ViewBag.Member.Religion))
+                            {
+                                religion = ViewBag.Member.Religion;
+                            }
+                        }
+
+                        @religion
                     </div>
                     <div class="col-2">
                         <label>Income Level</label>
                     </div>
                     <div class="col-4">
-                        -
+                        @{
+                            var salaryRange = "-";
+
+                            if (!String.IsNullOrEmpty(ViewBag.Member.SalaryRange))
+                            {
+                                salaryRange = ViewBag.Member.SalaryRange;
+                            }
+                        }
+
+                        @salaryRange
                     </div>
                 </div>
 
                 <div class="row mt-5">
                     <div class="col-12">
-                        @Html.ActionLink("Edit Member", "Edit", "Member", new { id = ViewBag.Member.MemberID })
-                        @Html.ActionLink("Create Ticket", "Create", "Ticket")
+                        @Html.ActionLink("Edit Member", "Edit", "Member", new { id = ViewBag.Member.MemberId }) | 
+                        @Html.ActionLink("Create Ticket", "Create", "Ticket") | 
                         @Html.ActionLink("Back to List", "Index", "Member")
                     </div>
                 </div>

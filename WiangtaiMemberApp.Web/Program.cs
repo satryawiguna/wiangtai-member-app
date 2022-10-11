@@ -151,6 +151,7 @@ void ConfigureServiceContainer(Container container)
     container.Register<IMemberRewardRepository, MemberRewardRepository>(Lifestyle.Scoped);
     container.Register<ISettingRepository, SettingRepository>(Lifestyle.Scoped);
     container.Register<IReferenceTypeRepository, ReferenceTypeRepository>(Lifestyle.Scoped);
+    container.Register<IRaceTypeRepository, RaceTypeRepository>(Lifestyle.Scoped);
     container.Register<IServiceAgentConfigRepository, ServiceAgentConfigRepository>(Lifestyle.Scoped); 
 
     container.Register<IAuthService, AuthService>(Lifestyle.Scoped);

@@ -1,0 +1,140 @@
+﻿@model WiangtaiMemberApp.Web.Models.Member.EditMemberVM;
+
+@{
+    ViewData["Title"] = "Member";
+    ViewBag.Breadcrumbs = new List<Breadcrumb>()
+{
+        new Breadcrumb("Edit", nameof(MemberController.Edit), "Member", false),
+        new Breadcrumb("Member", nameof(MemberController.Index), "Member", true)
+    };
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mt-3">
+                        <div class="col-6 form-group">
+                            <label for="FirstName">First Name</label>
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="FirstName">Last Name</label>
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="intNoType">Reference Type</label>
+                            @Html.DropDownListFor(m => m.intNoType, (SelectList)ViewBag.ReferenceTypes, "-- Reference Type --", new { @class = "form-control select2", @disabled = true })
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="PassportNo">Reference No</label>
+                            @Html.TextBoxFor(m => m.PassportNo, new { @class = "form-control", @disabled = true })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="MobilePhone">Mobile Phonee</label>
+                            @Html.TextBoxFor(m => m.MobilePhone, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.MobilePhone, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="Email">Email</label>
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="MemberType">Member Type</label>
+                            @Html.DropDownListFor(m => m.MemberTypeId, (SelectList)ViewBag.MemberTypes, "-- Member Type --", new { @class = "form-control select2", @disabled = true })
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="MemberCard">Member Card</label>
+                            @{
+                                var memberCard = (Model.MemberCard != null) ? string.Join(",", Model.MemberCard) : "";
+                            }
+                            <input type="text" name="MemberCard" value="@memberCard" class="form-control" />
+                        </div>
+                        <div class="col-6 form-group">
+                            <div class="row">
+                                <div class="col-6 d-flex flex-column form-group">
+                                    <label for="EmailConsent">Email Consent</label>
+                                    @{
+                                        var emailConsentChecked = false;
+
+                                        if (Model.EmailConsent == 1 || Model.EmailConsent == 3)
+                                        {
+                                            emailConsentChecked = true;
+                                        }
+                                    }
+                                    <div style="text-align: left;">
+                                        <input type="checkbox" name="EmailConsent" checked="@emailConsentChecked" />
+                                    </div>
+                                </div>
+                                <div class="col-6 d-flex flex-column form-group">
+                                    <label for="MobilePhoneConsent">Mobile Phone Consent</label>
+                                    @{
+                                        var mobilePhoneConsentChecked = false;
+
+                                        if (Model.MobileConsent == 2 || Model.MobileConsent == 3)
+                                        {
+                                            mobilePhoneConsentChecked = true;
+                                        }
+                                    }
+                                    <div style="text-align: left;">
+                                        <input type="checkbox" name="MobilePhoneConsent" checked="@mobilePhoneConsentChecked" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="MemberSince">Member Since</label>
+                            @Html.TextBoxFor(m => m.MemberSince, new { @class = "form-control", @disabled = true })
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="TotalPointBalance">Total Point Balance</label>
+                            @Html.TextBoxFor(m => m.TotalPointBalance, new { @class = "form-control", @disabled = true })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="TotalCashBack">Total Cash Back</label>
+                            @Html.TextBoxFor(m => m.TotalCashBack, new { @class = "form-control", @disabled = true })
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <input type="submit" value="Update Member" class="btn btn-primary mr-3" />
+                            @Html.ActionLink("Cancel", "Show", "Member", new { id = Model.MemberID })
+                            @Html.HiddenFor(m => m.MemberID, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Links {
+    <!-- Select2 -->
+    <link rel="stylesheet" href="~/adminlte/plugins/select2/css/select2.min.css">
+}
+
+@section Scripts {
+    <!-- Select2 -->
+    <script src="~/adminlte/plugins/select2/js/select2.full.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.select2').select2();
+        });
+    </script>
+}

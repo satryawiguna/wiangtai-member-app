@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WiangtaiMemberApp.Model.Request;
 using WiangtaiMemberApp.Model.Request.Member;
+using WiangtaiMemberApp.Model.Response.Member;
 using WiangtaiMemberApp.Web.Models.Member;
 using WiangtaiMemberApp.Web.Services.Contracts;
 
@@ -83,7 +84,7 @@ public class MemberController : Controller
     public IActionResult Create()
     {
         ViewBag.MemberTypes = new SelectList(_memberService.GetAllMemberTypes(mt => mt.MemberTypeName), "MemberTypeID", "MemberTypeName");
-        ViewBag.ReferenceType = new SelectList(_memberService.GetAllReferenceTypes(rt => rt.isVisible == true, rt => rt.intSort), "ReferenceTypeCode", "ReferenceTypeName");
+        ViewBag.ReferenceTypes = new SelectList(_memberService.GetAllReferenceTypes(rt => rt.isVisible == true, rt => rt.intSort), "ReferenceTypeCode", "ReferenceTypeName");
 
         return View();
     }
@@ -94,7 +95,7 @@ public class MemberController : Controller
     {
         if (ModelState.IsValid)
         {
-            SubmitMemberRequestDto request = _mapper.Map<SubmitMemberRequestDto>(model);
+            CreateMemberRequestDto request = _mapper.Map<CreateMemberRequestDto>(model);
             var storeMemberAsyncResponse = _memberService.StoreMember(request);
 
             return RedirectToAction(nameof(Index), new { memberId = storeMemberAsyncResponse.MemberID });
@@ -107,11 +108,52 @@ public class MemberController : Controller
     }
 
     [HttpGet]
-    public IActionResult Show(Guid memberId)
+    public IActionResult Show(Guid id)
     {
-        ViewBag.Member = _memberService.ShowMember(memberId);
+        var member = _memberService.ShowMember(id);
 
+        if (member == null)
+        {
+            return NotFound();
+        }
+
+        ViewBag.Member = member;
         ViewBag.ReferenceTypes = _memberService.GetAllReferenceTypes(rt => rt.isVisible == true, rt => rt.intSort);
+        ViewBag.RaceTypes = _memberService.GetAllRaceTypes();
+
+        return View();
+    }
+
+    [HttpGet]
+    public IActionResult Edit(Guid id)
+    {
+        var member = _memberService.ShowMember(id);
+
+        if (member == null)
+        {
+            return NotFound();
+        }
+
+        ViewBag.Member = member;
+        ViewBag.MemberTypes = new SelectList(_memberService.GetAllMemberTypes(mt => mt.MemberTypeName), "MemberTypeID", "MemberTypeName", member.MemberTypeID);
+        ViewBag.ReferenceTypes = new SelectList(_memberService.GetAllReferenceTypes(rt => rt.isVisible == true, rt => rt.intSort), "ReferenceTypeCode", "ReferenceTypeName", member.intNoType);
+        ViewBag.RaceTypes = _memberService.GetAllRaceTypes();
+
+        EditMemberVM model = _mapper.Map<EditMemberVM>(member);
+
+        return View(model);
+    }
+
+    [HttpPost]
+    public IActionResult Update(EditMemberVM model)
+    {
+        if (ModelState.IsValid)
+        {
+            CreateMemberRequestDto request = _mapper.Map<CreateMemberRequestDto>(model);
+            var storeMemberAsyncResponse = _memberService.StoreMember(request);
+
+            return RedirectToAction(nameof(Index), new { memberId = storeMemberAsyncResponse.MemberID });
+        }
 
         return View();
     }

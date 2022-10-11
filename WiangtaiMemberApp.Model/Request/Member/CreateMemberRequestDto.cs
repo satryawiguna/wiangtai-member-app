@@ -1,6 +1,6 @@
 ﻿namespace WiangtaiMemberApp.Model.Request.Member;
 
-public class SubmitMemberRequestDto
+public class CreateMemberRequestDto
 {
     public string FirstName { get; set; }
 

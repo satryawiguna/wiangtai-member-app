@@ -23,7 +23,9 @@ public class DefaultMappingProfile : Profile
             .ForMember(d => d.TotalPointBalance, opt => opt.MapFrom<TotalPointsBalanceResolver>())
             .ForMember(d => d.TotalCashBack, opt => opt.MapFrom<TotalCashbackBalanceResolver>());
 
-        CreateMap<CreateMemberVM, SubmitMemberRequestDto>();
-        CreateMap<SubmitMemberRequestDto, Member>();
+        CreateMap<CreateMemberVM, CreateMemberRequestDto>();
+        CreateMap<CreateMemberRequestDto, Member>();
+        CreateMap<MemberDto, EditMemberVM>();
+        CreateMap<EditMemberVM, CreateMemberRequestDto>();
     }
 }

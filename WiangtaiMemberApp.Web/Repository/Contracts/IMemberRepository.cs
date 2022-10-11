@@ -13,5 +13,7 @@ public interface IMemberRepository : IBaseRepository<Member>
 
     Member Insert(Member entity);
 
+    Member Update(Member entity);
+
     MemberDto GetById(Guid id);
 }
